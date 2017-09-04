@@ -1,1 +1,17 @@
-@import 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/skins/lightgray/skin.min.css';
+/**
+ * @tableofcontents
+ *
+ * 1. tinymce
+ *
+ * @since 3.2.3
+ *
+ * @package Redaxscript
+ * @author Henry Ruhs
+ */
+
+/* @section 1. tinymce */
+
+.mce-fullscreen
+{
+	z-index: 2000;
+}
