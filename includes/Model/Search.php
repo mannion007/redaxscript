@@ -23,15 +23,13 @@ class Search extends ModelAbstract
 	 * @param string $table
 	 * @param string $search
 	 *
-	 * @return array
+	 * @return object
 	 */
 
 	public function getByTable($table = null, $search = null)
 	{
-		$columnArray = $this->_buildColumnArray($table);
-		$likeArray = $this->_buildLikeArray($table, $search);
 		return Db::forTablePrefix($table)
-			->whereLikeMany($columnArray, $likeArray)
+			->whereLikeMany($this->_buildColumnArray($table), $this->_buildLikeArray($table, $search))
 			->where('status', 1)
 			->whereLanguageIs($this->_registry->get('language'))
 			->orderByDesc('date')

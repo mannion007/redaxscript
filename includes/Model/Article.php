@@ -53,6 +53,8 @@ class Article
 			->where('a.id', $articleId)
 			->findArray();
 
+		/* build route */
+
 		if (is_array($articleArray[0]))
 		{
 			$route = implode('/', array_filter($articleArray[0]));

@@ -50,7 +50,7 @@ class Comment extends ControllerAbstract
 			'task' => $this->_request->getPost('task'),
 			'solution' => $this->_request->getPost('solution')
 		];
-		$route = $articleModel->getRouteById($postArray['article']);
+		$route = $postArray['article'] ? $articleModel->getRouteById($postArray['article']) : null;
 
 		/* handle error */
 

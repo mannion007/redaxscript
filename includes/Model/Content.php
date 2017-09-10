@@ -26,20 +26,17 @@ class Content
 	public function getTableByAlias($alias = null)
 	{
 		$table = null;
-		if (is_string($alias))
+		$categoryModel = new Category();
+		if ($categoryModel->getIdByAlias($alias) > 0)
 		{
-			$categoryModel = new Category();
-			if ($categoryModel->getIdByAlias($alias) > 0)
+			$table = 'categories';
+		}
+		else
+		{
+			$articleModel = new Article();
+			if ($articleModel->getIdByAlias($alias) > 0)
 			{
-				$table = 'categories';
-			}
-			else
-			{
-				$articleModel = new Article();
-				if ($articleModel->getIdByAlias($alias) > 0)
-				{
-					$table = 'articles';
-				}
+				$table = 'articles';
 			}
 		}
 		return $table;
@@ -59,25 +56,23 @@ class Content
 	public function getRouteByTableAndId($table = null, $contentId = null)
 	{
 		$route = null;
-		if (is_string($table) && is_numeric($contentId))
-		{
-			/* switch table */
 
-			switch ($table)
-			{
-				case 'categories':
-					$categoryModel = new Category();
-					$route = $categoryModel->getRouteById($contentId);
-					break;
-				case 'articles':
-					$articleModel = new Article();
-					$route = $articleModel->getRouteById($contentId);
-					break;
-				case 'comments':
-					$commentModel = new Comment();
-					$route = $commentModel->getRouteById($contentId);
-					break;
-			}
+		/* switch table */
+
+		switch ($table)
+		{
+			case 'categories':
+				$categoryModel = new Category();
+				$route = $categoryModel->getRouteById($contentId);
+				break;
+			case 'articles':
+				$articleModel = new Article();
+				$route = $articleModel->getRouteById($contentId);
+				break;
+			case 'comments':
+				$commentModel = new Comment();
+				$route = $commentModel->getRouteById($contentId);
+				break;
 		}
 		return $route;
 	}

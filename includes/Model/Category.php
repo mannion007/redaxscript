@@ -51,6 +51,8 @@ class Category
 			->where('c.id', $categoryId)
 			->findArray();
 
+		/* build route */
+
 		if (is_array($categoryArray[0]))
 		{
 			$route = implode('/', array_filter($categoryArray[0]));

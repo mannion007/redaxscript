@@ -39,6 +39,8 @@ class Comment
 			->where('m.id', $commentId)
 			->findArray();
 
+		/* build route */
+
 		if (is_array($commentArray[0]))
 		{
 			$route = implode('/', array_filter($commentArray[0])) . '#comment-' . $commentId;
