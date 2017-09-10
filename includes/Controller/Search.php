@@ -1,8 +1,8 @@
 <?php
 namespace Redaxscript\Controller;
 
-use Redaxscript\Db;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Filter;
 use Redaxscript\Validator;
 use Redaxscript\View;
@@ -180,6 +180,7 @@ class Search extends ControllerAbstract
 
 	protected function _search($searchArray = [])
 	{
+		$searchModel = new Model\Search($this->_registry);
 		$resultArray = [];
 
 		/* process table */
@@ -188,57 +189,9 @@ class Search extends ControllerAbstract
 		{
 			foreach ($searchArray['table'] as $table)
 			{
-				$resultArray[$table] = Db::forTablePrefix($table)
-					->whereLikeMany($this->_getColumnArray($table), $this->_getLikeArray($table, $searchArray['search']))
-					->where('status', 1)
-					->whereLanguageIs($this->_registry->get('language'))
-					->orderByDesc('date')
-					->findMany();
+				$resultArray[$table] = $searchModel->getByTable($table, $searchArray['search']);
 			}
 		}
 		return $resultArray;
-	}
-
-	/**
-	 * get the column array
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param string $table name of the table
-	 *
-	 * @return array
-	 */
-
-	protected function _getColumnArray($table = null)
-	{
-		return array_filter(
-		[
-			$table === 'categories' || $table === 'articles' ? 'title' : null,
-			$table === 'categories' || $table === 'articles' ? 'description' : null,
-			$table === 'categories' || $table === 'articles' ? 'keywords' : null,
-			$table === 'articles' || $table === 'comments' ? 'text' : null
-		]);
-	}
-
-	/**
-	 * get the like array
-	 *
-	 * @since 3.1.0
-	 *
-	 * @param string $table name of the table
-	 * @param array $search value of the search
-	 *
-	 * @return array
-	 */
-
-	protected function _getLikeArray($table = null, $search = null)
-	{
-		return array_filter(
-		[
-			$table === 'categories' || $table === 'articles' ? '%' . $search . '%' : null,
-			$table === 'categories' || $table === 'articles' ? '%' . $search . '%' : null,
-			$table === 'categories' || $table === 'articles' ? '%' . $search . '%' : null,
-			$table === 'articles' || $table === 'comments' ? '%' . $search . '%' : null
-		]);
 	}
 }
