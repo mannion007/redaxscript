@@ -1,6 +1,7 @@
 <?php
 namespace Redaxscript\View;
 
+use Redaxscript\Model;
 use Redaxscript\Db;
 use Redaxscript\Html;
 use Redaxscript\Module;
@@ -33,6 +34,7 @@ class ResultList extends ViewAbstract
 	{
 		$output = Module\Hook::trigger('resultListStart');
 		$accessValidator = new Validator\Access();
+		$contentModel = new Model\Content();
 
 		/* html elements */
 
@@ -74,7 +76,7 @@ class ResultList extends ViewAbstract
 					{
 						$textDate = date(Db::getSetting('date'), strtotime($value->date));
 						$linkElement
-							->attr('href', $this->_registry->get('parameterRoute') . build_route($table, $value->id))
+							->attr('href', $this->_registry->get('parameterRoute') . $contentModel->getRouteByTableAndId($table, $value->id))
 							->text($value->title ? $value->title : $value->author);
 						$textElement->text($textDate);
 						$outputItem .= $itemElement->html($linkElement . $textElement);

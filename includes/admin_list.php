@@ -167,7 +167,8 @@ function admin_contents_list()
 					}
 					else
 					{
-						$route = build_route($tableParameter, $id);
+						$contentModel = new Redaxscript\Model\Content();
+						$route = $contentModel->getRouteByTableAndId($tableParameter, $id);
 					}
 				}
 				else

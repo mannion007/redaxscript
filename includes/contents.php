@@ -126,6 +126,7 @@ function contents()
 
 	else if ($result)
 	{
+		$articleModel = new Redaxscript\Model\Article();
 		$accessValidator = new Redaxscript\Validator\Access();
 		foreach ($result as $r)
 		{
@@ -147,7 +148,7 @@ function contents()
 				}
 				if ($lastTable == 'categories' || !$registry->get('fullRoute') || $aliasValidator->validate($firstParameter, Redaxscript\Validator\Alias::MODE_DEFAULT) == Redaxscript\Validator\ValidatorInterface::PASSED)
 				{
-					$route = build_route('articles', $id);
+					$route = $articleModel->getRouteById($id);
 				}
 
 				/* parser */
@@ -239,7 +240,8 @@ function contents()
 
 			else if ($comments > 0)
 			{
-				$route = build_route('articles', $articleId);
+				$articleModel = new Redaxscript\Model\Article();
+				$route = $articleModel->getRouteById($articleId);
 				comments($articleId, $route);
 
 				/* comment form */
@@ -257,7 +259,8 @@ function contents()
 
 	if ($sub_maximum > 1 && Redaxscript\Db::getSetting('pagination') == 1)
 	{
-		$route = build_route('categories', $categoryId);
+		$categoryModel = new Redaxscript\Model\Category();
+		$route = $categoryModel->getRouteById($categoryId);
 		pagination($sub_active, $sub_maximum, $route);
 	}
 }

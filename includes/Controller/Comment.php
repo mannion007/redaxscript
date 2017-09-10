@@ -5,6 +5,7 @@ use Redaxscript\Db;
 use Redaxscript\Html;
 use Redaxscript\Mailer;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Filter;
 use Redaxscript\Validator;
 
@@ -35,6 +36,7 @@ class Comment extends ControllerAbstract
 		$emailFilter = new Filter\Email();
 		$urlFilter = new Filter\Url();
 		$htmlFilter = new Filter\Html();
+		$articleModel = new Model\Article();
 
 		/* process post */
 
@@ -48,7 +50,7 @@ class Comment extends ControllerAbstract
 			'task' => $this->_request->getPost('task'),
 			'solution' => $this->_request->getPost('solution')
 		];
-		$route = build_route('articles', $postArray['article']);
+		$route = $articleModel->getRouteById($postArray['article']);
 
 		/* handle error */
 

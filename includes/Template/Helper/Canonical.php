@@ -2,6 +2,7 @@
 namespace Redaxscript\Template\Helper;
 
 use Redaxscript\Db;
+use Redaxscript\Model;
 
 /**
  * helper class to provide a canonical helper
@@ -25,6 +26,7 @@ class Canonical extends HelperAbstract
 
 	public function process()
 	{
+		$contentModel = new Model\Content();
 		$lastTable = $this->_registry->get('lastTable');
 		$lastId = $this->_registry->get('lastId');
 		$parameterRoute = $this->_registry->get('parameterRoute');
@@ -42,7 +44,7 @@ class Canonical extends HelperAbstract
 				$lastId = $articles->findOne()->id;
 			}
 		}
-		$canonicalRoute = build_route($lastTable, $lastId);
+		$canonicalRoute = $contentModel->getRouteByTableAndId($lastTable, $lastId);
 
 		/* handle route */
 

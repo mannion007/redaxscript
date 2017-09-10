@@ -93,7 +93,6 @@ parameters:
 	- includes/comments.php
 	- includes/contents.php
 	- includes/navigation.php
-	- includes/query.php
 	- includes/router.php
 	- modules/Archive
 	- modules/CallHome

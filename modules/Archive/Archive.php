@@ -3,6 +3,7 @@ namespace Redaxscript\Modules\Archive;
 
 use Redaxscript\Db;
 use Redaxscript\Html;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -29,7 +30,7 @@ class Archive extends Config
 		'alias' => 'Archive',
 		'author' => 'Redaxmedia',
 		'description' => 'Generate a archive tree',
-		'version' => '3.2.3'
+		'version' => '3.3.0'
 	];
 
 	/**
@@ -75,6 +76,7 @@ class Archive extends Config
 		}
 		else
 		{
+			$articleModel = new Model\Article();
 			$accessValidator = new Validator\Access();
 			$accessDeny = 0;
 			$lastDate = 0;
@@ -100,7 +102,7 @@ class Archive extends Config
 					$outputItem .= $linkElement
 						->attr(
 						[
-							'href' => $this->_registry->get('parameterRoute') . build_route('articles', $value->id),
+							'href' => $this->_registry->get('parameterRoute') . $articleModel->getRouteById($value->id),
 							'title' => $value->description ? $value->description : $value->title
 						])
 						->text($value->title);

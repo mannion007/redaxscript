@@ -2,6 +2,7 @@
 namespace Redaxscript\Bootstrap;
 
 use Redaxscript\Db;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -89,23 +90,24 @@ class Content extends BootstrapAbstract
 		$secondParameter = $this->_registry->get('secondParameter');
 		$thirdParameter = $this->_registry->get('thirdParameter');
 		$lastParameter = $this->_registry->get('lastParameter');
+		$contentModel = new Model\Content();
 
 		/* set registry */
 
 		if ($firstParameter)
 		{
-			$this->_registry->set('firstTable', query_table($firstParameter));
+			$this->_registry->set('firstTable', $contentModel->getTableByAlias($firstParameter));
 			if ($this->_registry->get('firstTable'))
 			{
-				$this->_registry->set('secondTable', query_table($secondParameter));
+				$this->_registry->set('secondTable', $contentModel->getTableByAlias($secondParameter));
 			}
 			if ($this->_registry->get('secondTable'))
 			{
-				$this->_registry->set('thirdTable', query_table($thirdParameter));
+				$this->_registry->set('thirdTable', $contentModel->getTableByAlias($thirdParameter));
 			}
 			if ($this->_registry->get('lastParameter'))
 			{
-				$this->_registry->set('lastTable', query_table($lastParameter));
+				$this->_registry->set('lastTable', $contentModel->getTableByAlias($lastParameter));
 			}
 		}
 	}

@@ -2,6 +2,7 @@
 namespace Redaxscript\Modules\SitemapXml;
 
 use Redaxscript\Db;
+use Redaxscript\Model;
 use Redaxscript\Module;
 use XMLWriter;
 
@@ -29,7 +30,7 @@ class SitemapXml extends Module\Module
 		'alias' => 'SitemapXml',
 		'author' => 'Redaxmedia',
 		'description' => 'Generate a sitemap XML',
-		'version' => '3.2.3'
+		'version' => '3.3.0'
 	];
 
 	/**
@@ -89,6 +90,11 @@ class SitemapXml extends Module\Module
 	protected function _writeXML($categories = null, $articles = null)
 	{
 		$writer = new XMLWriter();
+		$categoryModel = new Model\Category();
+		$articleModel = new Model\Article();
+
+		/* write xml */
+
 		$writer->openMemory();
 		$writer->setIndent(true);
 		$writer->setIndentString('	');
@@ -104,7 +110,7 @@ class SitemapXml extends Module\Module
 		foreach ($categories as $value)
 		{
 			$writer->startElement('url');
-			$writer->writeElement('loc', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . build_route('categories', $value->id));
+			$writer->writeElement('loc', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $categoryModel->getRouteById($value->id));
 			$writer->writeElement('lastmod', date('c', strtotime($value->date)));
 			$writer->endElement();
 		}
@@ -114,7 +120,7 @@ class SitemapXml extends Module\Module
 		foreach ($articles as $value)
 		{
 			$writer->startElement('url');
-			$writer->writeElement('loc', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . build_route('articles', $value->id));
+			$writer->writeElement('loc', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $articleModel->getRouteById($value->id));
 			$writer->writeElement('lastmod', date('c', strtotime($value->date)));
 			$writer->endElement();
 		}

@@ -27,7 +27,7 @@ class PageCache extends Config
 		'alias' => 'PageCache',
 		'author' => 'Redaxmedia',
 		'description' => 'Simple page cache',
-		'version' => '3.2.3'
+		'version' => '3.3.0'
 	];
 
 	/**

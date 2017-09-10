@@ -3,6 +3,7 @@ namespace Redaxscript\Modules\Sitemap;
 
 use Redaxscript\Db;
 use Redaxscript\Html;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -29,7 +30,7 @@ class Sitemap extends Config
 		'alias' => 'Sitemap',
 		'author' => 'Redaxmedia',
 		'description' => 'Generate a sitemap tree',
-		'version' => '3.2.3'
+		'version' => '3.3.0'
 	];
 
 	/**
@@ -76,6 +77,7 @@ class Sitemap extends Config
 		else
 		{
 			$accessValidator = new Validator\Access();
+			$articleModel = new Model\Article();
 			$accessDeny = 0;
 			$lastCategory = 0;
 			foreach ($articles as $value)
@@ -99,7 +101,7 @@ class Sitemap extends Config
 					$outputItem = '<li>';
 					$outputItem .= $linkElement->attr(
 					[
-						'href' => $this->_registry->get('parameterRoute') . build_route('articles', $value->id),
+						'href' => $this->_registry->get('parameterRoute') . $articleModel->getRouteById($value->id),
 						'title' => $value->description ? $value->description : $value->title
 					])
 					->text($value->title);

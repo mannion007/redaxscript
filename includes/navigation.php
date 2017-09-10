@@ -174,7 +174,8 @@ function navigation_list($table, $options)
 				}
 				else
 				{
-					$route = build_route($table, $id);
+					$contentModel = new Redaxscript\Model\Content();
+					$route = $contentModel->getRouteByTableAndId($table, $id);
 				}
 
 				/* collect item output */

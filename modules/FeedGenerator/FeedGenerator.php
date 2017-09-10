@@ -2,6 +2,7 @@
 namespace Redaxscript\Modules\FeedGenerator;
 
 use Redaxscript\Db;
+use Redaxscript\Model;
 use Redaxscript\Module;
 use XMLWriter;
 
@@ -29,7 +30,7 @@ class FeedGenerator extends Module\Module
 		'alias' => 'FeedGenerator',
 		'author' => 'Redaxmedia',
 		'description' => 'Generate Atom feeds from content',
-		'version' => '3.2.3'
+		'version' => '3.3.0'
 	];
 
 	/**
@@ -84,6 +85,9 @@ class FeedGenerator extends Module\Module
 
 	protected function _writeXML($resultArray = [])
 	{
+		$writer = new XMLWriter();
+		$contentModel = new Model\Content();
+
 		/* prepare href */
 
 		$href = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
@@ -94,7 +98,6 @@ class FeedGenerator extends Module\Module
 
 		/* write xml */
 
-		$writer = new XMLWriter();
 		$writer->openMemory();
 		$writer->setIndent(true);
 		$writer->setIndentString('	');
@@ -120,7 +123,7 @@ class FeedGenerator extends Module\Module
 			foreach ($result as $value)
 			{
 				$writer->startElement('entry');
-				$writer->writeElement('id', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . build_route($table, $value->id));
+				$writer->writeElement('id', $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $contentModel->getRouteByTableAndId($table, $value->id));
 				$writer->writeElement('title', $value->title);
 				$writer->writeElement('updated', date('c', strtotime($value->date)));
 				$writer->writeElement('content', strip_tags($value->text));
