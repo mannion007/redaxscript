@@ -20,8 +20,8 @@ class Search extends ModelAbstract
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param string $table
-	 * @param string $search
+	 * @param string $table name of the table
+	 * @param string $search value of the search
 	 *
 	 * @return object
 	 */
@@ -63,7 +63,7 @@ class Search extends ModelAbstract
 	 * @since 3.3.0
 	 *
 	 * @param string $table name of the table
-	 * @param array $search value of the search
+	 * @param string $search value of the search
 	 *
 	 * @return array
 	 */
