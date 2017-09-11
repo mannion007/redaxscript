@@ -117,6 +117,12 @@
 			<directory>tests/phpunit/Html</directory>
 		</testsuite>
 
+		<!-- model -->
+
+		<testsuite name="model">
+			<directory>tests/phpunit/Model</directory>
+		</testsuite>
+
 		<!-- module -->
 
 		<testsuite name="module">

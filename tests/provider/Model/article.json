@@ -1,0 +1,14 @@
+[
+	{
+		"alias": "article-one",
+		"expect": 1
+	},
+	{
+		"alias": "article-two",
+		"expect": 2
+	},
+	{
+		"alias": "invalid",
+		"expect": null
+	}
+]
