@@ -78,6 +78,16 @@ class ArticleTest extends TestCaseAbstract
 				'status' => 1
 			])
 			->save();
+		Db::forTablePrefix('articles')
+			->create()
+			->set(
+			[
+				'title' => 'Article Three',
+				'alias' => 'article-three',
+				'rank' => 3,
+				'status' => 1
+			])
+			->save();
 	}
 
 	/**
@@ -94,16 +104,29 @@ class ArticleTest extends TestCaseAbstract
 	}
 
 	/**
-	 * providerArticle
+	 * providerArticleGetId
 	 *
 	 * @since 3.3.0
 	 *
 	 * @return array
 	 */
 
-	public function providerArticle()
+	public function providerArticleGetId()
 	{
-		return $this->getProvider('tests/provider/Model/article.json');
+		return $this->getProvider('tests/provider/Model/article_get_id.json');
+	}
+
+	/**
+	 * providerArticleGetRoute
+	 *
+	 * @since 3.3.0
+	 *
+	 * @return array
+	 */
+
+	public function providerArticleGetRoute()
+	{
+		return $this->getProvider('tests/provider/Model/article_get_route.json');
 	}
 
 	/**
@@ -114,7 +137,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @param $alias
 	 * @param $expect
 	 *
-	 * @dataProvider providerArticle
+	 * @dataProvider providerArticleGetId
 	 */
 
 	public function testGetIdByAlias($alias = null, $expect = null)
@@ -126,6 +149,32 @@ class ArticleTest extends TestCaseAbstract
 		/* actual */
 
 		$actual = $articleModel->getIdByAlias($alias);
+
+		/* compare */
+
+		$this->assertEquals($expect, $actual);
+	}
+
+	/**
+	 * testGetRouteById
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param $id
+	 * @param $expect
+	 *
+	 * @dataProvider providerArticleGetRoute
+	 */
+
+	public function testGetRouteById($id = null, $expect = null)
+	{
+		/* setup */
+
+		$articleModel = new Model\Article();
+
+		/* actual */
+
+		$actual = $articleModel->getRouteById($id);
 
 		/* compare */
 
