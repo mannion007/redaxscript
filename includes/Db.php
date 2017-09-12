@@ -288,10 +288,11 @@ class Db extends ORM
 	 * get the setting
 	 *
 	 * @since 3.0.0
+	 * @deprecated 3.3.0
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|integer
+	 * @return string|array|boolean
 	 */
 
 	public static function getSetting($key = null)
@@ -321,6 +322,7 @@ class Db extends ORM
 	 * set the setting
 	 *
 	 * @since 3.0.0
+	 * @deprecated 3.3.0
 	 *
 	 * @param string $key key of the item
 	 * @param string|integer $value value of the item

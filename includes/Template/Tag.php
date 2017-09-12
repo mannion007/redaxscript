@@ -8,6 +8,7 @@ use Redaxscript\Breadcrumb;
 use Redaxscript\Filesystem;
 use Redaxscript\Head;
 use Redaxscript\Language;
+use Redaxscript\Model;
 use Redaxscript\Registry;
 use Redaxscript\Request;
 use Redaxscript\View;
@@ -199,7 +200,7 @@ class Tag
 	}
 
 	/**
-	 * get registry
+	 * get the registry
 	 *
 	 * @since 2.6.0
 	 *
@@ -215,7 +216,7 @@ class Tag
 	}
 
 	/**
-	 * get language
+	 * get the language
 	 *
 	 * @since 2.6.0
 	 *
@@ -232,7 +233,7 @@ class Tag
 	}
 
 	/**
-	 * get setting
+	 * get the setting
 	 *
 	 * @since 2.6.0
 	 *
@@ -243,7 +244,8 @@ class Tag
 
 	public static function getSetting($key = null)
 	{
-		return Db::getSetting($key);
+		$settingModel = new Model\Setting();
+		return $settingModel->getSetting($key);
 	}
 
 	/**
@@ -282,7 +284,7 @@ class Tag
 	}
 
 	/**
-	 * categoryRaw
+	 * category raw
 	 *
 	 * @since 3.0.0
 	 *
@@ -295,7 +297,7 @@ class Tag
 	}
 
 	/**
-	 * articleRaw
+	 * article raw
 	 *
 	 * @since 3.0.0
 	 *
@@ -308,7 +310,7 @@ class Tag
 	}
 
 	/**
-	 * extraRaw
+	 * extra raw
 	 *
 	 * @since 3.0.0
 	 *

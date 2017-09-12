@@ -69,7 +69,8 @@ class Content extends BootstrapAbstract
 
 	protected function _setTableByRoot()
 	{
-		$homepage = Db::getSetting('homepage');
+		$settingModel = new Model\Setting();
+		$homepage = $settingModel->getSetting('homepage');
 		$table = $homepage > 0 ? 'articles' : 'categories';
 
 		/* set registry */
@@ -153,14 +154,18 @@ class Content extends BootstrapAbstract
 	/**
 	 * set id by root
 	 *
-	 * @since 3.1.0
+	 * @since 3.3.0
 	 */
 
 	protected function _setIdByRoot()
 	{
+		$settingModel = new Model\Setting();
+		$order = $settingModel->getSetting('order');
 		$lastTable = $this->_registry->get('lastTable');
-		$order = Db::getSetting('order');
 		$result = Db::forTablePrefix($lastTable);
+
+		/* handle order */
+
 		if ($order === 'asc')
 		{
 			$lastRank = $result->min('rank');
@@ -169,6 +174,9 @@ class Content extends BootstrapAbstract
 		{
 			$lastRank = $result->max('rank');
 		}
+
+		/* last rank */
+
 		if ($lastRank)
 		{
 			$this->_setId(

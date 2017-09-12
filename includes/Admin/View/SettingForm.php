@@ -2,8 +2,8 @@
 namespace Redaxscript\Admin\View;
 
 use Redaxscript\Admin\Html\Form as AdminForm;
-use Redaxscript\Db;
 use Redaxscript\Html;
+use Redaxscript\Model;
 use Redaxscript\Module;
 
 /**
@@ -29,6 +29,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 	public function render()
 	{
 		$output = Module\Hook::trigger('adminSettingFormStart');
+		$settingModel = new Model\Setting();
 		$helperOption = new Helper\Option($this->_language);
 
 		/* html elements */
@@ -78,7 +79,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getLanguageArray(),
 			[
-				Db::getSetting('language')
+				$settingModel->getSetting('language')
 			],
 			[
 				'id' => 'language',
@@ -91,7 +92,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getTemplateArray(),
 			[
-				Db::getSetting('template')
+				$settingModel->getSetting('template')
 			],
 			[
 				'id' => 'template',
@@ -112,7 +113,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'title',
 				'name' => 'title',
-				'value' => Db::getSetting('title')
+				'value' => $settingModel->getSetting('title')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('author'),
@@ -123,7 +124,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'author',
 				'name' => 'author',
-				'value' => Db::getSetting('author')
+				'value' => $settingModel->getSetting('author')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('copyright'),
@@ -134,7 +135,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'copyright',
 				'name' => 'copyright',
-				'value' => Db::getSetting('copyright')
+				'value' => $settingModel->getSetting('copyright')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('description'),
@@ -147,7 +148,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 				'id' => 'description',
 				'name' => 'description',
 				'rows' => 1,
-				'value' => Db::getSetting('description')
+				'value' => $settingModel->getSetting('description')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('keywords'),
@@ -160,7 +161,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 				'id' => 'keywords',
 				'name' => 'keywords',
 				'rows' => 1,
-				'value' => Db::getSetting('keywords')
+				'value' => $settingModel->getSetting('keywords')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('robots'),
@@ -169,7 +170,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getRobotArray(),
 			[
-				filter_var(Db::getSetting('robots'), FILTER_VALIDATE_INT)
+				filter_var($settingModel->getSetting('robots'), FILTER_VALIDATE_INT)
 			],
 			[
 				'id' => 'robots',
@@ -190,7 +191,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'email',
 				'name' => 'email',
-				'value' => Db::getSetting('email')
+				'value' => $settingModel->getSetting('email')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('subject'),
@@ -201,7 +202,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'subject',
 				'name' => 'subject',
-				'value' => Db::getSetting('subject')
+				'value' => $settingModel->getSetting('subject')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('notification'),
@@ -210,7 +211,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('notification'))
+				intval($settingModel->getSetting('notification'))
 			],
 			[
 				'id' => 'notification',
@@ -231,7 +232,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'charset',
 				'name' => 'charset',
-				'value' => Db::getSetting('charset')
+				'value' => $settingModel->getSetting('charset')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('divider'),
@@ -242,7 +243,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'divider',
 				'name' => 'divider',
-				'value' => Db::getSetting('divider')
+				'value' => $settingModel->getSetting('divider')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('time'),
@@ -251,7 +252,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getTimeArray(),
 			[
-				Db::getSetting('time')
+				$settingModel->getSetting('time')
 			],
 			[
 				'id' => 'time',
@@ -264,7 +265,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getDateArray(),
 			[
-				Db::getSetting('date')
+				$settingModel->getSetting('date')
 			],
 			[
 				'id' => 'date',
@@ -283,7 +284,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getContentArray('articles'),
 			[
-				Db::getSetting('homepage')
+				$settingModel->getSetting('homepage')
 			],
 			[
 				'id' => 'homepage',
@@ -298,7 +299,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'limit',
 				'name' => 'limit',
-				'value' => Db::getSetting('limit')
+				'value' => $settingModel->getSetting('limit')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('order'),
@@ -307,7 +308,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getOrderArray(),
 			[
-				Db::getSetting('order')
+				$settingModel->getSetting('order')
 			],
 			[
 				'id' => 'order',
@@ -320,7 +321,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('pagination'))
+				intval($settingModel->getSetting('pagination'))
 			],
 			[
 				'id' => 'pagination',
@@ -339,7 +340,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('registration'))
+				intval($settingModel->getSetting('registration'))
 			],
 			[
 				'id' => 'registration',
@@ -352,7 +353,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('verification'))
+				intval($settingModel->getSetting('verification'))
 			],
 			[
 				'id' => 'verification',
@@ -365,7 +366,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('recovery'))
+				intval($settingModel->getSetting('recovery'))
 			],
 			[
 				'id' => 'recovery',
@@ -384,7 +385,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval(Db::getSetting('moderation'))
+				intval($settingModel->getSetting('moderation'))
 			],
 			[
 				'id' => 'moderation',
@@ -397,7 +398,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getCaptchaArray(),
 			[
-				intval(Db::getSetting('captcha'))
+				intval($settingModel->getSetting('captcha'))
 			],
 			[
 				'id' => 'captcha',

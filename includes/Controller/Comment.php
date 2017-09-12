@@ -25,7 +25,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * process the class
 	 *
-	 * @since 3.0.0
+	 * @since 3.3.0
 	 *
 	 * @return string
 	 */
@@ -37,6 +37,7 @@ class Comment extends ControllerAbstract
 		$urlFilter = new Filter\Url();
 		$htmlFilter = new Filter\Html();
 		$articleModel = new Model\Article();
+		$settingModel = new Model\Setting();
 
 		/* process post */
 
@@ -74,7 +75,7 @@ class Comment extends ControllerAbstract
 			'text' => $postArray['text'],
 			'language' => Db::forTablePrefix('articles')->whereIdIs($postArray['article'])->findOne()->language,
 			'article' => $postArray['article'],
-			'status' => Db::getSetting('verification') ? 0 : 1
+			'status' => $settingModel->getSetting('verification') ? 0 : 1
 		];
 		$mailArray =
 		[
@@ -110,8 +111,8 @@ class Comment extends ControllerAbstract
 		return $this->_success(
 		[
 			'route' => $route,
-			'timeout' => Db::getSetting('notification') ? 2 : 0,
-			'message' => Db::getSetting('moderation') ? $this->_language->get('comment_moderation') : $this->_language->get('comment_sent')
+			'timeout' => $settingModel->getSetting('notification') ? 2 : 0,
+			'message' => $settingModel->getSetting('moderation') ? $this->_language->get('comment_moderation') : $this->_language->get('comment_sent')
 		]);
 	}
 
@@ -174,7 +175,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * validate
 	 *
-	 * @since 3.0.0
+	 * @since 3.3.0
 	 *
 	 * @param array $postArray array of the post
 	 *
@@ -186,6 +187,7 @@ class Comment extends ControllerAbstract
 		$emailValidator = new Validator\Email();
 		$captchaValidator = new Validator\Captcha();
 		$urlValidator = new Validator\Url();
+		$settingModel = new Model\Setting();
 
 		/* validate post */
 
@@ -214,7 +216,7 @@ class Comment extends ControllerAbstract
 		{
 			$messageArray[] = $this->_language->get('input_incorrect');
 		}
-		if (Db::getSetting('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
+		if ($settingModel->getSetting('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
 		{
 			$messageArray[] = $this->_language->get('captcha_incorrect');
 		}
@@ -250,7 +252,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * send the mail
 	 *
-	 * @since 3.0.0
+	 * @since 3.3.0
 	 *
 	 * @param array $mailArray array of the mail
 	 *
@@ -259,6 +261,7 @@ class Comment extends ControllerAbstract
 
 	protected function _mail($mailArray = [])
 	{
+		$settingModel = new Model\Setting();
 		$urlArticle = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $mailArray['route'];
 
 		/* html elements */
@@ -291,7 +294,7 @@ class Comment extends ControllerAbstract
 
 		$toArray =
 		[
-			$this->_language->get('author') => Db::getSetting('email')
+			$this->_language->get('author') => $settingModel->getSetting('email')
 		];
 		$fromArray =
 		[
