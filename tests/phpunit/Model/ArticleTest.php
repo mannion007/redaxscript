@@ -96,7 +96,7 @@ class ArticleTest extends TestCaseAbstract
 				'alias' => 'article-four',
 				'rank' => 4,
 				'status' => 2,
-				'date' => '3016-01-01 00:00:00'
+				'date' => '2036-01-01 00:00:00'
 			])
 			->save();
 		Db::forTablePrefix('articles')
@@ -107,7 +107,7 @@ class ArticleTest extends TestCaseAbstract
 				'alias' => 'article-fifth',
 				'rank' => 5,
 				'status' => 2,
-				'date' => '3017-01-01 00:00:00'
+				'date' => '2037-01-01 00:00:00'
 			])
 			->save();
 	}
