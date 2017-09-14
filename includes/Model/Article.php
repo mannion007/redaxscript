@@ -69,16 +69,17 @@ class Article
 	 *
 	 * @param string $date
 	 *
-	 * @return boolean
+	 * @return integer
 	 */
 
 	public function publishByDate($date = null)
 	{
-		return Db::forTablePrefix('articles')
+		$articles = Db::forTablePrefix('articles')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
 			->save();
+		return count($articles);
 	}
 }

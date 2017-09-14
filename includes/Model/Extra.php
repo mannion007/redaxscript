@@ -22,16 +22,17 @@ class Extra
 	 *
 	 * @param string $date
 	 *
-	 * @return boolean
+	 * @return integer
 	 */
 
 	public function publishByDate($date = null)
 	{
-		return Db::forTablePrefix('extras')
+		$extras = Db::forTablePrefix('extras')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
 			->save();
+		return count($extras);
 	}
 }

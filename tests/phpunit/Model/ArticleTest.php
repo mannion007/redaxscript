@@ -88,6 +88,28 @@ class ArticleTest extends TestCaseAbstract
 				'status' => 1
 			])
 			->save();
+		Db::forTablePrefix('articles')
+			->create()
+			->set(
+			[
+				'title' => 'Article Four',
+				'alias' => 'article-four',
+				'rank' => 4,
+				'status' => 2,
+				'date' => '3016-01-01 00:00:00'
+			])
+			->save();
+		Db::forTablePrefix('articles')
+			->create()
+			->set(
+			[
+				'title' => 'Article Fifth',
+				'alias' => 'article-fifth',
+				'rank' => 5,
+				'status' => 2,
+				'date' => '3017-01-01 00:00:00'
+			])
+			->save();
 	}
 
 	/**
@@ -130,12 +152,25 @@ class ArticleTest extends TestCaseAbstract
 	}
 
 	/**
+	 * providerArticlePublishDate
+	 *
+	 * @since 3.3.0
+	 *
+	 * @return array
+	 */
+
+	public function providerArticlePublishDate()
+	{
+		return $this->getProvider('tests/provider/Model/article_publish_date.json');
+	}
+
+	/**
 	 * testGetIdByAlias
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param $alias
-	 * @param $expect
+	 * @param string $alias
+	 * @param integer $expect
 	 *
 	 * @dataProvider providerArticleGetId
 	 */
@@ -160,8 +195,8 @@ class ArticleTest extends TestCaseAbstract
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param $id
-	 * @param $expect
+	 * @param integer $id
+	 * @param string $expect
 	 *
 	 * @dataProvider providerArticleGetRoute
 	 */
@@ -175,6 +210,32 @@ class ArticleTest extends TestCaseAbstract
 		/* actual */
 
 		$actual = $articleModel->getRouteById($id);
+
+		/* compare */
+
+		$this->assertEquals($expect, $actual);
+	}
+
+	/**
+	 * testPublishByDate
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param string $date
+	 * @param integer $expect
+	 *
+	 * @dataProvider providerArticlePublishDate
+	 */
+
+	public function testPublishByDate($date = null, $expect = null)
+	{
+		/* setup */
+
+		$articleModel = new Model\Article();
+
+		/* actual */
+
+		$actual = $articleModel->publishByDate($date);
 
 		/* compare */
 
