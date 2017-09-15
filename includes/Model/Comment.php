@@ -66,7 +66,7 @@ class Comment
 			->findMany()
 			->set('status', 1)
 			->save();
-		return count($comments);
+		return $comments ? count($comments) : 0;
 	}
 
 	/**

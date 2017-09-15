@@ -33,6 +33,6 @@ class Extra
 			->findMany()
 			->set('status', 1)
 			->save();
-		return count($extras);
+		return $extras ? count($extras) : 0;
 	}
 }

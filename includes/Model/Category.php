@@ -78,6 +78,6 @@ class Category
 			->findMany()
 			->set('status', 1)
 			->save();
-		return count($categories);
+		return $categories ? count($categories) : 0;
 	}
 }

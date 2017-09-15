@@ -53,6 +53,6 @@ class Module
 	public function deleteByAlias(string $moduleAlias = null) : int
 	{
 		$modules = Db::forTablePrefix('modules')->where('alias', $moduleAlias)->deleteMany();
-		return count($modules);
+		return $modules ? count($modules) : 0;
 	}
 }

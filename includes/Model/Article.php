@@ -80,6 +80,6 @@ class Article
 			->findMany()
 			->set('status', 1)
 			->save();
-		return count($articles);
+		return $articles ? count($articles) : 0;
 	}
 }
