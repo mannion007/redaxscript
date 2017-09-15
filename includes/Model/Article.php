@@ -25,9 +25,10 @@ class Article
 	 * @return int
 	 */
 
-	public function getIdByAlias(string $articleAlias = null) : ?int
+	public function getIdByAlias(string $articleAlias = null) : int
 	{
-		return Db::forTablePrefix('articles')->where('alias', $articleAlias)->findOne()->id;
+		$id = Db::forTablePrefix('articles')->where('alias', $articleAlias)->findOne()->id;
+		return $id ? $id : 0;
 	}
 
 	/**
@@ -40,7 +41,7 @@ class Article
 	 * @return string
 	 */
 
-	public function getRouteById(int $articleId = null) : ?string
+	public function getRouteById(int $articleId = null)
 	{
 		$route = null;
 		$articleArray = Db::forTablePrefix('articles')
@@ -72,7 +73,7 @@ class Article
 	 * @return int
 	 */
 
-	public function publishByDate(string $date = null) : ?int
+	public function publishByDate(string $date = null) : int
 	{
 		$articles = Db::forTablePrefix('articles')
 			->where('status', 2)

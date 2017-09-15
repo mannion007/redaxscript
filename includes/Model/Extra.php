@@ -25,7 +25,7 @@ class Extra
 	 * @return int
 	 */
 
-	public function publishByDate(string $date = null) : ?int
+	public function publishByDate(string $date = null) : int
 	{
 		$extras = Db::forTablePrefix('extras')
 			->where('status', 2)

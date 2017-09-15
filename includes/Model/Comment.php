@@ -25,7 +25,7 @@ class Comment
 	 * @return string
 	 */
 
-	public function getRouteById(int $commentId = null) : ?string
+	public function getRouteById(int $commentId = null)
 	{
 		$route = null;
 		$commentArray = Db::forTablePrefix('comments')
@@ -58,7 +58,7 @@ class Comment
 	 * @return int
 	 */
 
-	public function publishByDate(string $date = null) : ?int
+	public function publishByDate(string $date = null) : int
 	{
 		$comments = Db::forTablePrefix('comments')
 			->where('status', 2)

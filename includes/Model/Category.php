@@ -25,9 +25,10 @@ class Category
 	 * @return int
 	 */
 
-	public function getIdByAlias(string $categoryAlias = null) : ?int
+	public function getIdByAlias(string $categoryAlias = null) : int
 	{
-		return Db::forTablePrefix('categories')->where('alias', $categoryAlias)->findOne()->id;
+		$id = Db::forTablePrefix('categories')->where('alias', $categoryAlias)->findOne()->id;
+		return $id ? $id : 0;
 	}
 
 	/**
@@ -40,7 +41,7 @@ class Category
 	 * @return string
 	 */
 
-	public function getRouteById(int $categoryId = null) : ?string
+	public function getRouteById(int $categoryId = null)
 	{
 		$route = null;
 		$categoryArray = Db::forTablePrefix('categories')
@@ -70,7 +71,7 @@ class Category
 	 * @return int
 	 */
 
-	public function publishByDate(string $date = null) : ?int
+	public function publishByDate(string $date = null) : int
 	{
 		$categories = Db::forTablePrefix('categories')
 			->where('status', 2)

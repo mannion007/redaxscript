@@ -23,7 +23,7 @@ class Content
 	 * @return string
 	 */
 
-	public function getTableByAlias(string $alias = null) : ?string
+	public function getTableByAlias(string $alias = null)
 	{
 		$table = null;
 		$categoryModel = new Category();
@@ -53,7 +53,7 @@ class Content
 	 * @return string
 	 */
 
-	public function getRouteByTableAndId(string $table = null, int $contentId = null) : ?string
+	public function getRouteByTableAndId(string $table = null, int $contentId = null)
 	{
 		$route = null;
 
