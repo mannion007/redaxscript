@@ -12,7 +12,7 @@ use Redaxscript\Filter;
 use Redaxscript\Validator;
 
 /**
- * children class to process the reset the request
+ * children class to process the reset request
  *
  * @since 3.0.0
  *

@@ -16,7 +16,7 @@ use Redaxscript\Db;
 class Search extends ModelAbstract
 {
 	/**
-	 * get theby the table
+	 * get by the table
 	 *
 	 * @since 4.0.0
 	 *

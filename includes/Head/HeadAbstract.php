@@ -74,7 +74,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param string|array $attribute name or set of attributes
+	 * @param string|array $attribute key or array of attributes
 	 * @param string $value value of the attribute
 	 *
 	 * @return $this
@@ -103,7 +103,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param string|array $attribute name or set of attributes
+	 * @param string|array $attribute key or array of attributes
 	 * @param string $value value of the attribute
 	 *
 	 * @return $this

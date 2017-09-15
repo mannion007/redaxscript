@@ -222,7 +222,7 @@ class Mailer
 			$this->_headerString .= 'Content-Type: text/html; charset=' . Db::getSetting('charset') . PHP_EOL;
 		}
 
-		/* collect output */
+		/* collect header string */
 
 		$this->_headerString .= 'From: ' . $this->_fromString . PHP_EOL;
 		$this->_headerString .= 'Reply-To: ' . $this->_fromString . PHP_EOL;

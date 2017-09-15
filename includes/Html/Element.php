@@ -106,11 +106,11 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set the attribute to the element
+	 * set the attribute to element
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string|array $attribute name or array of attributes
+	 * @param string|array $attribute key or array of attributes
 	 * @param string $value value of the attribute
 	 *
 	 * @return $this
@@ -130,7 +130,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * remove attribute from the element
+	 * remove the attribute from element
 	 *
 	 * @since 2.2.0
 	 *
@@ -149,7 +149,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * add class to the element
+	 * add the class to element
 	 *
 	 * @since 2.2.0
 	 *
@@ -165,7 +165,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * remove class from the element
+	 * remove the class from element
 	 *
 	 * @since 2.2.0
 	 *
@@ -218,7 +218,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set the value to the element
+	 * set the value to element
 	 *
 	 * @since 2.2.0
 	 *
@@ -234,7 +234,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set the text to the element
+	 * set the text to element
 	 *
 	 * @since 2.2.0
 	 *
