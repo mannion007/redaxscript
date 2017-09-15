@@ -7,7 +7,7 @@ use Redaxscript\Tests\TestCaseAbstract;
 /**
  * SettingTest
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Tests
@@ -19,7 +19,7 @@ class SettingTest extends TestCaseAbstract
 	/**
 	 * setUp
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function setUp()
@@ -40,7 +40,7 @@ class SettingTest extends TestCaseAbstract
 	/**
 	 * tearDown
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function tearDown()

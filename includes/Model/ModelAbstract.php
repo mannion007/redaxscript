@@ -6,7 +6,7 @@ use Redaxscript\Registry;
 /**
  * abstract class to create a model class
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -26,7 +26,7 @@ abstract class ModelAbstract
 	/**
 	 * constructor of the class
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param Registry $registry instance of the registry class
 	 */

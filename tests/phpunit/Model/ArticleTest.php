@@ -8,7 +8,7 @@ use Redaxscript\Tests\TestCaseAbstract;
 /**
  * ArticleTest
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Tests
@@ -20,7 +20,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * setUp
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function setUp()
@@ -115,7 +115,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * tearDown
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function tearDown()
@@ -128,7 +128,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * providerArticleGetId
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @return array
 	 */
@@ -141,7 +141,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * providerArticleGetRoute
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @return array
 	 */
@@ -154,7 +154,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * providerArticlePublishDate
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @return array
 	 */
@@ -167,7 +167,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * testGetIdByAlias
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $alias
 	 * @param integer $expect
@@ -193,7 +193,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * testGetRouteById
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param integer $id
 	 * @param string $expect
@@ -219,7 +219,7 @@ class ArticleTest extends TestCaseAbstract
 	/**
 	 * testPublishByDate
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 * @param integer $expect

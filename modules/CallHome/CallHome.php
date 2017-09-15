@@ -30,7 +30,7 @@ class CallHome extends Module\Module
 		'alias' => 'CallHome',
 		'author' => 'Redaxmedia',
 		'description' => 'Provide version and news updates',
-		'version' => '3.3.0'
+		'version' => '4.0.0'
 	];
 
 	/**

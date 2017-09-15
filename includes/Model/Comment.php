@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the comment model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,14 +18,14 @@ class Comment
 	/**
 	 * get the comment route by id
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
-	 * @param integer $commentId
+	 * @param int $commentId
 	 *
 	 * @return string
 	 */
 
-	public function getRouteById($commentId = null)
+	public function getRouteById(int $commentId = null) : ?string
 	{
 		$route = null;
 		$commentArray = Db::forTablePrefix('comments')
@@ -51,14 +51,14 @@ class Comment
 	/**
 	 * publish each comment by date
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function publishByDate($date = null)
+	public function publishByDate(string $date = null) : ?int
 	{
 		$comments = Db::forTablePrefix('comments')
 			->where('status', 2)

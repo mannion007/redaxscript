@@ -27,7 +27,7 @@ class Tinymce extends Config
 		'alias' => 'Tinymce',
 		'author' => 'Redaxmedia',
 		'description' => 'JavaScript powered WYSIWYG editor',
-		'version' => '3.3.0',
+		'version' => '4.0.0',
 		'access' => '1'
 	];
 

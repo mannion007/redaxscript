@@ -4,7 +4,7 @@ namespace Redaxscript\Model;
 /**
  * parent class to provide the content model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -16,14 +16,14 @@ class Content
 	/**
 	 * get the content table by alias
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $alias
 	 *
 	 * @return string
 	 */
 
-	public function getTableByAlias($alias = null)
+	public function getTableByAlias(string $alias = null) : ?string
 	{
 		$table = null;
 		$categoryModel = new Category();
@@ -45,15 +45,15 @@ class Content
 	/**
 	 * get the route by table and content id
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $table
-	 * @param string $contentId
+	 * @param int $contentId
 	 *
 	 * @return string
 	 */
 
-	public function getRouteByTableAndId($table = null, $contentId = null)
+	public function getRouteByTableAndId(string $table = null, int $contentId = null) : ?string
 	{
 		$route = null;
 

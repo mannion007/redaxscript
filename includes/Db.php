@@ -288,7 +288,7 @@ class Db extends ORM
 	 * get the setting
 	 *
 	 * @since 3.0.0
-	 * @deprecated 3.3.0
+	 * @deprecated 4.0.0
 	 *
 	 * @param string $key key of the item
 	 *
@@ -322,7 +322,7 @@ class Db extends ORM
 	 * set the setting
 	 *
 	 * @since 3.0.0
-	 * @deprecated 3.3.0
+	 * @deprecated 4.0.0
 	 *
 	 * @param string $key key of the item
 	 * @param string|integer $value value of the item

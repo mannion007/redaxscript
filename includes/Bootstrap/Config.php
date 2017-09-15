@@ -19,7 +19,7 @@ class Config
 	/**
 	 * automate run
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	protected function _autorun()

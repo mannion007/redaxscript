@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the setting model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,7 +18,7 @@ class Setting
 	/**
 	 * get the setting
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $key key of the item
 	 *
@@ -51,15 +51,15 @@ class Setting
 	/**
 	 * set the setting
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|integer $value value of the item
+	 * @param string $value value of the item
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	public static function setSetting($key = null, $value = null)
+	public static function setSetting(string $key = null, string $value = null) : bool
 	{
 		return Db::forTablePrefix('settings')
 			->where('name', $key)

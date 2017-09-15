@@ -27,7 +27,7 @@ class Validator extends Config
 		'alias' => 'Validator',
 		'author' => 'Redaxmedia',
 		'description' => 'HTML validator for developers',
-		'version' => '3.3.0',
+		'version' => '4.0.0',
 		'access' => '1'
 	];
 

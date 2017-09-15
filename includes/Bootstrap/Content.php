@@ -154,7 +154,7 @@ class Content extends BootstrapAbstract
 	/**
 	 * set id by root
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	protected function _setIdByRoot()

@@ -8,7 +8,7 @@ use Redaxscript\Tests\TestCaseAbstract;
 /**
  * ExtraTest
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Tests
@@ -20,7 +20,7 @@ class ExtraTest extends TestCaseAbstract
 	/**
 	 * setUp
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function setUp()
@@ -93,7 +93,7 @@ class ExtraTest extends TestCaseAbstract
 	/**
 	 * tearDown
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 */
 
 	public function tearDown()
@@ -106,7 +106,7 @@ class ExtraTest extends TestCaseAbstract
 	/**
 	 * providerExtraPublishDate
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @return array
 	 */
@@ -119,7 +119,7 @@ class ExtraTest extends TestCaseAbstract
 	/**
 	 * testPublishByDate
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 * @param integer $expect

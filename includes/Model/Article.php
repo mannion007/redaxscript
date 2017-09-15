@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the article model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,14 +18,14 @@ class Article
 	/**
 	 * get the article id by alias
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $articleAlias
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getIdByAlias($articleAlias = null)
+	public function getIdByAlias(string $articleAlias = null) : ?int
 	{
 		return Db::forTablePrefix('articles')->where('alias', $articleAlias)->findOne()->id;
 	}
@@ -33,14 +33,14 @@ class Article
 	/**
 	 * get the article route by id
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
-	 * @param integer $articleId
+	 * @param int $articleId
 	 *
 	 * @return string
 	 */
 
-	public function getRouteById($articleId = null)
+	public function getRouteById(int $articleId = null) : ?string
 	{
 		$route = null;
 		$articleArray = Db::forTablePrefix('articles')
@@ -65,14 +65,14 @@ class Article
 	/**
 	 * publish each article by date
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function publishByDate($date = null)
+	public function publishByDate(string $date = null) : ?int
 	{
 		$articles = Db::forTablePrefix('articles')
 			->where('status', 2)

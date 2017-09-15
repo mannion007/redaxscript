@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the search model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,7 +18,7 @@ class Search extends ModelAbstract
 	/**
 	 * get by the table
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $table name of the table
 	 * @param string $search value of the search
@@ -26,7 +26,7 @@ class Search extends ModelAbstract
 	 * @return object
 	 */
 
-	public function getByTable($table = null, $search = null)
+	public function getByTable(string $table = null, string $search = null)
 	{
 		return Db::forTablePrefix($table)
 			->whereLikeMany($this->_buildColumnArray($table), $this->_buildLikeArray($table, $search))
@@ -39,14 +39,14 @@ class Search extends ModelAbstract
 	/**
 	 * build the column array
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $table name of the table
 	 *
 	 * @return array
 	 */
 
-	protected function _buildColumnArray($table = null)
+	protected function _buildColumnArray(string $table = null) : array
 	{
 		return array_filter(
 		[
@@ -60,7 +60,7 @@ class Search extends ModelAbstract
 	/**
 	 * build the like array
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $table name of the table
 	 * @param string $search value of the search
@@ -68,7 +68,7 @@ class Search extends ModelAbstract
 	 * @return array
 	 */
 
-	protected function _buildLikeArray($table = null, $search = null)
+	protected function _buildLikeArray(string $table = null, string $search = null) : array
 	{
 		return array_filter(
 		[

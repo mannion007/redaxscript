@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the extra model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,14 +18,14 @@ class Extra
 	/**
 	 * publish each extra by date
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function publishByDate($date = null)
+	public function publishByDate(string $date = null) : ?int
 	{
 		$extras = Db::forTablePrefix('extras')
 			->where('status', 2)

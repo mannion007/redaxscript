@@ -6,7 +6,7 @@ use Redaxscript\Db;
 /**
  * parent class to provide the category model
  *
- * @since 3.3.0
+ * @since 4.0.0
  *
  * @package Redaxscript
  * @category Model
@@ -18,14 +18,14 @@ class Category
 	/**
 	 * get the category id by alias
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $categoryAlias
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getIdByAlias($categoryAlias = null)
+	public function getIdByAlias(string $categoryAlias = null) : ?int
 	{
 		return Db::forTablePrefix('categories')->where('alias', $categoryAlias)->findOne()->id;
 	}
@@ -33,14 +33,14 @@ class Category
 	/**
 	 * get the category route by id
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
-	 * @param integer $categoryId
+	 * @param int $categoryId
 	 *
 	 * @return string
 	 */
 
-	public function getRouteById($categoryId = null)
+	public function getRouteById(int $categoryId = null) : ?string
 	{
 		$route = null;
 		$categoryArray = Db::forTablePrefix('categories')
@@ -63,14 +63,14 @@ class Category
 	/**
 	 * publish each category by date
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param string $date
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function publishByDate($date = null)
+	public function publishByDate(string $date = null) : ?int
 	{
 		$categories = Db::forTablePrefix('categories')
 			->where('status', 2)

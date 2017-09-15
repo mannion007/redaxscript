@@ -25,7 +25,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * process the class
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @return string
 	 */
@@ -175,7 +175,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * validate
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param array $postArray array of the post
 	 *
@@ -252,7 +252,7 @@ class Comment extends ControllerAbstract
 	/**
 	 * send the mail
 	 *
-	 * @since 3.3.0
+	 * @since 4.0.0
 	 *
 	 * @param array $mailArray array of the mail
 	 *
