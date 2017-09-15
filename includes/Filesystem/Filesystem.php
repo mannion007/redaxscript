@@ -7,6 +7,7 @@ use EmptyIterator;
 use RecursiveCallbackFilterIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Traversable;
 
 /**
  * parent class to handle the filesystem
@@ -51,7 +52,7 @@ class Filesystem
 	/**
 	 * iterator of the filesystem
 	 *
-	 * @var object
+	 * @var Traversable
 	 */
 
 	protected $_iterator;
@@ -81,10 +82,10 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @return iterable
+	 * @return Traversable
 	 */
 
-	public function getIterator() : iterable
+	public function getIterator() : Traversable
 	{
 		if (!$this->_iterator)
 		{
@@ -152,12 +153,12 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @param iterable $iterator iterator of the filesystem
+	 * @param Traversable $iterator iterator of the filesystem
 	 *
-	 * @return iterable
+	 * @return Traversable
 	 */
 
-	protected function _filterIterator(iterable $iterator = null) : iterable
+	protected function _filterIterator($iterator = null) : Traversable
 	{
 		if ($this->_recursive)
 		{
@@ -189,10 +190,10 @@ class Filesystem
 	 *
 	 * @param string $directory name of the directory
 	 *
-	 * @return iterable
+	 * @return Traversable
 	 */
 
-	protected function _scan(string $directory = null) : iterable
+	protected function _scan(string $directory = null) : Traversable
 	{
 		if (is_dir($directory))
 		{
