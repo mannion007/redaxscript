@@ -54,7 +54,7 @@ class Config extends Singleton
 	}
 
 	/**
-	 * get item from config
+	 * get the value from config
 	 *
 	 * @since 2.2.0
 	 *
@@ -77,7 +77,7 @@ class Config extends Singleton
 	}
 
 	/**
-	 * set item to config
+	 * set the value to config
 	 *
 	 * @since 2.2.0
 	 *

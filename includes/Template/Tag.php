@@ -245,7 +245,7 @@ class Tag
 	public static function getSetting($key = null)
 	{
 		$settingModel = new Model\Setting();
-		return $settingModel->getSetting($key);
+		return $settingModel->get($key);
 	}
 
 	/**

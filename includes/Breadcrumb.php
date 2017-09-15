@@ -288,7 +288,7 @@ class Breadcrumb
 			$key++;
 			$this->_breadcrumbArray[$key]['title'] = $this->_language->get($adminParameter);
 
-			/* set route */
+			/* set the route */
 
 			if ($adminParameter !== $lastParameter)
 			{
@@ -327,7 +327,7 @@ class Breadcrumb
 
 		$this->_breadcrumbArray[$key]['title'] = Db::forTablePrefix($firstTable)->where('alias', $firstParameter)->findOne()->title;
 
-		/* set route */
+		/* set the route */
 
 		if ($firstParameter !== $lastParameter)
 		{
@@ -341,7 +341,7 @@ class Breadcrumb
 			$key++;
 			$this->_breadcrumbArray[$key]['title'] = Db::forTablePrefix($secondTable)->where('alias', $secondParameter)->findOne()->title;
 
-			/* set route */
+			/* set the route */
 
 			if ($secondParameter !== $lastParameter)
 			{

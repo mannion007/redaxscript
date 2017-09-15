@@ -5,6 +5,7 @@ use Redaxscript\Config;
 use Redaxscript\Db;
 use Redaxscript\Installer;
 use Redaxscript\Language;
+use Redaxscript\Model;
 use Redaxscript\Registry;
 use Redaxscript\Request;
 
@@ -121,7 +122,7 @@ class Module
 	}
 
 	/**
-	 * get message from notification
+	 * get the message from notification
 	 *
 	 * @since 3.0.0
 	 *
@@ -144,7 +145,7 @@ class Module
 	}
 
 	/**
-	 * set message to notification
+	 * set the message to notification
 	 *
 	 * @since 3.0.0
 	 *
@@ -170,9 +171,8 @@ class Module
 	{
 		if (is_array(static::$_moduleArray) && array_key_exists('alias', static::$_moduleArray))
 		{
-			$module = Db::forTablePrefix('modules')->create();
-			$module->set(static::$_moduleArray);
-			$module->save();
+			$moduleModel = new Model\Module();
+			$moduleModel->createByArray(static::$_moduleArray);
 
 			/* create from sql */
 
@@ -201,7 +201,8 @@ class Module
 	{
 		if (is_array(static::$_moduleArray) && array_key_exists('alias', static::$_moduleArray))
 		{
-			Db::forTablePrefix('modules')->where('alias', static::$_moduleArray['alias'])->deleteMany();
+			$moduleModel = new Model\Module();
+			$moduleModel->deleteByAlias(static::$_moduleArray['alias']);
 
 			/* drop from sql */
 

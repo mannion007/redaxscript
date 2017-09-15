@@ -118,13 +118,13 @@ class Demo extends Config
 			'users'
 		];
 
-		/* set user */
+		/* set the user */
 
 		$auth->setUser('name', 'Demo');
 		$auth->setUser('user', 'demo');
 		$auth->setUser('email', 'demo@localhost');
 
-		/* set permission */
+		/* set the permission */
 
 		foreach ($tableArray as $value)
 		{

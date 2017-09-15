@@ -51,21 +51,21 @@ class SettingTest extends TestCaseAbstract
 	}
 
 	/**
-	 * testGetAndSetSetting
+	 * testGetAndSet
 	 *
-	 * @since 2.2.0
+	 * @since 4.0.0
 	 */
 
-	public function testGetAndSetSetting()
+	public function testGetAndSet()
 	{
 		/* setup */
 
 		$settingModel = new Model\Setting();
-		$settingModel->setSetting('charset', 'utf-16');
+		$settingModel->set('charset', 'utf-16');
 
 		/* actual */
 
-		$actual = $settingModel->getSetting('charset');
+		$actual = $settingModel->get('charset');
 
 		/* compare */
 
@@ -73,12 +73,12 @@ class SettingTest extends TestCaseAbstract
 	}
 
 	/**
-	 * testGetSettingInvalid
+	 * testGetInvalid
 	 *
-	 * @since 2.2.0
+	 * @since 4.0.0
 	 */
 
-	public function testGetSettingInvalid()
+	public function testGetInvalid()
 	{
 		/* setup */
 
@@ -86,7 +86,7 @@ class SettingTest extends TestCaseAbstract
 
 		/* actual */
 
-		$actual = $settingModel->getSetting('invalidKey');
+		$actual = $settingModel->get('invalidKey');
 
 		/* compare */
 

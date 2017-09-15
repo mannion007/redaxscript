@@ -36,7 +36,7 @@
 			$('<div>').attr('id', 'editor').insertBefore(textarea);
 			editor = ace.edit('editor');
 
-			/* set options */
+			/* set the options */
 
 			editor.setOptions(options.ace);
 

@@ -42,7 +42,7 @@ class Language extends Singleton
 	}
 
 	/**
-	 * get item from language
+	 * get the value from language
 	 *
 	 * @since 3.0.0
 	 *
@@ -79,7 +79,7 @@ class Language extends Singleton
 	}
 
 	/**
-	 * set item to language
+	 * set the value to language
 	 *
 	 * @since 2.4.0
 	 *

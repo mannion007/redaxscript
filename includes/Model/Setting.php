@@ -16,16 +16,16 @@ use Redaxscript\Db;
 class Setting
 {
 	/**
-	 * get the setting
+	 * get the value from setting
 	 *
 	 * @since 4.0.0
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|bool
+	 * @return string
 	 */
 
-	public static function getSetting($key = null)
+	public function get($key = null)
 	{
 		$settings = Db::forTablePrefix('settings')->findMany();
 
@@ -41,15 +41,11 @@ class Setting
 				}
 			}
 		}
-		else
-		{
-			return $settings;
-		}
 		return false;
 	}
 
 	/**
-	 * set the setting
+	 * set the value to setting
 	 *
 	 * @since 4.0.0
 	 *
@@ -59,7 +55,7 @@ class Setting
 	 * @return bool
 	 */
 
-	public static function setSetting(string $key = null, string $value = null) : bool
+	public function set(string $key = null, string $value = null) : bool
 	{
 		return Db::forTablePrefix('settings')
 			->where('name', $key)

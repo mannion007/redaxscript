@@ -68,4 +68,30 @@ class Comment
 			->save();
 		return count($comments);
 	}
+
+	/**
+	 * create the comment by array
+	 *
+	 * @since 4.0.0
+	 *
+	 * @param array $createArray
+	 *
+	 * @return bool
+	 */
+
+	public function createByArray(array $createArray = []) : bool
+	{
+		return Db::forTablePrefix('comments')
+			->create()
+			->set(
+			[
+				'author' => $createArray['author'],
+				'email' => $createArray['email'],
+				'url' => $createArray['url'],
+				'text' => $createArray['text'],
+				'language' => $createArray['language'],
+				'article' => $createArray['article']
+			])
+			->save();
+	}
 }

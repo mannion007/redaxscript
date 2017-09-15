@@ -32,7 +32,7 @@ class Config
 		{
 			if (Db::getStatus() === 2)
 			{
-				ini_set('default_charset', $settingModel->getSetting('charset'));
+				ini_set('default_charset', $settingModel->get('charset'));
 			}
 			if (error_reporting() === 0)
 			{

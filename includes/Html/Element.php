@@ -106,11 +106,11 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set attribute to the element
+	 * set the attribute to the element
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string|array $attribute name or set of attributes
+	 * @param string|array $attribute name or array of attributes
 	 * @param string $value value of the attribute
 	 *
 	 * @return $this
@@ -218,7 +218,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set value to the element
+	 * set the value to the element
 	 *
 	 * @since 2.2.0
 	 *
@@ -234,7 +234,7 @@ class Element extends HtmlAbstract
 	}
 
 	/**
-	 * set text to the element
+	 * set the text to the element
 	 *
 	 * @since 2.2.0
 	 *

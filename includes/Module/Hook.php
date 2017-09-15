@@ -150,7 +150,7 @@ class Hook
 	}
 
 	/**
-	 * collect from module hook
+	 * collect from the module hook
 	 *
 	 * @since 3.2.0
 	 *

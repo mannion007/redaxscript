@@ -7,11 +7,12 @@ use Redaxscript\Hash;
 use Redaxscript\Html\Element;
 use Redaxscript\Mailer;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Filter;
 use Redaxscript\Validator;
 
 /**
- * children class to process the reset request
+ * children class to process the reset the request
  *
  * @since 3.0.0
  *
@@ -191,15 +192,8 @@ class Reset extends ControllerAbstract
 
 	protected function _reset($resetArray = [])
 	{
-		return Db::forTablePrefix('users')
-			->where(
-			[
-				'id' => $resetArray['id'],
-				'status' => 1
-			])
-			->findOne()
-			->set('password', $resetArray['password'])
-			->save();
+		$userModel = new Model\User();
+		return $userModel->resetPasswordByArray($resetArray);
 	}
 
 	/**

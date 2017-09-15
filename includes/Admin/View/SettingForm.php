@@ -68,7 +68,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 
 		$formElement
 
-			/* general set */
+			/* general fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-js-set-active rs-admin-set-accordion rs-admin-set-active">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-js-title-active rs-admin-title-accordion rs-admin-title-active">' . $this->_language->get('general') . '</legend>')
@@ -79,7 +79,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getLanguageArray(),
 			[
-				$settingModel->getSetting('language')
+				$settingModel->get('language')
 			],
 			[
 				'id' => 'language',
@@ -92,7 +92,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getTemplateArray(),
 			[
-				$settingModel->getSetting('template')
+				$settingModel->get('template')
 			],
 			[
 				'id' => 'template',
@@ -100,7 +100,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* metadata set */
+			/* metadata fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('metadata') . '</legend>')
@@ -113,7 +113,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'title',
 				'name' => 'title',
-				'value' => $settingModel->getSetting('title')
+				'value' => $settingModel->get('title')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('author'),
@@ -124,7 +124,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'author',
 				'name' => 'author',
-				'value' => $settingModel->getSetting('author')
+				'value' => $settingModel->get('author')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('copyright'),
@@ -135,7 +135,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'copyright',
 				'name' => 'copyright',
-				'value' => $settingModel->getSetting('copyright')
+				'value' => $settingModel->get('copyright')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('description'),
@@ -148,7 +148,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 				'id' => 'description',
 				'name' => 'description',
 				'rows' => 1,
-				'value' => $settingModel->getSetting('description')
+				'value' => $settingModel->get('description')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('keywords'),
@@ -161,7 +161,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 				'id' => 'keywords',
 				'name' => 'keywords',
 				'rows' => 1,
-				'value' => $settingModel->getSetting('keywords')
+				'value' => $settingModel->get('keywords')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('robots'),
@@ -170,7 +170,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getRobotArray(),
 			[
-				filter_var($settingModel->getSetting('robots'), FILTER_VALIDATE_INT)
+				filter_var($settingModel->get('robots'), FILTER_VALIDATE_INT)
 			],
 			[
 				'id' => 'robots',
@@ -178,7 +178,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* contact set */
+			/* contact fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('contact') . '</legend>')
@@ -191,7 +191,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'email',
 				'name' => 'email',
-				'value' => $settingModel->getSetting('email')
+				'value' => $settingModel->get('email')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('subject'),
@@ -202,7 +202,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'subject',
 				'name' => 'subject',
-				'value' => $settingModel->getSetting('subject')
+				'value' => $settingModel->get('subject')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('notification'),
@@ -211,7 +211,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('notification'))
+				intval($settingModel->get('notification'))
 			],
 			[
 				'id' => 'notification',
@@ -219,7 +219,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* formatting set */
+			/* formatting fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('formatting') . '</legend>')
@@ -232,7 +232,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'charset',
 				'name' => 'charset',
-				'value' => $settingModel->getSetting('charset')
+				'value' => $settingModel->get('charset')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('divider'),
@@ -243,7 +243,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'divider',
 				'name' => 'divider',
-				'value' => $settingModel->getSetting('divider')
+				'value' => $settingModel->get('divider')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('time'),
@@ -252,7 +252,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getTimeArray(),
 			[
-				$settingModel->getSetting('time')
+				$settingModel->get('time')
 			],
 			[
 				'id' => 'time',
@@ -265,7 +265,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getDateArray(),
 			[
-				$settingModel->getSetting('date')
+				$settingModel->get('date')
 			],
 			[
 				'id' => 'date',
@@ -273,7 +273,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* contents set */
+			/* contents fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('contents') . '</legend>')
@@ -284,7 +284,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getContentArray('articles'),
 			[
-				$settingModel->getSetting('homepage')
+				$settingModel->get('homepage')
 			],
 			[
 				'id' => 'homepage',
@@ -299,7 +299,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'id' => 'limit',
 				'name' => 'limit',
-				'value' => $settingModel->getSetting('limit')
+				'value' => $settingModel->get('limit')
 			])
 			->append('</li><li>')
 			->label($this->_language->get('order'),
@@ -308,7 +308,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getOrderArray(),
 			[
-				$settingModel->getSetting('order')
+				$settingModel->get('order')
 			],
 			[
 				'id' => 'order',
@@ -321,7 +321,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('pagination'))
+				intval($settingModel->get('pagination'))
 			],
 			[
 				'id' => 'pagination',
@@ -329,7 +329,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* users set */
+			/* users fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('users') . '</legend>')
@@ -340,7 +340,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('registration'))
+				intval($settingModel->get('registration'))
 			],
 			[
 				'id' => 'registration',
@@ -353,7 +353,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('verification'))
+				intval($settingModel->get('verification'))
 			],
 			[
 				'id' => 'verification',
@@ -366,7 +366,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('recovery'))
+				intval($settingModel->get('recovery'))
 			],
 			[
 				'id' => 'recovery',
@@ -374,7 +374,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->append('</li></ul></fieldset>')
 
-			/* security set */
+			/* security fieldset */
 
 			->append('<fieldset class="rs-admin-js-set-accordion rs-admin-set-accordion">')
 			->append('<legend class="rs-admin-js-title-accordion rs-admin-title-accordion">' . $this->_language->get('security') . '</legend>')
@@ -385,7 +385,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getToggleArray(),
 			[
-				intval($settingModel->getSetting('moderation'))
+				intval($settingModel->get('moderation'))
 			],
 			[
 				'id' => 'moderation',
@@ -398,7 +398,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			])
 			->select($helperOption->getCaptchaArray(),
 			[
-				intval($settingModel->getSetting('captcha'))
+				intval($settingModel->get('captcha'))
 			],
 			[
 				'id' => 'captcha',

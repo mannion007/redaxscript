@@ -6,7 +6,7 @@ use Redaxscript\Server;
 use Redaxscript\Request;
 
 /**
- * parent class to get parameter
+ * parent class to get the parameter
  *
  * @since 2.4.0
  *

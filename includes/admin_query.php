@@ -826,7 +826,7 @@ function admin_delete()
 		$categoryChildren->findMany()->delete();
 		$articleChildren->findMany()->delete();
 
-		/* reset extras */
+		/* reset the extras */
 
 		Redaxscript\Db::forTablePrefix('extras')
 			->whereIn('category', $categoryArray)
@@ -844,7 +844,7 @@ function admin_delete()
 			->findMany()
 			->delete();
 
-		/* reset extras */
+		/* reset the extras */
 
 		Redaxscript\Db::forTablePrefix('extras')
 			->where('article', $idParameter)
@@ -852,7 +852,7 @@ function admin_delete()
 			->set('article', 0)
 			->save();
 
-		/* reset homepage */
+		/* reset the homepage */
 
 		if ($idParameter == Redaxscript\Db::getSetting('homepage'))
 		{

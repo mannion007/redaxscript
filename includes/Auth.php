@@ -206,7 +206,7 @@ class Auth
 			$groupArray = array_map('intval', explode(',', $user->groups));
 			$group = Db::forTablePrefix('groups')->whereIdIn($groupArray)->where('status', 1)->select($this->_typeArray)->findArray();
 
-			/* set filter */
+			/* set the filter */
 
 			$this->setPermission('filter',
 			[
@@ -224,7 +224,7 @@ class Auth
 				}
 			}
 
-			/* set user */
+			/* set the user */
 
 			$this->setUser('id', $user->id);
 			$this->setUser('name', $user->name);
@@ -361,7 +361,7 @@ class Auth
 		$userArray = $this->getUser();
 		$permissionArray = $this->getPermission();
 
-		/* set to session */
+		/* set the session */
 
 		if ($userArray && $permissionArray)
 		{
@@ -378,7 +378,7 @@ class Auth
 	}
 
 	/**
-	 * get auth from session
+	 * get the auth from session
 	 *
 	 * @since 3.0.0
 	 *
@@ -392,7 +392,7 @@ class Auth
 	}
 
 	/**
-	 * set auth to session
+	 * set the auth to session
 	 *
 	 * @since 3.0.0
 	 *

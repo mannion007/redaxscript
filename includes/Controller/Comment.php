@@ -75,7 +75,7 @@ class Comment extends ControllerAbstract
 			'text' => $postArray['text'],
 			'language' => Db::forTablePrefix('articles')->whereIdIs($postArray['article'])->findOne()->language,
 			'article' => $postArray['article'],
-			'status' => $settingModel->getSetting('verification') ? 0 : 1
+			'status' => $settingModel->get('verification') ? 0 : 1
 		];
 		$mailArray =
 		[
@@ -111,8 +111,8 @@ class Comment extends ControllerAbstract
 		return $this->_success(
 		[
 			'route' => $route,
-			'timeout' => $settingModel->getSetting('notification') ? 2 : 0,
-			'message' => $settingModel->getSetting('moderation') ? $this->_language->get('comment_moderation') : $this->_language->get('comment_sent')
+			'timeout' => $settingModel->get('notification') ? 2 : 0,
+			'message' => $settingModel->get('moderation') ? $this->_language->get('comment_moderation') : $this->_language->get('comment_sent')
 		]);
 	}
 
@@ -216,7 +216,7 @@ class Comment extends ControllerAbstract
 		{
 			$messageArray[] = $this->_language->get('input_incorrect');
 		}
-		if ($settingModel->getSetting('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
+		if ($settingModel->get('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
 		{
 			$messageArray[] = $this->_language->get('captcha_incorrect');
 		}
@@ -235,18 +235,8 @@ class Comment extends ControllerAbstract
 
 	protected function _create($createArray = [])
 	{
-		return Db::forTablePrefix('comments')
-			->create()
-			->set(
-			[
-				'author' => $createArray['author'],
-				'email' => $createArray['email'],
-				'url' => $createArray['url'],
-				'text' => $createArray['text'],
-				'language' => $createArray['language'],
-				'article' => $createArray['article']
-			])
-			->save();
+		$commentModel = new Model\Comment();
+		return $commentModel->createByArray($createArray);
 	}
 
 	/**
@@ -294,7 +284,7 @@ class Comment extends ControllerAbstract
 
 		$toArray =
 		[
-			$this->_language->get('author') => $settingModel->getSetting('email')
+			$this->_language->get('author') => $settingModel->get('email')
 		];
 		$fromArray =
 		[

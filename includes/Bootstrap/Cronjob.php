@@ -27,7 +27,7 @@ class Cronjob extends BootstrapAbstract
 		$this->_registry->set('now', date('Y-m-d H:i:s'));
 		$this->_registry->set('cronUpdate', false);
 
-		/* set update */
+		/* set the update */
 
 		if (!$this->_request->getSession('nextUpdate'))
 		{
@@ -36,7 +36,7 @@ class Cronjob extends BootstrapAbstract
 			$this->_registry->set('cronUpdate', true);
 		}
 
-		/* reset update */
+		/* reset the update */
 
 		if ($this->_request->getSession('nextUpdate') < $this->_registry->get('now'))
 		{

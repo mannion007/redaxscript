@@ -33,7 +33,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set content
+	 * set the content
 	 *
 	 * @since 3.1.0
 	 */
@@ -44,7 +44,7 @@ class Content extends BootstrapAbstract
 		$secondParameter = $this->_registry->get('secondParameter');
 		$fullRoute = $this->_registry->get('fullRoute');
 
-		/* set by root */
+		/* set by the root */
 
 		if (!$fullRoute || ($firstParameter === 'admin' && !$secondParameter))
 		{
@@ -52,7 +52,7 @@ class Content extends BootstrapAbstract
 			$this->_setIdByRoot();
 		}
 
-		/* else set by parameter */
+		/* else set by the parameter */
 
 		else
 		{
@@ -62,7 +62,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set table by root
+	 * set the table by root
 	 *
 	 * @since 3.1.0
 	 */
@@ -70,17 +70,17 @@ class Content extends BootstrapAbstract
 	protected function _setTableByRoot()
 	{
 		$settingModel = new Model\Setting();
-		$homepage = $settingModel->getSetting('homepage');
+		$homepage = $settingModel->get('homepage');
 		$table = $homepage > 0 ? 'articles' : 'categories';
 
-		/* set registry */
+		/* set the registry */
 
 		$this->_registry->set('firstTable', $table);
 		$this->_registry->set('lastTable', $table);
 	}
 
 	/**
-	 * set table by parameter
+	 * set the table by parameter
 	 *
 	 * @since 3.1.0
 	 */
@@ -93,7 +93,7 @@ class Content extends BootstrapAbstract
 		$lastParameter = $this->_registry->get('lastParameter');
 		$contentModel = new Model\Content();
 
-		/* set registry */
+		/* set the registry */
 
 		if ($firstParameter)
 		{
@@ -114,7 +114,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set id
+	 * set the id
 	 *
 	 * @since 3.1.0
 	 *
@@ -134,7 +134,7 @@ class Content extends BootstrapAbstract
 				->id;
 		}
 
-		/* set registry */
+		/* set the registry */
 
 		if ($firstParameter === 'admin' || $aliasValidator->validate($firstParameter, Validator\Alias::MODE_DEFAULT) === Validator\ValidatorInterface::FAILED)
 		{
@@ -152,7 +152,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set id by root
+	 * set the id by root
 	 *
 	 * @since 4.0.0
 	 */
@@ -160,7 +160,7 @@ class Content extends BootstrapAbstract
 	protected function _setIdByRoot()
 	{
 		$settingModel = new Model\Setting();
-		$order = $settingModel->getSetting('order');
+		$order = $settingModel->get('order');
 		$lastTable = $this->_registry->get('lastTable');
 		$result = Db::forTablePrefix($lastTable);
 
@@ -188,7 +188,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set id by parameter
+	 * set the id by parameter
 	 *
 	 * @since 3.1.0
 	 */
@@ -207,7 +207,7 @@ class Content extends BootstrapAbstract
 	}
 
 	/**
-	 * set content error
+	 * set the content error
 	 *
 	 * @since 3.1.0
 	 */

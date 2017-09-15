@@ -74,7 +74,7 @@ class Config extends CommandAbstract
 						],
 						'db-env' =>
 						[
-							'description' => 'Get variable from ENV'
+							'description' => 'Get the variable from ENV'
 						]
 					]
 				],

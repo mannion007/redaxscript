@@ -21,7 +21,7 @@ include_once('includes' . DIRECTORY_SEPARATOR . 'router.php');
 $autoloader = new Autoloader();
 $autoloader->init();
 
-/* get instance */
+/* get the instance */
 
 $config = Config::getInstance();
 

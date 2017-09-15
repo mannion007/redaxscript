@@ -154,7 +154,7 @@ class Install extends ControllerAbstract
 			$this->_refreshConnection();
 		}
 
-		/* get status */
+		/* get the status */
 
 		if (!$this->_getStatus())
 		{

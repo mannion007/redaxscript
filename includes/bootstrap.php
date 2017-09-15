@@ -20,7 +20,7 @@ include_once('includes' . DIRECTORY_SEPARATOR . 'router.php');
 $autoloader = new Autoloader();
 $autoloader->init();
 
-/* get instance */
+/* get the instance */
 
 $registry = Registry::getInstance();
 $request = Request::getInstance();

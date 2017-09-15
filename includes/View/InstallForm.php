@@ -60,7 +60,7 @@ class InstallForm extends ViewAbstract
 
 		$formElement
 
-			/* database set */
+			/* database fieldset */
 
 			->append('<fieldset class="rs-js-set-accordion rs-js-set-active rs-set-accordion rs-set-active">')
 			->append('<legend class="rs-js-title-accordion rs-js-title-active rs-title-accordion rs-title-active">' . $this->_language->get('database_setup') . '</legend>')
@@ -141,7 +141,7 @@ class InstallForm extends ViewAbstract
 			])
 			->append('</li></ul></fieldset>')
 
-			/* account set */
+			/* account fieldset */
 
 			->append('<fieldset class="rs-js-set-accordion rs-set-accordion">')
 			->append('<legend class="rs-js-title-accordion rs-title-accordion">' . $this->_language->get('account_create') . '</legend>')

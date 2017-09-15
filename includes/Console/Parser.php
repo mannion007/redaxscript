@@ -75,7 +75,7 @@ class Parser
 	}
 
 	/**
-	 * get item from arguments
+	 * get the value from arguments
 	 *
 	 * @since 3.0.0
 	 *
@@ -98,7 +98,7 @@ class Parser
 	}
 
 	/**
-	 * get item from options
+	 * get the value from options
 	 *
 	 * @since 3.0.0
 	 *
@@ -121,7 +121,7 @@ class Parser
 	}
 
 	/**
-	 * set item to arguments
+	 * set the value to arguments
 	 *
 	 * @since 3.0.0
 	 *
@@ -135,7 +135,7 @@ class Parser
 	}
 
 	/**
-	 * set item to options
+	 * set the value to options
 	 *
 	 * @since 3.0.0
 	 *

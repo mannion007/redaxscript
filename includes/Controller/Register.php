@@ -8,6 +8,7 @@ use Redaxscript\Hash;
 use Redaxscript\Html;
 use Redaxscript\Mailer;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -60,6 +61,8 @@ class Register extends ControllerAbstract
 
 		/* handle success */
 
+		$groupModel = new Model\Group();
+		$settingModel = new Model\Setting();
 		$passwordHash = new Hash(Config::getInstance());
 		$passwordHash->init(uniqid());
 		$createArray =
@@ -69,8 +72,8 @@ class Register extends ControllerAbstract
 			'password' => $passwordHash->getHash(),
 			'email' => $postArray['email'],
 			'language' => $this->_registry->get('language'),
-			'groups' => Db::forTablePrefix('groups')->where('alias', 'members')->findOne()->id,
-			'status' => Db::getSetting('verification') ? 0 : 1
+			'groups' => $groupModel->getIdByAlias('members'),
+			'status' => $settingModel->get('verification') ? 0 : 1
 		];
 		$mailArray =
 		[
@@ -101,7 +104,7 @@ class Register extends ControllerAbstract
 		}
 		return $this->_success(
 		[
-			'message' => Db::getSetting('verification') ? $this->_language->get('registration_verification') : $this->_language->get('registration_sent')
+			'message' => $settingModel->get('verification') ? $this->_language->get('registration_verification') : $this->_language->get('registration_sent')
 		]);
 	}
 
@@ -204,19 +207,8 @@ class Register extends ControllerAbstract
 
 	protected function _create($createArray = [])
 	{
-		return Db::forTablePrefix('users')
-			->create()
-			->set(
-			[
-				'name' => $createArray['name'],
-				'user' => $createArray['user'],
-				'email' => $createArray['email'],
-				'password' => $createArray['password'],
-				'language' => $createArray['language'],
-				'groups' => $createArray['groups'],
-				'status' => $createArray['status']
-			])
-			->save();
+		$userModel = new Model\User();
+		return $userModel->createByArray($createArray);
 	}
 
 	/**

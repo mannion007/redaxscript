@@ -59,7 +59,7 @@
 				{
 					mapInstance = new google.maps.Map(map.get(0), options.general);
 
-					/* set custom styles */
+					/* set the styles */
 
 					if (options.styles)
 					{
@@ -69,7 +69,7 @@
 						});
 					}
 
-					/* set marker */
+					/* set the marker */
 
 					if (options.marker)
 					{

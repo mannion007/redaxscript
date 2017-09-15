@@ -38,7 +38,7 @@ class Registry extends Singleton
 	}
 
 	/**
-	 * get item from registry
+	 * get the value from registry
 	 *
 	 * @since 3.0.0
 	 *
@@ -61,7 +61,7 @@ class Registry extends Singleton
 	}
 
 	/**
-	 * set item to registry
+	 * set the value to registry
 	 *
 	 * @since 2.1.0
 	 *
