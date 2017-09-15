@@ -72,12 +72,12 @@ class Category
 
 	public function publishByDate(string $date = null) : int
 	{
-		$categories = Db::forTablePrefix('categories')
+		return Db::forTablePrefix('categories')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
-			->save();
-		return $categories ? count($categories) : 0;
+			->save()
+			->count();
 	}
 }

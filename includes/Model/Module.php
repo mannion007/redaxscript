@@ -47,12 +47,11 @@ class Module
 	 *
 	 * @param string $moduleAlias
 	 *
-	 * @return int
+	 * @return bool
 	 */
 
-	public function deleteByAlias(string $moduleAlias = null) : int
+	public function deleteByAlias(string $moduleAlias = null) : bool
 	{
-		$modules = Db::forTablePrefix('modules')->where('alias', $moduleAlias)->deleteMany();
-		return $modules ? count($modules) : 0;
+		return Db::forTablePrefix('modules')->where('alias', $moduleAlias)->deleteMany();
 	}
 }

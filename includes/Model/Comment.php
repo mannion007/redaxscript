@@ -60,13 +60,13 @@ class Comment
 
 	public function publishByDate(string $date = null) : int
 	{
-		$comments = Db::forTablePrefix('comments')
+		return Db::forTablePrefix('comments')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
-			->save();
-		return $comments ? count($comments) : 0;
+			->save()
+			->count();
 	}
 
 	/**

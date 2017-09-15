@@ -27,12 +27,12 @@ class Extra
 
 	public function publishByDate(string $date = null) : int
 	{
-		$extras = Db::forTablePrefix('extras')
+		return Db::forTablePrefix('extras')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
-			->save();
-		return $extras ? count($extras) : 0;
+			->save()
+			->count();
 	}
 }

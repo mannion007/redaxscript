@@ -74,12 +74,12 @@ class Article
 
 	public function publishByDate(string $date = null) : int
 	{
-		$articles = Db::forTablePrefix('articles')
+		return Db::forTablePrefix('articles')
 			->where('status', 2)
 			->whereLt('date', $date)
 			->findMany()
 			->set('status', 1)
-			->save();
-		return $articles ? count($articles) : 0;
+			->save()
+			->count();
 	}
 }
