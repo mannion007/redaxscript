@@ -22,7 +22,7 @@ class Setting
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public static function getSetting($key = null)

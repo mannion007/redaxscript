@@ -27,8 +27,7 @@ class Category
 
 	public function getIdByAlias(string $categoryAlias = null) : int
 	{
-		$id = Db::forTablePrefix('categories')->where('alias', $categoryAlias)->findOne()->id;
-		return $id ? $id : 0;
+		return Db::forTablePrefix('categories')->where('alias', $categoryAlias)->findOne()->id | 0;
 	}
 
 	/**
