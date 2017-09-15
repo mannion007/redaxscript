@@ -4,6 +4,7 @@ namespace Redaxscript\Filesystem;
 use CallbackFilterIterator;
 use DirectoryIterator;
 use EmptyIterator;
+use phpDocumentor\Reflection\Types\Iterable_;
 use RecursiveCallbackFilterIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -31,7 +32,7 @@ class Filesystem
 	/**
 	 * recursive flag
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 
 	protected $_recursive;
@@ -62,11 +63,11 @@ class Filesystem
 	 * @since 3.2.0
 	 *
 	 * @param string $root value of the root
-	 * @param boolean $recursive recursive flag
+	 * @param bool $recursive recursive flag
 	 * @param array $filterArray array to be filtered
 	 */
 
-	public function init($root = null, $recursive = false, $filterArray = [])
+	public function init(string $root = null, bool $recursive = false, $filterArray = [])
 	{
 		$this->_root = $root;
 		$this->_recursive = $recursive;
@@ -81,10 +82,10 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @return object
+	 * @return iterable
 	 */
 
-	public function getIterator()
+	public function getIterator() : iterable
 	{
 		if (!$this->_iterator)
 		{
@@ -105,7 +106,7 @@ class Filesystem
 	 * @return array
 	 */
 
-	public function getArray()
+	public function getArray() : array
 	{
 		$filesystemArray = [];
 		$iterator = $this->getIterator();
@@ -124,12 +125,12 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @param integer $flag
+	 * @param int $flag
 	 *
 	 * @return array
 	 */
 
-	public function getSortArray($flag = SORT_FLAG_CASE)
+	public function getSortArray(int $flag = SORT_FLAG_CASE) : array
 	{
 		$filesystemArray = $this->getArray();
 		sort($filesystemArray, $flag);
@@ -152,12 +153,12 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @param object $iterator iterator of the filesystem
+	 * @param iterable $iterator iterator of the filesystem
 	 *
-	 * @return object
+	 * @return iterable
 	 */
 
-	protected function _filterIterator($iterator = null)
+	protected function _filterIterator(iterable $iterator = null) : iterable
 	{
 		if ($this->_recursive)
 		{
@@ -171,10 +172,10 @@ class Filesystem
 	 *
 	 * @since 3.2.0
 	 *
-	 * @return object
+	 * @return callable
 	 */
 
-	protected function _validateItem()
+	protected function _validateItem() : callable
 	{
 		return function ($item)
 		{
@@ -189,10 +190,10 @@ class Filesystem
 	 *
 	 * @param string $directory name of the directory
 	 *
-	 * @return object
+	 * @return iterable
 	 */
 
-	protected function _scan($directory = null)
+	protected function _scan(string $directory = null) : iterable
 	{
 		if (is_dir($directory))
 		{
