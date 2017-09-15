@@ -186,12 +186,14 @@ class CommonTest extends TestCaseAbstract
 		$actualArray =
 		[
 			'phpOs' => $this->_registry->get('phpOs'),
-			'phpVersion' => $this->_registry->get('phpVersion')
+			'phpVersion' => $this->_registry->get('phpVersion'),
+			'phpStatus' => $this->_registry->get('phpStatus')
 		];
 
 		/* compare */
 
 		$this->assertString($actualArray['phpOs']);
 		$this->assertString($actualArray['phpVersion']);
+		$this->assertTrue($actualArray['phpStatus']);
 	}
 }

@@ -141,6 +141,7 @@ class Common extends BootstrapAbstract
 	protected function _setPhp()
 	{
 		$phpOs = strtolower(php_uname('s'));
+		$phpVersion = phpversion();
 		if (substr($phpOs, 0, 5) === 'linux')
 		{
 			$this->_registry->set('phpOs', 'linux');
@@ -149,6 +150,8 @@ class Common extends BootstrapAbstract
 		{
 			$this->_registry->set('phpOs', 'windows');
 		}
-		$this->_registry->set('phpVersion', phpversion());
+		$this->_registry->set('phpVersion', $phpVersion);
+		$this->_registry->set('phpStatus', version_compare($phpVersion, '7.0', '>='));
+
 	}
 }

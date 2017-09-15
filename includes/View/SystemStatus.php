@@ -98,7 +98,7 @@ class SystemStatus extends ViewAbstract
 		{
 			$messageArray[] = $this->_language->get('database_failed');
 		}
-		if (version_compare($this->_registry->get('phpVersion'), '5.4', '<'))
+		if (!$this->_registry->get('phpStatus'))
 		{
 			$messageArray[] = $this->_language->get('php_version_unsupported');
 		}
