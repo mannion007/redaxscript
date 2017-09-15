@@ -8,6 +8,7 @@ use Redaxscript\Messenger;
 use Redaxscript\Model;
 use Redaxscript\Filter;
 use Redaxscript\Validator;
+use Redaxscript\View;
 
 /**
  * children class to process the comment request
@@ -320,4 +321,104 @@ class Comment extends ControllerAbstract
 		$mailer->init($toArray, $fromArray, $subject, $bodyArray);
 		return $mailer->send();
 	}
+
+	/**
+	 * show comments
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param array $articleId id of the article
+	 * @param array $route route
+	 *
+	 * @return boolean
+	 */
+	public function getComments($articleId, $route)
+	{
+		/* process search */
+
+		$resultArray = $this->_search($articleId);
+		if ($resultArray)
+		{
+			$num_rows = count($resultArray);
+			$sub_maximum = ceil($num_rows / Db::getSetting('limit'));
+			$sub_active = $this->_registry->get('lastSubParameter');
+
+			/* sub parameter */
+
+			if ($this->_registry->get('lastSubParameter') > $sub_maximum || !$this->_registry->get('lastSubParameter'))
+			{
+				$sub_active = 1;
+			}
+			else
+			{
+				$offset_string = ($sub_active - 1) * Db::getSetting('limit') . ', ';
+			}
+		}
+
+		/* query result */
+
+		$resultArray = $this->_search($articleId, $offset_string . Db::getSetting('limit'));
+
+		/* handle error */
+
+		if (!$resultArray || !$num_rows)
+		{
+			$error = $this->_language->get('comment_no');
+		}
+
+		/* handle error */
+
+		if ($error)
+		{
+			echo '<div class="rs-box-comment">' . $error . $this->_language->get('point') . '</div>';
+		}
+
+		/* handle result */
+
+		$output = $this->_renderResult($resultArray);
+		if ($output)
+		{
+			echo $output;
+		}
+
+		/* call pagination as needed */
+
+		if ($sub_maximum > 1 && Db::getSetting('pagination') == 1)
+		{
+			pagination($sub_active, $sub_maximum, $route);
+		}
+	}
+
+	/**
+	 * search for comments
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param array $articleId array of the search
+	 * @param integer $limit
+	 *
+	 * @return object
+	 */
+
+	protected function _search($articleId = null, $limit = null)
+	{
+		$commentModel = new Model\Comment();
+		return $commentModel->getCommentsById($articleId, $this->_language->get('language'), $limit);
+	}
+
+	/**
+	 * render comments
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param array $resultArray
+	 *
+	 * @return boolean
+	 */
+	public function _renderResult($resultArray = [])
+	{
+		$searchList = new View\Comment($this->_registry, $this->_language);
+		return $searchList->render($resultArray);
+	}
+
 }

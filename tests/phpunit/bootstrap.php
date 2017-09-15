@@ -11,7 +11,6 @@ include_once('includes' . DIRECTORY_SEPARATOR . 'admin_admin.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_list.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_query.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_router.php');
-include_once('includes' . DIRECTORY_SEPARATOR . 'comments.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'contents.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'navigation.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'router.php');

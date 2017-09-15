@@ -68,4 +68,34 @@ class Comment
 			->save();
 		return count($comments);
 	}
+
+	/**
+	 * get article comments
+	 *
+	 * @since 3.3.0
+	 *
+	 * @param integer $articleId
+	 * @param string $language
+	 * @param integer $limit
+	 *
+	 * @return object
+	 */
+
+	public function getCommentsById($articleId = null, $language = 'en', $limit = null)
+	{
+		$comments = Db::forTablePrefix('comments')
+			->where(
+				[
+					'status' => 1,
+					'article' => $articleId
+				])
+			->whereLanguageIs($language)
+			->orderGlobal('rank');
+		if ($limit)
+		{
+			$comments->limit($limit);
+		}
+
+		return $comments->findArray();
+	}
 }

@@ -242,7 +242,9 @@ function contents()
 			{
 				$articleModel = new Redaxscript\Model\Article();
 				$route = $articleModel->getRouteById($articleId);
-				comments($articleId, $route);
+
+				$commentController = new Redaxscript\Controller\Comment($registry, $request, $language);
+				$commentController->getComments($articleId, $route);
 
 				/* comment form */
 
