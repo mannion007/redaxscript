@@ -4,7 +4,6 @@ namespace Redaxscript\Filesystem;
 use CallbackFilterIterator;
 use DirectoryIterator;
 use EmptyIterator;
-use phpDocumentor\Reflection\Types\Iterable_;
 use RecursiveCallbackFilterIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
