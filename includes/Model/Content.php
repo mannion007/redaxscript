@@ -20,7 +20,7 @@ class Content
 	 *
 	 * @param string $alias
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getTableByAlias(string $alias = null)
@@ -50,7 +50,7 @@ class Content
 	 * @param string $table
 	 * @param int $contentId
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getRouteByTableAndId(string $table = null, int $contentId = null)

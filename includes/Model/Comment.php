@@ -22,7 +22,7 @@ class Comment
 	 *
 	 * @param int $commentId
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getRouteById(int $commentId = null)

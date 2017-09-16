@@ -57,7 +57,7 @@ $language->init($registry->get('language'));
 
 /* module hook */
 
-if ($registry->get('dbStatus') === 2)
+if ($registry->get('dbStatus') > 1)
 {
 	Module\Hook::construct($registry, $request, $language, $config);
 	Module\Hook::init();

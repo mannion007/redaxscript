@@ -26,7 +26,7 @@ class Language extends Singleton
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string $language detected language to process
+	 * @param string|bool $language detected language to process
 	 */
 
 	public function init($language = 'en')
@@ -49,10 +49,10 @@ class Language extends Singleton
 	 * @param string $key key of the item
 	 * @param string $index index of the array
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
-	public function get($key = null, $index = null)
+	public function get(string $key = null, string $index = null)
 	{
 		/* handle index */
 

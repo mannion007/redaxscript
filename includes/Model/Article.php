@@ -37,7 +37,7 @@ class Article
 	 *
 	 * @param int $articleId
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getRouteById(int $articleId = null)

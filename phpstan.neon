@@ -44,7 +44,6 @@ parameters:
 	- includes/Html/Form.php
 	- includes/Html/HtmlAbstract.php
 	- includes/Html/Purifier.php
-	- includes/Model
 	- includes/Template/Helper/Description.php
 	- includes/Template/Helper/Keywords.php
 	- includes/Template/Helper/Robots.php
@@ -70,7 +69,6 @@ parameters:
 	- includes/admin_query.php
 	- includes/admin_router.php
 	- includes/Auth.php
-	- includes/bootstrap.php
 	- includes/Breadcrumb.php
 	- includes/comments.php
 	- includes/Config.php
@@ -107,4 +105,3 @@ parameters:
 	- modules/TestDummy
 	- modules/Tinymce
 	- modules/Validator
-	- console.php

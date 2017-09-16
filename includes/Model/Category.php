@@ -37,7 +37,7 @@ class Category
 	 *
 	 * @param int $categoryId
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getRouteById(int $categoryId = null)
