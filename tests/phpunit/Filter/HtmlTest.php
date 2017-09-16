@@ -74,7 +74,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @dataProvider providerHtml
 	 */
 
-	public function testHtml($html = null, $expect = null)
+	public function testHtml($html = null, string $expect = null)
 	{
 		/* setup */
 

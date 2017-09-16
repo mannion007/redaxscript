@@ -110,7 +110,7 @@ class CommentTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($postArray = [], $hashArray = [], $settingArray = [], $expect = null)
+	public function testProcess($postArray = [], $hashArray = [], $settingArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -143,7 +143,7 @@ class CommentTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], $settingArray = [], $method = null, $expect = null)
+	public function testProcessFailure($postArray = [], $hashArray = [], $settingArray = [], $method = null, string $expect = null)
 	{
 		/* setup */
 

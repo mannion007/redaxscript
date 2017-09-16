@@ -40,7 +40,7 @@ class SpecialTest extends TestCaseAbstract
 	 * @dataProvider providerSpecial
 	 */
 
-	public function testSpecial($special = null, $expect = null)
+	public function testSpecial($special = null, string $expect = null)
 	{
 		/* setup */
 

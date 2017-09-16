@@ -104,7 +104,7 @@ class Uninstall extends CommandAbstract
 	 * @return boolean
 	 */
 
-	protected function _module($optionArray = [])
+	protected function _module(array $optionArray = [])
 	{
 		$alias = $this->prompt('alias', $optionArray);
 		$moduleClass = 'Redaxscript\\Modules\\' . $alias . '\\' . $alias;

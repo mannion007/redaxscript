@@ -40,7 +40,7 @@ class BaseTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($registryArray = [], $expect = null)
+	public function testRender(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 

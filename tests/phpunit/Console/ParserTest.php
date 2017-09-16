@@ -104,7 +104,7 @@ class ParserTest extends TestCaseAbstract
 	 * @dataProvider providerGetArgument
 	 */
 
-	public function testGetArgument($argumentArray = [], $expectArray = [])
+	public function testGetArgument($argumentArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -176,7 +176,7 @@ class ParserTest extends TestCaseAbstract
 	 * @dataProvider providerGetOption
 	 */
 
-	public function testGetOption($argumentArray = [], $expectArray = [])
+	public function testGetOption($argumentArray = [], array $expectArray = [])
 	{
 		/* setup */
 

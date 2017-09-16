@@ -83,7 +83,7 @@ class Messenger
 	 * @return $this
 	 */
 
-	public function init($optionArray = [])
+	public function init(array $optionArray = [])
 	{
 		if (is_array($optionArray))
 		{

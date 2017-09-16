@@ -106,7 +106,7 @@ class ResultListTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($searchArray = [], $expect = null)
+	public function testRender($searchArray = [], string $expect = null)
 	{
 		/* setup */
 

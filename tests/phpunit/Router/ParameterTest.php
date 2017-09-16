@@ -40,7 +40,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetFirst($route = null, $expectArray = [])
+	public function testGetFirst($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -73,7 +73,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetSecond($route = null, $expectArray = [])
+	public function testGetSecond($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -106,7 +106,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetThird($route = null, $expectArray = [])
+	public function testGetThird($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -139,7 +139,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetFourth($route = null, $expectArray = [])
+	public function testGetFourth($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -172,7 +172,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetLast($route = null, $expectArray = [])
+	public function testGetLast($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -206,7 +206,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetAdmin($route = null, $expectArray = [])
+	public function testGetAdmin($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -234,7 +234,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetTable($route = null, $expectArray = [])
+	public function testGetTable($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -262,7 +262,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetAlias($route = null, $expectArray = [])
+	public function testGetAlias($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -290,7 +290,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetId($route = null, $expectArray = [])
+	public function testGetId($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -318,7 +318,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @dataProvider providerParameter
 	 */
 
-	public function testGetToken($route = null, $expectArray = [])
+	public function testGetToken($route = null, array $expectArray = [])
 	{
 		/* setup */
 

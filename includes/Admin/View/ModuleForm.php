@@ -184,10 +184,10 @@ class ModuleForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @param array $docsFilesystemArray
 	 *
-	 * @return object
+	 * @return string
 	 */
 
-	protected function _renderList($docsFilesystemArray = [])
+	protected function _renderList(array $docsFilesystemArray = []) : string
 	{
 		$tabRoute = $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
 		$tabCounter = 1;
@@ -240,7 +240,6 @@ class ModuleForm extends ViewAbstract implements ViewInterface
 				->attr('href', $tabRoute . '#tab-' . $tabCounter++)
 				->text($this->_language->get('customize'))
 			);
-		$listElement->html($outputItem);
-		return $listElement;
+		return $listElement->html($outputItem)->render();
 	}
 }

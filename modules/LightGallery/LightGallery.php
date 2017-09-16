@@ -142,7 +142,7 @@ class LightGallery extends Config
 	 * @return string
 	 */
 
-	public function _renderItem($directory = null, $optionArray = [])
+	public function _renderItem($directory = null, array $optionArray = [])
 	{
 		$outputItem = null;
 
@@ -227,7 +227,7 @@ class LightGallery extends Config
 	 * @param array $optionArray
 	 */
 
-	protected function _createThumb($directory = null, $optionArray = [])
+	protected function _createThumb($directory = null, array $optionArray = [])
 	{
 		/* gallery filesystem */
 
@@ -317,7 +317,7 @@ class LightGallery extends Config
 	 * @return array
 	 */
 
-	protected function _calcDist($sourceArray = [], $optionArray = [])
+	protected function _calcDist($sourceArray = [], array $optionArray = [])
 	{
 		$distArray['height'] = is_array($optionArray) && array_key_exists('height', $optionArray) ? $optionArray['height'] : $this->_configArray['height'];
 		$distArray['quality'] = is_array($optionArray) && array_key_exists('quality', $optionArray) ? $optionArray['quality'] : $this->_configArray['quality'];

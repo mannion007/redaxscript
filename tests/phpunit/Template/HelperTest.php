@@ -238,7 +238,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetTitle
 	 */
 
-	public function testGetTitle($registryArray = [], $expect = null)
+	public function testGetTitle(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -264,7 +264,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetCanonical
 	 */
 
-	public function testCanonical($registryArray = [], $expect = null)
+	public function testCanonical(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -290,7 +290,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetDescription
 	 */
 
-	public function testGetDescription($registryArray = [], $expect = null)
+	public function testGetDescription(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -316,7 +316,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetKeywords
 	 */
 
-	public function testGetKeywords($registryArray = [], $expect = null)
+	public function testGetKeywords(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -342,7 +342,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetRobots
 	 */
 
-	public function testGetRobots($registryArray = [], $expect = null)
+	public function testGetRobots(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -389,7 +389,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetSubset
 	 */
 
-	public function testGetSubset($registryArray = [], $expect = null)
+	public function testGetSubset(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -415,7 +415,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetDirection
 	 */
 
-	public function testGetDirection($registryArray = [], $expect = null)
+	public function testGetDirection(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -441,7 +441,7 @@ class HelperTest extends TestCaseAbstract
 	 * @dataProvider providerGetClass
 	 */
 
-	public function testGetClass($registryArray = [], $expect = null)
+	public function testGetClass(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 

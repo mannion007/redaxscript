@@ -213,7 +213,7 @@ class AuthTest extends TestCaseAbstract
 	 * @dataProvider providerGetFilter
 	 */
 
-	public function testGetFilter($groups = null, $expect = null)
+	public function testGetFilter($groups = null, string $expect = null)
 	{
 		/* setup */
 

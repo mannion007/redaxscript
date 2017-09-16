@@ -41,7 +41,7 @@ class SessionTest extends TestCaseAbstract
 	 * @dataProvider providerSession
 	 */
 
-	public function testSession($expectArray = [])
+	public function testSession(array $expectArray = [])
 	{
 		/* setup */
 

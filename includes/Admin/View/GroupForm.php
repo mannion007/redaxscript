@@ -303,10 +303,10 @@ class GroupForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @param int $groupId identifier of the group
 	 *
-	 * @return object
+	 * @return string
 	 */
 
-	protected function _renderList(int $groupId = null)
+	protected function _renderList(int $groupId = null) : string
 	{
 		$tabRoute = $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
 
@@ -349,7 +349,6 @@ class GroupForm extends ViewAbstract implements ViewInterface
 					->text($this->_language->get('customize'))
 				);
 		}
-		$listElement->html($outputItem);
-		return $listElement;
+		return $listElement->html($outputItem)->render();
 	}
 }

@@ -75,7 +75,7 @@ class ResetFormTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($expectArray = [])
+	public function testRender(array $expectArray = [])
 	{
 		/* setup */
 

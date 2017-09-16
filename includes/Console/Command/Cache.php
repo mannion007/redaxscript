@@ -110,7 +110,7 @@ class Cache extends CommandAbstract
 	 * @return boolean
 	 */
 
-	protected function _clear($optionArray = [])
+	protected function _clear(array $optionArray = [])
 	{
 		$directory = $this->prompt('directory', $optionArray);
 		$extension = $this->prompt('extension', $optionArray);
@@ -133,7 +133,7 @@ class Cache extends CommandAbstract
 	 * @return boolean
 	 */
 
-	protected function _clearInvalid($optionArray = [])
+	protected function _clearInvalid(array $optionArray = [])
 	{
 		$directory = $this->prompt('directory', $optionArray);
 		$extension = $this->prompt('extension', $optionArray);

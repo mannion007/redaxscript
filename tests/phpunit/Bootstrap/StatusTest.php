@@ -79,7 +79,7 @@ class StatusTest extends TestCaseAbstract
 	 * @dataProvider providerStatus
 	 */
 
-	public function testStatus($userId = null, $registryArray = [], $expectArray = [])
+	public function testStatus($userId = null, $registryArray = [], array $expectArray = [])
 	{
 		/* setup */
 

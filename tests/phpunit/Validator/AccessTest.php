@@ -42,7 +42,7 @@ class AccessTest extends TestCaseAbstract
 	 * @dataProvider providerAccess
 	 */
 
-	public function testAccess($access = null, $groups = null, $expect = null)
+	public function testAccess($access = null, $groups = null, string $expect = null)
 	{
 		/* setup */
 

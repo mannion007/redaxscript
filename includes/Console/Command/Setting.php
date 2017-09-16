@@ -113,7 +113,7 @@ class Setting extends CommandAbstract
 	 * @return boolean
 	 */
 
-	protected function _set($optionArray = [])
+	protected function _set(array $optionArray = [])
 	{
 		$key = $this->prompt('key', $optionArray);
 		$value = $this->prompt('value', $optionArray);

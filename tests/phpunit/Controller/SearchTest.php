@@ -158,7 +158,7 @@ class SearchTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($registryArray = [], $expect = null)
+	public function testProcess(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 

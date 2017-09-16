@@ -40,7 +40,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testBrowser($userAgent = null, $expectArray = [])
+	public function testBrowser($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -67,7 +67,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testDesktop($userAgent = null, $expectArray = [])
+	public function testDesktop($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -94,7 +94,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testEngine($userAgent = null, $expectArray = [])
+	public function testEngine($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -121,7 +121,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testMobile($userAgent = null, $expectArray = [])
+	public function testMobile($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -148,7 +148,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testTablet($userAgent = null, $expectArray = [])
+	public function testTablet($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -175,7 +175,7 @@ class ClientTest extends TestCaseAbstract
 	 * @dataProvider providerClient
 	 */
 
-	public function testVersion($userAgent = null, $expectArray = [])
+	public function testVersion($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 

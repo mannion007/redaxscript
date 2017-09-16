@@ -125,7 +125,7 @@ class BreadcrumbTest extends TestCaseAbstract
 	 * @dataProvider providerGetArray
 	 */
 
-	public function testGetArray($registryArray = [], $expectArray = [])
+	public function testGetArray(array $registryArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -153,7 +153,7 @@ class BreadcrumbTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($registryArray = [], $expect = null)
+	public function testRender(array $registryArray = [], string $expect = null)
 	{
 		/* setup */
 

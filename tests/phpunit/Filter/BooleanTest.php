@@ -40,7 +40,7 @@ class BooleanTest extends TestCaseAbstract
 	 * @dataProvider providerBoolean
 	 */
 
-	public function testBoolean($boolean = null, $expect = null)
+	public function testBoolean($boolean = null, string $expect = null)
 	{
 		/* setup */
 

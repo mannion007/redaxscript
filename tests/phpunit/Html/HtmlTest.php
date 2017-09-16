@@ -66,7 +66,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @dataProvider providerHtml
 	 */
 
-	public function testHtml($html = null, $expect = null)
+	public function testHtml($html = null, string $expect = null)
 	{
 		/* setup */
 
@@ -94,7 +94,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @dataProvider providerAppend
 	 */
 
-	public function testAppend($html = null, $append = null, $expect = null)
+	public function testAppend($html = null, $append = null, string $expect = null)
 	{
 		/* setup */
 
@@ -122,7 +122,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @dataProvider providerPrepend
 	 */
 
-	public function testPrepend($html = null, $prepend = null, $expect = null)
+	public function testPrepend($html = null, $prepend = null, string $expect = null)
 	{
 		/* setup */
 

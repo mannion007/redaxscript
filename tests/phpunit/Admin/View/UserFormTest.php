@@ -85,7 +85,7 @@ class UserFormTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($registryArray = [], $userId = null, $expectArray = [])
+	public function testRender(array $registryArray = [], $userId = null, array $expectArray = [])
 	{
 		/* setup */
 

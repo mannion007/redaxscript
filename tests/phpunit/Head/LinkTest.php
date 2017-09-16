@@ -93,7 +93,7 @@ class LinkTest extends TestCaseAbstract
 	 * @dataProvider providerAppend
 	 */
 
-	public function testAppend($coreArray = [], $moduleArray = [], $expect = null)
+	public function testAppend($coreArray = [], $moduleArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -135,7 +135,7 @@ class LinkTest extends TestCaseAbstract
 	 * @dataProvider providerPrepend
 	 */
 
-	public function testPrepend($coreArray = [], $moduleArray = [], $expect = null)
+	public function testPrepend($coreArray = [], $moduleArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -177,7 +177,7 @@ class LinkTest extends TestCaseAbstract
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($coreArray = [], $deleteFile = null, $expect = null)
+	public function testRemove($coreArray = [], $deleteFile = null, string $expect = null)
 	{
 		/* setup */
 
@@ -212,7 +212,7 @@ class LinkTest extends TestCaseAbstract
 	 * @dataProvider providerConcat
 	 */
 
-	public function testConcat($concatArray = [], $expect = null)
+	public function testConcat($concatArray = [], string $expect = null)
 	{
 		/* setup */
 

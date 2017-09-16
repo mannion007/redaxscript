@@ -245,10 +245,10 @@ class UserForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @param int $userId identifier of the user
 	 *
-	 * @return object
+	 * @return string
 	 */
 
-	protected function _renderList(int $userId = null)
+	protected function _renderList(int $userId = null) : string
 	{
 		$tabRoute = $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
 
@@ -291,7 +291,6 @@ class UserForm extends ViewAbstract implements ViewInterface
 					->text($this->_language->get('customize'))
 				);
 		}
-		$listElement->html($outputItem);
-		return $listElement;
+		return $listElement->html($outputItem)->render();
 	}
 }

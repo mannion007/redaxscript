@@ -98,7 +98,7 @@ class RecoverTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($postArray = [], $hashArray = [], $expect = null)
+	public function testProcess($postArray = [], $hashArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -128,7 +128,7 @@ class RecoverTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], $method = null, $expect = null)
+	public function testProcessFailure($postArray = [], $hashArray = [], $method = null, string $expect = null)
 	{
 		/* setup */
 

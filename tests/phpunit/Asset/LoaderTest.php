@@ -68,7 +68,7 @@ class LoaderTest extends TestCaseAbstract
 	 * @dataProvider providerConcat
 	 */
 
-	public function testConcat($registryArray = [], $collectionArray = [], $expectArray = [])
+	public function testConcat(array $registryArray = [], array $collectionArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -107,7 +107,7 @@ class LoaderTest extends TestCaseAbstract
 	 * @dataProvider providerRewrite
 	 */
 
-	public function testRewrite($collectionArray = [], $rewriteArray = [], $expect = null)
+	public function testRewrite(array $collectionArray = [], array $rewriteArray = [], string $expect = null)
 	{
 		/* setup */
 

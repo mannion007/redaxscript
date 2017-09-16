@@ -76,7 +76,7 @@ class LogoutTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($authArray = [], $expect = null)
+	public function testProcess($authArray = [], string $expect = null)
 	{
 		/* setup */
 

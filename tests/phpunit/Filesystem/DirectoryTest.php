@@ -80,7 +80,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate($root = null, $recursive = null, $directory = null, $expectArray = [])
+	public function testCreate($root = null, $recursive = null, $directory = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -110,7 +110,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($root = null,  $recursive = null, $directory = null, $expectArray = [])
+	public function testRemove($root = null,  $recursive = null, $directory = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -140,7 +140,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @dataProvider providerClear
 	 */
 
-	public function testClear($root = null,  $recursive = null, $expectArray = [])
+	public function testClear($root = null,  $recursive = null, array $expectArray = [])
 	{
 		/* setup */
 

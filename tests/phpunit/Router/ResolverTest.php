@@ -40,7 +40,7 @@ class ResolverTest extends TestCaseAbstract
 	 * @dataProvider providerResolver
 	 */
 
-	public function testGetLite($route = null, $expectArray = [])
+	public function testGetLite($route = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -68,7 +68,7 @@ class ResolverTest extends TestCaseAbstract
 	 * @dataProvider providerResolver
 	 */
 
-	public function testGetFull($route = null, $expectArray = [])
+	public function testGetFull($route = null, array $expectArray = [])
 	{
 		/* setup */
 

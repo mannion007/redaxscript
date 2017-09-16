@@ -62,7 +62,7 @@ class AutoloaderTest extends TestCaseAbstract
 	 * @dataProvider providerFilePath
 	 */
 
-	public function testFilePath($className = null, $expect = null)
+	public function testFilePath($className = null, string $expect = null)
 	{
 		/* actual */
 

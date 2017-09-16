@@ -79,7 +79,7 @@ class Element extends HtmlAbstract
 	 * @return $this
 	 */
 
-	public function init($tag = null, $attributeArray = [])
+	public function init($tag = null, array $attributeArray = [])
 	{
 		$this->_tag = strtolower($tag);
 

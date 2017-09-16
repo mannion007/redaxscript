@@ -55,7 +55,7 @@ class CommonTest extends TestCaseAbstract
 	 * @dataProvider providerCommonServer
 	 */
 
-	public function testCommonServer($userAgent = null, $expectArray = [])
+	public function testCommonServer($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -94,7 +94,7 @@ class CommonTest extends TestCaseAbstract
 	 * @dataProvider providerCommonClient
 	 */
 
-	public function testCommonClient($userAgent = null, $expectArray = [])
+	public function testCommonClient($userAgent = null, array $expectArray = [])
 	{
 		/* setup */
 

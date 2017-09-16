@@ -80,7 +80,7 @@ class FileTest extends TestCaseAbstract
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate($root = null, $recursive = null, $file = null, $expectArray = [])
+	public function testCreate($root = null, $recursive = null, $file = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -111,7 +111,7 @@ class FileTest extends TestCaseAbstract
 	 * @dataProvider providerReadAndWrite
 	 */
 
-	public function testReadAndWrite($root = null, $recursive = null, $file = null, $content = null, $expectArray = [])
+	public function testReadAndWrite($root = null, $recursive = null, $file = null, $content = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -145,7 +145,7 @@ class FileTest extends TestCaseAbstract
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($root = null, $recursive = null, $file = null, $expectArray = [])
+	public function testRemove($root = null, $recursive = null, $file = null, array $expectArray = [])
 	{
 		/* setup */
 

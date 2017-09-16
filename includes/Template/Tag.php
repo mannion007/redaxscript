@@ -333,7 +333,7 @@ class Tag
 	 * @return string
 	 */
 
-	public static function navigation($type = null, $optionArray = [])
+	public static function navigation($type = null, array $optionArray = [])
 	{
 		// @codeCoverageIgnoreStart
 		if ($type === 'languages' || $type === 'templates')

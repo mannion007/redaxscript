@@ -141,7 +141,7 @@ class DirectoryLister extends Config
 	 * @return string
 	 */
 
-	protected function _renderParent($rootDirectory = null, $parentDirectory = null, $optionArray = [])
+	protected function _renderParent(string $rootDirectory = null, string $parentDirectory = null, array $optionArray = []) : string
 	{
 		$queryString = $rootDirectory !== $parentDirectory ? '&directory=' . $parentDirectory : null;
 
@@ -180,7 +180,7 @@ class DirectoryLister extends Config
 	 * @return string
 	 */
 
-	protected function _renderItem($directory = null, $optionArray = [])
+	protected function _renderItem(string $directory = null, array $optionArray = []) : string
 	{
 		$outputItem = null;
 

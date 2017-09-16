@@ -40,7 +40,7 @@ class TitleTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($text= null, $expect = null)
+	public function testRender($text= null, string $expect = null)
 	{
 		/* setup */
 

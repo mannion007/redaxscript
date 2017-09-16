@@ -65,7 +65,7 @@ class TransportTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($transportArray = [], $expect = null)
+	public function testRender($transportArray = [], string $expect = null)
 	{
 		/* setup */
 

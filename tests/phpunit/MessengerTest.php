@@ -92,7 +92,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @dataProvider providerSuccess
 	 */
 
-	public function testSuccess($success = null, $actionArray = [], $expect = null)
+	public function testSuccess($success = null, $actionArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -120,7 +120,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @dataProvider providerInfo
 	 */
 
-	public function testInfo($info = null, $actionArray = [], $expect = null)
+	public function testInfo($info = null, $actionArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -148,7 +148,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @dataProvider providerWarning
 	 */
 
-	public function testWarning($warning = null, $actionArray = [], $expect = null)
+	public function testWarning($warning = null, $actionArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -176,7 +176,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @dataProvider providerError
 	 */
 
-	public function testError($error = null, $actionArray = [], $expect = null)
+	public function testError($error = null, $actionArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -204,7 +204,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($render = null, $actionArray = [], $expect = null)
+	public function testRender($render = null, $actionArray = [], string $expect = null)
 	{
 		/* setup */
 

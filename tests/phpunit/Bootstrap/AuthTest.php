@@ -78,7 +78,7 @@ class AuthTest extends TestCaseAbstract
 	 * @dataProvider providerAuth
 	 */
 
-	public function testAuth($userId = null, $expectArray = [])
+	public function testAuth($userId = null, array $expectArray = [])
 	{
 		/* setup */
 

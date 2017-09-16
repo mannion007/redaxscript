@@ -75,7 +75,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate($attributeArray = [], $optionArray = [], $expect = null)
+	public function testCreate(array $attributeArray = [], array $optionArray = [], string $expect = null)
 	{
 		/* setup */
 

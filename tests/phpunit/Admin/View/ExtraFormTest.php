@@ -77,7 +77,7 @@ class ExtraFormTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($registryArray = [], $extraId = null, $expectArray = [])
+	public function testRender(array $registryArray = [], $extraId = null, array $expectArray = [])
 	{
 		/* setup */
 

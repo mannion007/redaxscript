@@ -90,7 +90,7 @@ class Breadcrumb
 	 * @param array $optionArray options of the breadcrumb
 	 */
 
-	public function init($optionArray = [])
+	public function init(array $optionArray = [])
 	{
 		if (is_array($optionArray))
 		{

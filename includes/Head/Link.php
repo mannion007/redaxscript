@@ -124,7 +124,7 @@ class Link extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function concat($optionArray = [])
+	public function concat(array $optionArray = [])
 	{
 		$optionArray = array_merge(self::$_optionArray, $optionArray);
 		$loader = new Asset\Loader(Registry::getInstance());

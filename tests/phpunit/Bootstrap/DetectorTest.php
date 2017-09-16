@@ -41,7 +41,7 @@ class DetectorTest extends TestCaseAbstract
 	 * @dataProvider providerDetector
 	 */
 
-	public function testDetector($expectArray = [])
+	public function testDetector(array $expectArray = [])
 	{
 		/* setup */
 

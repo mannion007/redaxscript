@@ -40,7 +40,7 @@ class SearchTest extends TestCaseAbstract
 	 * @dataProvider providerSearch
 	 */
 
-	public function testAlias($search = null, $expect = null)
+	public function testAlias($search = null, string $expect = null)
 	{
 		/* setup */
 

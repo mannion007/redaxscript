@@ -93,7 +93,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate($tag = null, $attributeArray = [], $expect = null)
+	public function testCreate($tag = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -144,7 +144,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerAttr
 	 */
 
-	public function testAttr($attribute = [], $expect = null)
+	public function testAttr($attribute = [], string $expect = null)
 	{
 		/* setup */
 
@@ -171,7 +171,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerClass
 	 */
 
-	public function testClass($className = [], $expect = null)
+	public function testClass($className = [], string $expect = null)
 	{
 		/* setup */
 
@@ -198,7 +198,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerVal
 	 */
 
-	public function testVal($value = null, $expect = null)
+	public function testVal($value = null, string $expect = null)
 	{
 		/* setup */
 
@@ -225,7 +225,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerText
 	 */
 
-	public function testText($text = null, $expect = null)
+	public function testText($text = null, string $expect = null)
 	{
 		/* setup */
 

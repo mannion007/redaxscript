@@ -119,7 +119,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerAppend
 	 */
 
-	public function testAppend($coreArray = [], $moduleArray = [], $expect = null)
+	public function testAppend($coreArray = [], $moduleArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -161,7 +161,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerPrepend
 	 */
 
-	public function testPrepend($coreArray = [], $moduleArray = [], $expect = null)
+	public function testPrepend($coreArray = [], $moduleArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -203,7 +203,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerInline
 	 */
 
-	public function testInline($coreArray = [], $moduleArray = [], $expect = null)
+	public function testInline($coreArray = [], $moduleArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -245,7 +245,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($coreArray = [], $deleteFile = null, $expect = null)
+	public function testRemove($coreArray = [], $deleteFile = null, string $expect = null)
 	{
 		/* setup */
 
@@ -280,7 +280,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerTransportVar
 	 */
 
-	public function testTransportVar($transportArray = [], $expect = null)
+	public function testTransportVar($transportArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -309,7 +309,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @dataProvider providerConcat
 	 */
 
-	public function testConcat($concatArray = [], $expect = null)
+	public function testConcat($concatArray = [], string $expect = null)
 	{
 		/* setup */
 
