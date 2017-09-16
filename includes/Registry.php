@@ -29,7 +29,7 @@ class Registry extends Singleton
 	 * @param array $registryArray array of the registry
 	 */
 
-	public function init($registryArray = [])
+	public function init(array $registryArray = [])
 	{
 		if (is_array($registryArray))
 		{
@@ -44,10 +44,10 @@ class Registry extends Singleton
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
-	public function get($key = null)
+	public function get(string $key = null)
 	{
 		if (is_array(self::$_registryArray) && array_key_exists($key, self::$_registryArray))
 		{
@@ -66,10 +66,10 @@ class Registry extends Singleton
 	 * @since 2.1.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|array|boolean $value value of the item
+	 * @param string|array|bool $value value of the item
 	 */
 
-	public function set($key = null, $value = null)
+	public function set(string $key = null, $value = null)
 	{
 		self::$_registryArray[$key] = $value;
 	}

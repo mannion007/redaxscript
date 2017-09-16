@@ -410,7 +410,7 @@ function extras($filter)
  * @author Henry Ruhs
  *
  * @param string $table
- * @param integer $id
+ * @param int $id
  * @param string $author
  * @param string $date
  *
@@ -476,8 +476,8 @@ function byline($table, $id, $author, $date)
  * @category Content
  * @author Henry Ruhs
  *
- * @param integer $sub_active
- * @param integer $sub_maximum
+ * @param int $sub_active
+ * @param int $sub_maximum
  * @param string $route
  */
 

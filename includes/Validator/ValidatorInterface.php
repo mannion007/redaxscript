@@ -35,10 +35,8 @@ interface ValidatorInterface
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string $value general value to validate
-	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	public function validate($value = null);
+	public function validate();
 }

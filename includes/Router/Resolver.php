@@ -45,7 +45,7 @@ class Resolver extends Parameter
 	 *
 	 * @since 2.4.0
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getLite()
@@ -58,7 +58,7 @@ class Resolver extends Parameter
 	 *
 	 * @since 2.4.0
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public function getFull()
@@ -73,10 +73,10 @@ class Resolver extends Parameter
 	 *
 	 * @param string $type type of the route
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
-	protected function _getRoute($type = 'lite')
+	protected function _getRoute(string $type = 'lite')
 	{
 		$output = null;
 		$adminParameter = $this->getAdmin();

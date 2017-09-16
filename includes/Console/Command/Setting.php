@@ -110,7 +110,7 @@ class Setting extends CommandAbstract
 	 *
 	 * @param array $optionArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _set(array $optionArray = [])

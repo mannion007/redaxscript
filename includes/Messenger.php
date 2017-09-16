@@ -141,7 +141,7 @@ class Messenger
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $timeout timeout of the redirect
+	 * @param int $timeout timeout of the redirect
 	 *
 	 * @return $this
 	 */

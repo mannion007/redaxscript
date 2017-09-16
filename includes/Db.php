@@ -106,7 +106,7 @@ class Db extends ORM
 	 *
 	 * @since 3.1.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
 	public static function getStatus()
@@ -153,7 +153,7 @@ class Db extends ORM
 	 *
 	 * @since 3.1.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
 	public static function countTablePrefix()
@@ -327,7 +327,7 @@ class Db extends ORM
 	 * @param string $key key of the item
 	 * @param string|integer $value value of the item
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	public static function setSetting($key = null, $value = null)

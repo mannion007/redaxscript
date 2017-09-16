@@ -164,7 +164,7 @@ class Module
 	 *
 	 * @since 2.6.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	public function install()
@@ -194,7 +194,7 @@ class Module
 	 *
 	 * @since 2.6.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	public function uninstall()

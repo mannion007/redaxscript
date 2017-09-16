@@ -187,7 +187,7 @@ class Parser
 	 *
 	 * @param string $option raw option to be parsed
 	 * @param string $next raw next to be parsed
-	 * @param integer $offset offset of the raw option
+	 * @param int $offset offset of the raw option
 	 *
 	 * @return array
 	 */

@@ -114,7 +114,7 @@ class Config extends Singleton
 	 *
 	 * @since 2.4.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	public function write()

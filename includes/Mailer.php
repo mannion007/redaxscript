@@ -234,7 +234,7 @@ class Mailer
 	 *
 	 * @since 2.6.2
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	public function send()

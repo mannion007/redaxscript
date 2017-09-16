@@ -10,7 +10,7 @@
  * @category Comments
  * @author Henry Ruhs
  *
- * @param integer $article
+ * @param int $article
  * @param string $route
  */
 

@@ -104,7 +104,7 @@ class Install extends CommandAbstract
 	 *
 	 * @param array $optionArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _database(array $optionArray = [])
@@ -140,7 +140,7 @@ class Install extends CommandAbstract
 	 *
 	 * @param array $optionArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _module(array $optionArray = [])

@@ -200,10 +200,10 @@ class Breadcrumb
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param integer $key key of the item
+	 * @param int $key key of the item
 	 */
 
-	protected function _create($key = 0)
+	protected function _create(int $key = 0)
 	{
 		$aliasValidator = new Validator\Alias();
 		$title = $this->_registry->get('useTitle');
@@ -260,10 +260,10 @@ class Breadcrumb
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param integer $key key of the item
+	 * @param int $key key of the item
 	 */
 
-	protected function _createAdmin($key = 0)
+	protected function _createAdmin(int $key = 0)
 	{
 		$adminParameter = $this->_registry->get('adminParameter');
 		$tableParameter = $this->_registry->get('tableParameter');
@@ -310,10 +310,10 @@ class Breadcrumb
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param integer $key
+	 * @param int $key
 	 */
 
-	protected function _createContent($key = 0)
+	protected function _createContent(int $key = 0)
 	{
 		$firstParameter = $this->_registry->get('firstParameter');
 		$secondParameter = $this->_registry->get('secondParameter');

@@ -159,7 +159,7 @@ class Config extends CommandAbstract
 	 *
 	 * @param array $optionArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _set(array $optionArray = [])
@@ -187,7 +187,7 @@ class Config extends CommandAbstract
 	 *
 	 * @param array $optionArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _parse(array $optionArray = [])
@@ -207,7 +207,7 @@ class Config extends CommandAbstract
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
 	protected function _lock()

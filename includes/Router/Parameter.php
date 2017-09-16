@@ -307,7 +307,7 @@ class Parameter
 	 * @return string|bool
 	 */
 
-	protected function _getParameter($key = null)
+	protected function _getParameter(int $key = null)
 	{
 		if (is_array($this->_parameterArray) && array_key_exists($key, $this->_parameterArray) && !is_numeric($this->_parameterArray[$key]))
 		{
@@ -326,7 +326,7 @@ class Parameter
 	 * @return int|bool
 	 */
 
-	protected function _getParameterSub($key = null)
+	protected function _getParameterSub(int $key = null)
 	{
 		if (is_array($this->_parameterArray) && array_key_exists($key, $this->_parameterArray) && is_numeric($this->_parameterArray[$key]))
 		{
