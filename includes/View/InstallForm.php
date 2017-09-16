@@ -26,7 +26,7 @@ class InstallForm extends ViewAbstract
 	 * @return string
 	 */
 
-	public function render($optionArray = [])
+	public function render(array $optionArray = []) : string
 	{
 		$output = Module\Hook::trigger('installFormStart');
 

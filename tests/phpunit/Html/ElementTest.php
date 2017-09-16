@@ -24,7 +24,7 @@ class ElementTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCreate()
+	public function providerCreate() : array
 	{
 		return $this->getProvider('tests/provider/Html/element_create.json');
 	}
@@ -37,7 +37,7 @@ class ElementTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAttr()
+	public function providerAttr() : array
 	{
 		return $this->getProvider('tests/provider/Html/element_attr.json');
 	}
@@ -50,7 +50,7 @@ class ElementTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerClass()
+	public function providerClass() : array
 	{
 		return $this->getProvider('tests/provider/Html/element_class.json');
 	}
@@ -63,7 +63,7 @@ class ElementTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerVal()
+	public function providerVal() : array
 	{
 		return $this->getProvider('tests/provider/Html/element_val.json');
 	}
@@ -76,7 +76,7 @@ class ElementTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerText()
+	public function providerText() : array
 	{
 		return $this->getProvider('tests/provider/Html/element_text.json');
 	}

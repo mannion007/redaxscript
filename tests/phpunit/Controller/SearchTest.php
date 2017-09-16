@@ -142,7 +142,7 @@ class SearchTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerProcess()
+	public function providerProcess() : array
 	{
 		return $this->getProvider('tests/provider/Controller/search_process.json');
 	}

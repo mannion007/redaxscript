@@ -63,7 +63,7 @@ class Element extends HtmlAbstract
 	 * @return string
 	 */
 
-	public function __toString()
+	public function __toString() : string
 	{
 		return $this->render();
 	}
@@ -260,7 +260,7 @@ class Element extends HtmlAbstract
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$output = '<' . $this->_tag;
 

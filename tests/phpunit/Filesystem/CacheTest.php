@@ -36,7 +36,7 @@ class CacheTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerStore()
+	public function providerStore() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/cache_store.json');
 	}

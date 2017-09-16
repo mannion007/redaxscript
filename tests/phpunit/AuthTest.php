@@ -82,7 +82,7 @@ class AuthTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetPermission()
+	public function providerGetPermission() : array
 	{
 		return $this->getProvider('tests/provider/auth_get_permission.json');
 	}
@@ -95,7 +95,7 @@ class AuthTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetFilter()
+	public function providerGetFilter() : array
 	{
 		return $this->getProvider('tests/provider/auth_get_filter.json');
 	}

@@ -23,7 +23,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerSuccess()
+	public function providerSuccess() : array
 	{
 		return $this->getProvider('tests/provider/messenger_success.json');
 	}
@@ -36,7 +36,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInfo()
+	public function providerInfo() : array
 	{
 		return $this->getProvider('tests/provider/messenger_info.json');
 	}
@@ -49,7 +49,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerWarning()
+	public function providerWarning() : array
 	{
 		return $this->getProvider('tests/provider/messenger_warning.json');
 	}
@@ -62,7 +62,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerError()
+	public function providerError() : array
 	{
 		return $this->getProvider('tests/provider/messenger_error.json');
 	}
@@ -75,7 +75,7 @@ class MessengerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/messenger_render.json');
 	}

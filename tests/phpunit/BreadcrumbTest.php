@@ -96,7 +96,7 @@ class BreadcrumbTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetArray()
+	public function providerGetArray() : array
 	{
 		return $this->getProvider('tests/provider/breadcrumb_get_array.json');
 	}
@@ -109,7 +109,7 @@ class BreadcrumbTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/breadcrumb_render.json');
 	}

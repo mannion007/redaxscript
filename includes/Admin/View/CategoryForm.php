@@ -23,12 +23,12 @@ class CategoryForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $categoryId identifier of the category
+	 * @param int $categoryId identifier of the category
 	 *
 	 * @return string
 	 */
 
-	public function render($categoryId = null)
+	public function render(int $categoryId = null) : string
 	{
 		$output = Module\Hook::trigger('adminCategoryFormStart');
 		$category = Db::forTablePrefix('categories')->whereIdIs($categoryId)->findOne();

@@ -26,7 +26,7 @@ class SessionTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerSession()
+	public function providerSession() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/session.json');
 	}

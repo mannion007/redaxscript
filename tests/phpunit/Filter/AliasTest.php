@@ -24,7 +24,7 @@ class AliasTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAlias()
+	public function providerAlias() : array
 	{
 		return $this->getProvider('tests/provider/Filter/alias.json');
 	}

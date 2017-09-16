@@ -58,7 +58,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerHtml()
+	public function providerHtml() : array
 	{
 		return $this->getProvider('tests/provider/Filter/html.json');
 	}

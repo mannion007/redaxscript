@@ -228,7 +228,7 @@ class Messenger
 	 * @return string
 	 */
 
-	public function render($type = null, $message = null, $title = null)
+	public function render(string $type = null, $message = null, string $title = null) : string
 	{
 		$output = Module\Hook::trigger('messengerStart');
 

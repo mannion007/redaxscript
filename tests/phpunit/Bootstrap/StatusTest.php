@@ -62,7 +62,7 @@ class StatusTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerStatus()
+	public function providerStatus() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/status.json');
 	}

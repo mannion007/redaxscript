@@ -24,7 +24,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerHtml()
+	public function providerHtml() : array
 	{
 		return $this->getProvider('tests/provider/Html/html_html.json');
 	}
@@ -37,7 +37,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAppend()
+	public function providerAppend() : array
 	{
 		return $this->getProvider('tests/provider/Html/html_append.json');
 	}
@@ -50,7 +50,7 @@ class HtmlTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerPrepend()
+	public function providerPrepend() : array
 	{
 		return $this->getProvider('tests/provider/Html/html_prepend.json');
 	}

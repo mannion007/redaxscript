@@ -70,7 +70,7 @@ class FeedReader extends Config
 	 * @return string
 	 */
 
-	public function render($url = null, $optionArray = [])
+	public function render(string $url = null, array $optionArray = []) : string
 	{
 		$counter = 0;
 		$output = null;

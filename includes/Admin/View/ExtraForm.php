@@ -23,12 +23,12 @@ class ExtraForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $extraId identifier of the extra
+	 * @param int $extraId identifier of the extra
 	 *
 	 * @return string
 	 */
 
-	public function render($extraId = null)
+	public function render(int $extraId = null) : string
 	{
 		$output = Module\Hook::trigger('adminExtraFormStart');
 		$extra = Db::forTablePrefix('extras')->whereIdIs($extraId)->findOne();

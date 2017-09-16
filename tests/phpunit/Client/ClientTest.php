@@ -24,7 +24,7 @@ class ClientTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerClient()
+	public function providerClient() : array
 	{
 		return $this->getProvider('tests/provider/Client/client.json');
 	}

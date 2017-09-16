@@ -23,12 +23,12 @@ class UserForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $userId identifier of the user
+	 * @param int $userId identifier of the user
 	 *
 	 * @return string
 	 */
 
-	public function render($userId = null)
+	public function render(int $userId = null) : string
 	{
 		$output = Module\Hook::trigger('adminUserFormStart');
 		$user = Db::forTablePrefix('users')->whereIdIs($userId)->findOne();
@@ -243,12 +243,12 @@ class UserForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.2.0
 	 *
-	 * @param integer $userId identifier of the user
+	 * @param int $userId identifier of the user
 	 *
 	 * @return object
 	 */
 
-	protected function _renderList($userId = null)
+	protected function _renderList(int $userId = null)
 	{
 		$tabRoute = $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
 

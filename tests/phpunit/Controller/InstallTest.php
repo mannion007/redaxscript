@@ -56,7 +56,7 @@ class InstallTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerProcess()
+	public function providerProcess() : array
 	{
 		return $this->getProvider('tests/provider/Controller/install_process.json');
 	}
@@ -69,7 +69,7 @@ class InstallTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerProcessFailure()
+	public function providerProcessFailure() : array
 	{
 		return $this->getProvider('tests/provider/Controller/install_process_failure.json');
 	}
@@ -82,7 +82,7 @@ class InstallTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerValidateDatabase()
+	public function providerValidateDatabase() : array
 	{
 		return $this->getProvider('tests/provider/Controller/install_validate_database.json');
 	}
@@ -95,7 +95,7 @@ class InstallTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerValidateAccount()
+	public function providerValidateAccount() : array
 	{
 		return $this->getProvider('tests/provider/Controller/install_validate_account.json');
 	}
@@ -108,7 +108,7 @@ class InstallTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInstall()
+	public function providerInstall() : array
 	{
 		return $this->getProvider('tests/provider/Controller/install_install.json');
 	}

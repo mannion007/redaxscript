@@ -90,7 +90,7 @@ class ResultListTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/View/result_list_render.json');
 	}

@@ -57,7 +57,7 @@ class ModuleFormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Admin/View/module_form_render.json');
 	}

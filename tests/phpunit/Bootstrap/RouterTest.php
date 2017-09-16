@@ -26,7 +26,7 @@ class RouterTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRouter()
+	public function providerRouter() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/router.json');
 	}

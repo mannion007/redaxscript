@@ -24,7 +24,7 @@ class TransportTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Asset/transport_render.json');
 	}

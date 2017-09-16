@@ -64,7 +64,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerBlockcode()
+	public function providerBlockcode() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_blockcode.json');
 	}
@@ -77,7 +77,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLanguage()
+	public function providerLanguage() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_language.json');
 	}
@@ -90,7 +90,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerModule()
+	public function providerModule() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_module.json');
 	}
@@ -103,7 +103,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerReadmore()
+	public function providerReadmore() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_readmore.json');
 	}
@@ -116,7 +116,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRegistry()
+	public function providerRegistry() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_registry.json');
 	}
@@ -129,7 +129,7 @@ class ParserTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerTemplate()
+	public function providerTemplate() : array
 	{
 		return $this->getProvider('tests/provider/Content/parser_template.json');
 	}

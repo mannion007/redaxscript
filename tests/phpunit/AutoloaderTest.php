@@ -24,7 +24,7 @@ class AutoloaderTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerFilePath()
+	public function providerFilePath() : array
 	{
 		return $this->getProvider('tests/provider/autoloader_file_path.json');
 	}

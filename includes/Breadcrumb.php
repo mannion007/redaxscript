@@ -77,7 +77,7 @@ class Breadcrumb
 	 * @return string
 	 */
 
-	public function __toString()
+	public function __toString() : string
 	{
 		return $this->render();
 	}
@@ -111,7 +111,7 @@ class Breadcrumb
 	 * @return array
 	 */
 
-	public function getArray()
+	public function getArray() : array
 	{
 		return $this->_breadcrumbArray;
 	}
@@ -124,7 +124,7 @@ class Breadcrumb
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$output = Module\Hook::trigger('breadcrumbStart');
 

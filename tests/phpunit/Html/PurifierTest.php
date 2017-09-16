@@ -58,7 +58,7 @@ class PurifierTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerPurifier()
+	public function providerPurifier() : array
 	{
 		return $this->getProvider('tests/provider/Html/purifier.json');
 	}

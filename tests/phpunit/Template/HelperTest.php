@@ -131,7 +131,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetTitle()
+	public function providerGetTitle() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_title.json');
 	}
@@ -144,7 +144,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetCanonical()
+	public function providerGetCanonical() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_canonical.json');
 	}
@@ -157,7 +157,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetDescription()
+	public function providerGetDescription() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_description.json');
 	}
@@ -170,7 +170,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetKeywords()
+	public function providerGetKeywords() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_keywords.json');
 	}
@@ -183,7 +183,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetRobots()
+	public function providerGetRobots() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_robots.json');
 	}
@@ -196,7 +196,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetSubset()
+	public function providerGetSubset() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_subset.json');
 	}
@@ -209,7 +209,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetDirection()
+	public function providerGetDirection() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_direction.json');
 	}
@@ -222,7 +222,7 @@ class HelperTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetClass()
+	public function providerGetClass() : array
 	{
 		return $this->getProvider('tests/provider/Template/helper_get_class.json');
 	}

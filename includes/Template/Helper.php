@@ -95,7 +95,7 @@ class Helper
 	 * @return array
 	 */
 
-	public static function getTransport()
+	public static function getTransport() : array
 	{
 		$transport = new Asset\Transport(Registry::getInstance(), Language::getInstance());
 		return $transport->getArray();

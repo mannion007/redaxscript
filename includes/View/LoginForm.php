@@ -25,7 +25,7 @@ class LoginForm extends ViewAbstract
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$output = Module\Hook::trigger('loginFormStart');
 		$outputLegend = null;

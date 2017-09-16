@@ -38,7 +38,7 @@ class TestDummy extends Module\Module
 	 * @return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		$this->setNotification('info', 'Test Dummy');
 		return $this->getNotification();
@@ -49,13 +49,13 @@ class TestDummy extends Module\Module
 	 *
 	 * @since 3.1.0
 	 *
-	 * @param integer $firstNumber
-	 * @param integer $secondNumber
+	 * @param int $firstNumber
+	 * @param int $secondNumber
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function render($firstNumber = 1, $secondNumber = 1)
+	public function render(int $firstNumber = 1, int $secondNumber = 1) : int
 	{
 		return $firstNumber + $secondNumber;
 	}

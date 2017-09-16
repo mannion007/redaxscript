@@ -23,7 +23,7 @@ class HashTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerHash()
+	public function providerHash() : array
 	{
 		return $this->getProvider('tests/provider/hash.json');
 	}

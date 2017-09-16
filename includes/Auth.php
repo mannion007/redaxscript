@@ -187,12 +187,12 @@ class Auth
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $userId identifier of the user
+	 * @param int $userId identifier of the user
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function login($userId = null)
+	public function login(int $userId = null) : int
 	{
 		$user = Db::forTablePrefix('users')
 			->whereIdIs($userId)

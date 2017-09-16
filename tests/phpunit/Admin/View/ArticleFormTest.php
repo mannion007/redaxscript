@@ -60,7 +60,7 @@ class ArticleFormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Admin/View/article_form_render.json');
 	}

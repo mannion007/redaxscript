@@ -26,7 +26,7 @@ class CommonTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCommonServer()
+	public function providerCommonServer() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/common_server.json');
 	}
@@ -39,7 +39,7 @@ class CommonTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCommonClient()
+	public function providerCommonClient() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/common_client.json');
 	}

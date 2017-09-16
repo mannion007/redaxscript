@@ -111,7 +111,7 @@ class ExtraTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerExtraPublishDate()
+	public function providerExtraPublishDate() : array
 	{
 		return $this->getProvider('tests/provider/Model/extra_publish_date.json');
 	}

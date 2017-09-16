@@ -60,7 +60,7 @@ class ResetFormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/View/reset_form_render.json');
 	}

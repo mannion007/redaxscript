@@ -30,7 +30,7 @@ class ResultList extends ViewAbstract
 	 * @return string
 	 */
 
-	public function render($resultArray = [])
+	public function render(array $resultArray = []) : string
 	{
 		$output = Module\Hook::trigger('resultListStart');
 		$accessValidator = new Validator\Access();

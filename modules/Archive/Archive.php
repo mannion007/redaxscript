@@ -41,7 +41,7 @@ class Archive extends Config
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$output = null;
 

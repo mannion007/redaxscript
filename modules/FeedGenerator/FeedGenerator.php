@@ -61,7 +61,7 @@ class FeedGenerator extends Module\Module
 	 * @return string
 	 */
 
-	public function render($table = 'articles')
+	public function render(string $table = 'articles') : string
 	{
 		/* query result */
 

@@ -55,10 +55,10 @@ class Contact extends Module\Module
 	 *
 	 * @since 2.6.0
 	 *
-	 * return Form
+	 * return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$formElement = new Html\Form($this->_registry, $this->_language);
 		$formElement->init(
@@ -148,7 +148,7 @@ class Contact extends Module\Module
 			->token()
 			->submit()
 			->reset();
-		return $formElement;
+		return $formElement->render();
 	}
 
 	/**

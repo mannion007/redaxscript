@@ -23,12 +23,12 @@ class GroupForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $groupId identifier of the group
+	 * @param int $groupId identifier of the group
 	 *
 	 * @return string
 	 */
 
-	public function render($groupId = null)
+	public function render(int $groupId = null) : string
 	{
 		$output = Module\Hook::trigger('adminGroupFormStart');
 		$group = Db::forTablePrefix('groups')->whereIdIs($groupId)->findOne();
@@ -301,12 +301,12 @@ class GroupForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.2.0
 	 *
-	 * @param integer $groupId identifier of the group
+	 * @param int $groupId identifier of the group
 	 *
 	 * @return object
 	 */
 
-	protected function _renderList($groupId = null)
+	protected function _renderList(int $groupId = null)
 	{
 		$tabRoute = $this->_registry->get('parameterRoute') . $this->_registry->get('fullRoute');
 

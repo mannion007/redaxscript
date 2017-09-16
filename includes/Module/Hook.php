@@ -131,7 +131,7 @@ class Hook
 	 * @return array
 	 */
 
-	public static function getModuleArray()
+	public static function getModuleArray() : array
 	{
 		return self::$_moduleArray;
 	}
@@ -144,7 +144,7 @@ class Hook
 	 * @return array
 	 */
 
-	public static function getEventArray()
+	public static function getEventArray() : array
 	{
 		return self::$_eventArray;
 	}

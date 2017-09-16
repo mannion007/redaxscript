@@ -24,7 +24,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/View/system_status_render.json');
 	}
@@ -37,7 +37,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerError()
+	public function providerError() : array
 	{
 		return $this->getProvider('tests/provider/View/system_status_validate_error.json');
 	}
@@ -50,7 +50,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerWarning()
+	public function providerWarning() : array
 	{
 		return $this->getProvider('tests/provider/View/system_status_validate_warning.json');
 	}

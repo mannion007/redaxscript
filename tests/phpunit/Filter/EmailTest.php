@@ -24,7 +24,7 @@ class EmailTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerEmail()
+	public function providerEmail() : array
 	{
 		return $this->getProvider('tests/provider/Filter/email.json');
 	}

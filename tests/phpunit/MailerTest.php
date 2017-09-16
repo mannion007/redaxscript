@@ -63,7 +63,7 @@ class MailerTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerMailer()
+	public function providerMailer() : array
 	{
 		return $this->getProvider('tests/provider/mailer.json');
 	}

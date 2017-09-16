@@ -72,7 +72,7 @@ class DirectoryLister extends Config
 	 * @return string
 	 */
 
-	public function render($directory = null, $optionArray = [])
+	public function render(string $directory = null, array $optionArray = []) : string
 	{
 		$output = null;
 		$outputItem = null;

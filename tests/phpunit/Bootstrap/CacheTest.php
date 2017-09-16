@@ -26,7 +26,7 @@ class CacheTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCache()
+	public function providerCache() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/cache.json');
 	}

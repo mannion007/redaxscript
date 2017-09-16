@@ -87,10 +87,10 @@ class Captcha
 	 *
 	 * @since 2.4.0
 	 *
-	 * @param integer $mode captcha operator mode
+	 * @param int $mode captcha operator mode
 	 */
 
-	public function init($mode = 0)
+	public function init(int $mode = 0)
 	{
 		if (is_numeric($mode))
 		{
@@ -111,7 +111,7 @@ class Captcha
 	 * @return string
 	 */
 
-	public function getTask()
+	public function getTask() : string
 	{
 		return $this->_task;
 	}
@@ -121,10 +121,10 @@ class Captcha
 	 *
 	 * @since 2.6.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getSolution()
+	public function getSolution() : int
 	{
 		return $this->_solution;
 	}
@@ -134,10 +134,10 @@ class Captcha
 	 *
 	 * @since 2.6.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getMin()
+	public function getMin() : int
 	{
 		return $this->_rangeArray['min'];
 	}
@@ -147,10 +147,10 @@ class Captcha
 	 *
 	 * @since 2.6.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getMax()
+	public function getMax() : int
 	{
 		return $this->_rangeArray['max'];
 	}
@@ -160,10 +160,10 @@ class Captcha
 	 *
 	 * @since 2.0.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	protected function _getOperator()
+	protected function _getOperator() : int
 	{
 		/* switch mode */
 

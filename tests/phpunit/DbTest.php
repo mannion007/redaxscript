@@ -85,7 +85,7 @@ class DbTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInit()
+	public function providerInit() : array
 	{
 		return $this->getProvider('tests/provider/db_init.json');
 	}
@@ -98,7 +98,7 @@ class DbTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLanguage()
+	public function providerLanguage() : array
 	{
 		return $this->getProvider('tests/provider/db_language.json');
 	}

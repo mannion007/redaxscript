@@ -133,7 +133,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerArticleGetId()
+	public function providerArticleGetId() : array
 	{
 		return $this->getProvider('tests/provider/Model/article_get_id.json');
 	}
@@ -146,7 +146,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerArticleGetRoute()
+	public function providerArticleGetRoute() : array
 	{
 		return $this->getProvider('tests/provider/Model/article_get_route.json');
 	}
@@ -159,7 +159,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerArticlePublishDate()
+	public function providerArticlePublishDate() : array
 	{
 		return $this->getProvider('tests/provider/Model/article_publish_date.json');
 	}

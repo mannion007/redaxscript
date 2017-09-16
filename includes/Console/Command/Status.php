@@ -135,7 +135,7 @@ class Status extends CommandAbstract
 	 * @return array
 	 */
 
-	protected function _getStatusArray()
+	protected function _getStatusArray() : array
 	{
 		$driverArray = $this->_registry->get('driverArray');
 		$moduleArray = $this->_registry->get('moduleArray');

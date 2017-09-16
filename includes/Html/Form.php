@@ -305,7 +305,7 @@ class Form extends HtmlAbstract
 	 * @return string
 	 */
 
-	public function __toString()
+	public function __toString() : string
 	{
 		return $this->render();
 	}
@@ -558,7 +558,7 @@ class Form extends HtmlAbstract
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		$output = Module\Hook::trigger('formStart');
 		$formElement = new Element();

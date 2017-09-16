@@ -59,7 +59,7 @@ class CaptchaTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCaptcha()
+	public function providerCaptcha() : array
 	{
 		return $this->getProvider('tests/provider/Validator/captcha.json');
 	}

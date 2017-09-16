@@ -77,7 +77,7 @@ class DetectorTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLanguage()
+	public function providerLanguage() : array
 	{
 		return $this->getProvider('tests/provider/Detector/language.json');
 	}
@@ -90,7 +90,7 @@ class DetectorTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerTemplate()
+	public function providerTemplate() : array
 	{
 		return $this->getProvider('tests/provider/Detector/template.json');
 	}

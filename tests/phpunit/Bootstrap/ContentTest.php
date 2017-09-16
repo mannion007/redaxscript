@@ -103,7 +103,7 @@ class ContentTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerContent()
+	public function providerContent() : array
 	{
 		return $this->getProvider('tests/provider/Bootstrap/content.json');
 	}

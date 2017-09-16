@@ -24,7 +24,7 @@ class TitleTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Head/title_render.json');
 	}

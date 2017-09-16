@@ -23,12 +23,12 @@ class CommentForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $commentId identifier of the comment
+	 * @param int $commentId identifier of the comment
 	 *
 	 * @return string
 	 */
 
-	public function render($commentId = null)
+	public function render(int $commentId = null) : string
 	{
 		$output = Module\Hook::trigger('adminCommentFormStart');
 		$comment = Db::forTablePrefix('comments')->whereIdIs($commentId)->findOne();

@@ -24,7 +24,7 @@ class ResolverTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerResolver()
+	public function providerResolver() : array
 	{
 		return $this->getProvider('tests/provider/Router/resolver.json');
 	}

@@ -37,7 +37,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAppend()
+	public function providerAppend() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_append.json');
 	}
@@ -50,7 +50,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerPrepend()
+	public function providerPrepend() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_prepend.json');
 	}
@@ -63,7 +63,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInline()
+	public function providerInline() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_inline.json');
 	}
@@ -76,7 +76,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRemove()
+	public function providerRemove() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_remove.json');
 	}
@@ -89,7 +89,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerTransportVar()
+	public function providerTransportVar() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_transport_var.json');
 	}
@@ -102,7 +102,7 @@ class ScriptTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerConcat()
+	public function providerConcat() : array
 	{
 		return $this->getProvider('tests/provider/Head/script_concat.json');
 	}

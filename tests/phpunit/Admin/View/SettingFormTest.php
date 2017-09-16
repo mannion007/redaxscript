@@ -58,7 +58,7 @@ class SettingFormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Admin/View/setting_form_render.json');
 	}

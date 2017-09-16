@@ -68,7 +68,7 @@ class RecoverTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerProcess()
+	public function providerProcess() : array
 	{
 		return $this->getProvider('tests/provider/Controller/recover_process.json');
 	}
@@ -81,7 +81,7 @@ class RecoverTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerProcessFailure()
+	public function providerProcessFailure() : array
 	{
 		return $this->getProvider('tests/provider/Controller/recover_process_failure.json');
 	}

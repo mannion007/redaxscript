@@ -58,7 +58,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCreate()
+	public function providerCreate() : array
 	{
 		return $this->getProvider('tests/provider/Admin/Html/form_create.json');
 	}

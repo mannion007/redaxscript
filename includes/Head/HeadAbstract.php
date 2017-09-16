@@ -177,7 +177,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 * @return array
 	 */
 
-	protected function _getCollectionArray()
+	protected function _getCollectionArray() : array
 	{
 		$collectionArray = self::$_collectionArray[self::$_namespace];
 		return is_array($collectionArray) ? $collectionArray : [];

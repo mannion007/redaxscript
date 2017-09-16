@@ -37,7 +37,7 @@ class LinkTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAppend()
+	public function providerAppend() : array
 	{
 		return $this->getProvider('tests/provider/Head/link_append.json');
 	}
@@ -50,7 +50,7 @@ class LinkTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerPrepend()
+	public function providerPrepend() : array
 	{
 		return $this->getProvider('tests/provider/Head/link_prepend.json');
 	}
@@ -63,7 +63,7 @@ class LinkTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRemove()
+	public function providerRemove() : array
 	{
 		return $this->getProvider('tests/provider/Head/link_remove.json');
 	}
@@ -76,7 +76,7 @@ class LinkTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerConcat()
+	public function providerConcat() : array
 	{
 		return $this->getProvider('tests/provider/Head/link_concat.json');
 	}

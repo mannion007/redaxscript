@@ -24,12 +24,12 @@ class ModuleForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $moduleId identifier of the module
+	 * @param int $moduleId identifier of the module
 	 *
 	 * @return string
 	 */
 
-	public function render($moduleId = null)
+	public function render(int $moduleId = null) : string
 	{
 		$output = Module\Hook::trigger('adminModuleFormStart');
 		$module = Db::forTablePrefix('modules')->whereIdIs($moduleId)->findOne();

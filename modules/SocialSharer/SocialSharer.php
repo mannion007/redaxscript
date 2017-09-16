@@ -83,7 +83,7 @@ class SocialSharer extends Config
 	 * @return string
 	 */
 
-	public function render($url = null)
+	public function render(string $url = null) : string
 	{
 		$outputItem = null;
 		if ($url)

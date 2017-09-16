@@ -36,7 +36,7 @@ class FileTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCreate()
+	public function providerCreate() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/file_create.json');
 	}
@@ -49,7 +49,7 @@ class FileTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerReadAndWrite()
+	public function providerReadAndWrite() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/file_read_and_write.json');
 	}
@@ -62,7 +62,7 @@ class FileTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRemove()
+	public function providerRemove() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/file_remove.json');
 	}

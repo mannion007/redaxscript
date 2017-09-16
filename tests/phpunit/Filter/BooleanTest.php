@@ -24,7 +24,7 @@ class BooleanTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerBoolean()
+	public function providerBoolean() : array
 	{
 		return $this->getProvider('tests/provider/Filter/boolean.json');
 	}

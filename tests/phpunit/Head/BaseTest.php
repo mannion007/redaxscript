@@ -24,7 +24,7 @@ class BaseTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRender()
+	public function providerRender() : array
 	{
 		return $this->getProvider('tests/provider/Head/base_render.json');
 	}

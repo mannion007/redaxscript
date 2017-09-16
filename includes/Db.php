@@ -271,7 +271,7 @@ class Db extends ORM
 	 * @return array
 	 */
 
-	public function findFlatArray($key = 'id')
+	public function findFlatArray($key = 'id') : array
 	{
 		$flatArray = [];
 		foreach ($this->findArray() as $valueArray)

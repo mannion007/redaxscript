@@ -36,7 +36,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetIterator()
+	public function providerGetIterator() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/filesystem_get_iterator.json');
 	}
@@ -49,7 +49,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetArray()
+	public function providerGetArray() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/filesystem_get_array.json');
 	}
@@ -62,7 +62,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerGetSortArray()
+	public function providerGetSortArray() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/filesystem_get_sort_array.json');
 	}

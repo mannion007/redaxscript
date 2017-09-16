@@ -58,7 +58,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCreate()
+	public function providerCreate() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_create.json');
 	}
@@ -71,7 +71,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLegend()
+	public function providerLegend() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_legend.json');
 	}
@@ -84,7 +84,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLabel()
+	public function providerLabel() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_label.json');
 	}
@@ -97,7 +97,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInput()
+	public function providerInput() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_input.json');
 	}
@@ -110,7 +110,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerTextarea()
+	public function providerTextarea() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_textarea.json');
 	}
@@ -123,7 +123,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerSelect()
+	public function providerSelect() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_select.json');
 	}
@@ -136,7 +136,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerSelectRange()
+	public function providerSelectRange() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_select_range.json');
 	}
@@ -149,7 +149,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCaptcha()
+	public function providerCaptcha() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_captcha.json');
 	}
@@ -162,7 +162,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerToken()
+	public function providerToken() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_token.json');
 	}
@@ -175,7 +175,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerButton()
+	public function providerButton() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_button.json');
 	}
@@ -188,7 +188,7 @@ class FormTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLink()
+	public function providerLink() : array
 	{
 		return $this->getProvider('tests/provider/Html/form_link.json');
 	}

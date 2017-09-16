@@ -24,7 +24,7 @@ class SearchTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerSearch()
+	public function providerSearch() : array
 	{
 		return $this->getProvider('tests/provider/Filter/search.json');
 	}

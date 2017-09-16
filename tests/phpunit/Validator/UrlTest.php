@@ -25,7 +25,7 @@ class UrlTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerUrl()
+	public function providerUrl() : array
 	{
 		return $this->getProvider('tests/provider/Validator/url.json');
 	}

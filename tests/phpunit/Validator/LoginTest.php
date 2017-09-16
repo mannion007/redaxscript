@@ -25,7 +25,7 @@ class LoginTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerLogin()
+	public function providerLogin() : array
 	{
 		return $this->getProvider('tests/provider/Validator/login.json');
 	}

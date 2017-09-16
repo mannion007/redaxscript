@@ -25,7 +25,7 @@ class AccessTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerAccess()
+	public function providerAccess() : array
 	{
 		return $this->getProvider('tests/provider/Validator/access.json');
 	}

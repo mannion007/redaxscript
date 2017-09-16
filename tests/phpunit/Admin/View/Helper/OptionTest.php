@@ -99,7 +99,7 @@ class OptionTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerOption()
+	public function providerOption() : array
 	{
 		return $this->getProvider('tests/provider/Admin/View/Helper/option.json');
 	}

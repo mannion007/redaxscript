@@ -24,7 +24,7 @@ class ParameterTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerParameter()
+	public function providerParameter() : array
 	{
 		return $this->getProvider('tests/provider/Router/parameter.json');
 	}

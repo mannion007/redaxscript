@@ -64,7 +64,7 @@ class ConfigTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerParse()
+	public function providerParse() : array
 	{
 		return $this->getProvider('tests/provider/config_parse.json');
 	}

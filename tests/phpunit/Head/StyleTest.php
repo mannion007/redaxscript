@@ -24,7 +24,7 @@ class StyleTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerInline()
+	public function providerInline() : array
 	{
 		return $this->getProvider('tests/provider/Head/style_inline.json');
 	}

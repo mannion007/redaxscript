@@ -23,12 +23,12 @@ class ArticleForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param integer $articleId identifier of the article
+	 * @param int $articleId identifier of the article
 	 *
 	 * @return string
 	 */
 
-	public function render($articleId = null)
+	public function render(int $articleId = null) : string
 	{
 		$output = Module\Hook::trigger('adminArticleFormStart');
 		$article = Db::forTablePrefix('articles')->whereIdIs($articleId)->findOne();

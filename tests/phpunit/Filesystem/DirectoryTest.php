@@ -36,7 +36,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerCreate()
+	public function providerCreate() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/directory_create.json');
 	}
@@ -49,7 +49,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerRemove()
+	public function providerRemove() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/directory_remove.json');
 	}
@@ -62,7 +62,7 @@ class DirectoryTest extends TestCaseAbstract
 	 * @return array
 	 */
 
-	public function providerClear()
+	public function providerClear() : array
 	{
 		return $this->getProvider('tests/provider/Filesystem/directory_clear.json');
 	}

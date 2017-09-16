@@ -57,7 +57,7 @@ class SitemapXml extends Module\Module
 	 * @return string
 	 */
 
-	public function render()
+	public function render() : string
 	{
 		/* query categories */
 
