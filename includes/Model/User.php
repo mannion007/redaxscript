@@ -55,11 +55,8 @@ class User
 	public function resetPasswordByArray(array $resetArray) : bool
 	{
 		return Db::forTablePrefix('users')
-			->where(
-			[
-				'id' => $resetArray['id'],
-				'status' => 1
-			])
+			->whereIdIs($resetArray['id'])
+			->where('status', 1)
 			->findOne()
 			->set('password', $resetArray['password'])
 			->save();

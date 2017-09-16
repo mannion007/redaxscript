@@ -13,7 +13,7 @@ use Redaxscript\Db;
  * @author Henry Ruhs
  */
 
-class Search extends ModelAbstract
+class Search
 {
 	/**
 	 * get by the table
@@ -21,17 +21,18 @@ class Search extends ModelAbstract
 	 * @since 4.0.0
 	 *
 	 * @param string $table name of the table
+	 * @param string $language value of the language
 	 * @param string $search value of the search
 	 *
 	 * @return object
 	 */
 
-	public function getByTable(string $table = null, string $search = null)
+	public function getByTable(string $table = null, string $language = null, string $search = null)
 	{
 		return Db::forTablePrefix($table)
 			->whereLikeMany($this->_buildColumnArray($table), $this->_buildLikeArray($table, $search))
 			->where('status', 1)
-			->whereLanguageIs($this->_registry->get('language'))
+			->whereLanguageIs($language)
 			->orderByDesc('date')
 			->findMany();
 	}
