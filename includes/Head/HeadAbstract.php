@@ -59,7 +59,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 * @return $this
 	 */
 
-	public function init($namespace = null)
+	public function init(string $namespace = null)
 	{
 		self::$_namespace = get_called_class();
 		if ($namespace)
@@ -80,7 +80,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 * @return $this
 	 */
 
-	public function append($attribute = null, $value = null)
+	public function append($attribute = null, string $value = null)
 	{
 		$collectionArray = $this->_getCollectionArray();
 		if (is_array($attribute))
@@ -109,7 +109,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 * @return $this
 	 */
 
-	public function prepend($attribute = null, $value = null)
+	public function prepend($attribute = null, string $value = null)
 	{
 		$collectionArray = $this->_getCollectionArray();
 		if (is_array($attribute))
@@ -138,7 +138,7 @@ abstract class HeadAbstract extends Singleton implements HeadInterface
 	 * @return $this
 	 */
 
-	public function remove($attribute = null, $value = null)
+	public function remove(string $attribute = null, string $value = null)
 	{
 		$collectionArray = $this->_getCollectionArray();
 		if (is_array($collectionArray))

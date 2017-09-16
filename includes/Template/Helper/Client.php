@@ -36,6 +36,7 @@ class Client extends HelperAbstract
 
 	public function process()
 	{
+		$clientArray = [];
 		$browserArray = $this->_getBrowserArray();
 		$deviceArray = $this->_getDeviceArray();
 		if (is_array($browserArray) && is_array($deviceArray))
@@ -56,7 +57,7 @@ class Client extends HelperAbstract
 	 * @return array
 	 */
 
-	protected function _getBrowserArray()
+	protected function _getBrowserArray() : array
 	{
 		return
 		[
@@ -71,7 +72,7 @@ class Client extends HelperAbstract
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return array|boolean
+	 * @return array|bool
 	 */
 
 	protected function _getDeviceArray()

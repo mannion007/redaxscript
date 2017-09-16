@@ -44,10 +44,7 @@ parameters:
 	- includes/Html/Form.php
 	- includes/Html/HtmlAbstract.php
 	- includes/Html/Purifier.php
-	- includes/Module/Hook.php
-	- includes/Router/Parameter.php
-	- includes/Template/Helper/Canonical.php
-	- includes/Template/Helper/Client.php
+	- includes/Model
 	- includes/Template/Helper/Description.php
 	- includes/Template/Helper/Keywords.php
 	- includes/Template/Helper/Robots.php

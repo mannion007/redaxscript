@@ -36,7 +36,7 @@ class Helper
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public static function getCanonical()

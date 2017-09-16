@@ -43,6 +43,7 @@ module.exports = function (grunt)
 		'htmlhint',
 		'phpcs',
 		'phpcpd',
+		'phpstan',
 		'languagelint'
 	]);
 	grunt.registerTask('stylelint',

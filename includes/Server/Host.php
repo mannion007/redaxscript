@@ -18,10 +18,10 @@ class Host extends ServerAbstract
 	 *
 	 * @since 2.4.0
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
-	public function getOutput() : string
+	public function getOutput()
 	{
 		$output = $this->_request->getServer('HTTP_HOST');
 		return $output;

@@ -50,7 +50,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function appendFile($source = null)
+	public function appendFile(string $source = null)
 	{
 		$this->append('src', $source);
 		return $this;
@@ -66,7 +66,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function prependFile($source = null)
+	public function prependFile(string $source = null)
 	{
 		$this->prepend('src', $source);
 		return $this;
@@ -82,7 +82,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function removeFile($source = null)
+	public function removeFile(string $source = null)
 	{
 		$this->remove('src', $source);
 		return $this;
@@ -98,7 +98,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function appendInline($inline = null)
+	public function appendInline(string $inline = null)
 	{
 		self::$_inline .= $inline;
 		return $this;
@@ -114,7 +114,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function prependInline($inline = null)
+	public function prependInline(string $inline = null)
 	{
 		self::$_inline = $inline . self::$_inline;
 		return $this;
@@ -131,7 +131,7 @@ class Script extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function transportVar($key = null, $value = null)
+	public function transportVar(string $key = null, $value = null)
 	{
 		$transport = new Asset\Transport(Registry::getInstance(), Language::getInstance());
 		$inline = $transport->render($key, $value);

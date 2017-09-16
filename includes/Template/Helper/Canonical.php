@@ -21,7 +21,7 @@ class Canonical extends HelperAbstract
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public function process()
@@ -31,6 +31,7 @@ class Canonical extends HelperAbstract
 		$lastId = $this->_registry->get('lastId');
 		$parameterRoute = $this->_registry->get('parameterRoute');
 		$root = $this->_registry->get('root');
+		$route = null;
 
 		/* find route */
 
@@ -44,13 +45,16 @@ class Canonical extends HelperAbstract
 				$lastId = $articles->findOne()->id;
 			}
 		}
-		$canonicalRoute = $contentModel->getRouteByTableAndId($lastTable, $lastId);
+		if (is_string($lastTable) && is_numeric($lastId))
+		{
+			$route = $contentModel->getRouteByTableAndId($lastTable, $lastId);
+		}
 
 		/* handle route */
 
-		if ($canonicalRoute)
+		if ($route)
 		{
-			return $root . '/' . $parameterRoute . $canonicalRoute;
+			return $root . '/' . $parameterRoute . $route;
 		}
 		return $root;
 	}

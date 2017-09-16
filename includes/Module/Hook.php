@@ -185,7 +185,7 @@ class Hook
 	 * @param string $eventName name of the module event
 	 * @param array $parameterArray parameter of the module hook
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public static function trigger($eventName = null, $parameterArray = [])
