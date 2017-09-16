@@ -84,7 +84,7 @@ class Tinymce extends Config
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return array|boolean
+	 * @return array|bool
 	 */
 
 	protected function _upload()

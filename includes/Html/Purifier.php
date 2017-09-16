@@ -92,7 +92,7 @@ class Purifier
 	 *
 	 * @param string|object $html html to be processed
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	protected function _process($html = null)

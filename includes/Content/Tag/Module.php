@@ -90,7 +90,7 @@ class Module extends TagAbstract
 	 * @param string $moduleName
 	 * @param array $parameterArray
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	protected function _call(string $moduleName = null, array $parameterArray = [])

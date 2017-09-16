@@ -56,7 +56,7 @@ class PageCache extends Config
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return array|boolean
+	 * @return array|bool
 	 */
 
 	public function renderTemplate()

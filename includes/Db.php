@@ -292,7 +292,7 @@ class Db extends ORM
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public static function getSetting($key = null)
@@ -325,7 +325,7 @@ class Db extends ORM
 	 * @deprecated 4.0.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|integer $value value of the item
+	 * @param string|int $value value of the item
 	 *
 	 * @return bool
 	 */

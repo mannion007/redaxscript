@@ -127,7 +127,7 @@ class Tag
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	public static function consoleLine()

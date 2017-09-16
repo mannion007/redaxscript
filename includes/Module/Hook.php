@@ -214,7 +214,7 @@ class Hook
 	 * @param string $eventName
 	 * @param array $parameterArray
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	protected static function _call($moduleName = null, $eventName = null, $parameterArray = [])

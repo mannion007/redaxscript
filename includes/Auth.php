@@ -265,7 +265,7 @@ class Auth
 	 *
 	 * @param string $key key of the user
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public function getUser(string $key = null)
@@ -287,7 +287,7 @@ class Auth
 	 * @since 3.0.0
 	 *
 	 * @param string $key key of the user
-	 * @param string|array|boolean $value value of the user
+	 * @param string|array|bool $value value of the user
 	 */
 
 	public function setUser(string $key = null, $value = null)
@@ -302,7 +302,7 @@ class Auth
 	 *
 	 * @param string $key key of the permission
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public function getPermission(string $key = null)

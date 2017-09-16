@@ -36,7 +36,7 @@ class SocialSharer extends Config
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	public function contentFragmentEnd()

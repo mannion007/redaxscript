@@ -81,7 +81,7 @@ class Parser
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public function getArgument($key = null)
@@ -104,7 +104,7 @@ class Parser
 	 *
 	 * @param string $key key of the item
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public function getOption($key = null)
@@ -126,7 +126,7 @@ class Parser
 	 * @since 3.0.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|integer $value value of the item
+	 * @param string|int $value value of the item
 	 */
 
 	public function setArgument($key = null, $value = null)
@@ -140,7 +140,7 @@ class Parser
 	 * @since 3.0.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|integer $value value of the item
+	 * @param string|int $value value of the item
 	 */
 
 	public function setOption($key = null, $value = null)

@@ -128,7 +128,7 @@ class Module
 	 *
 	 * @param string $type type of the notification
 	 *
-	 * @return string|array|boolean
+	 * @return string|array|bool
 	 */
 
 	public function getNotification($type = null)

@@ -84,7 +84,7 @@ class Template extends TagAbstract
 	 * @param string $methodName
 	 * @param array $parameterArray
 	 *
-	 * @return string|boolean
+	 * @return string|bool
 	 */
 
 	protected function _call(string $methodName = null, array $parameterArray = [])
