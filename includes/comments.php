@@ -68,8 +68,8 @@ function comments($article, $route)
 
 	/* handle error */
 
-
-
+	// everything from here goes into the view... also the no comment thing :D
+	// do not copy and paste code - start from a clean base
 	if (!$result || !$num_rows)
 	{
 		$error = $language->get('comment_no');
