@@ -71,13 +71,13 @@ class CategoryFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $categoryId
+	 * @param int $categoryId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $categoryId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $categoryId = null, array $expectArray = [])
 	{
 		/* setup */
 

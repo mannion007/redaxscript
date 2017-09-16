@@ -80,7 +80,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @dataProvider providerGetIterator
 	 */
 
-	public function testGetIterator(string $root = null, bool $recursive = false, $filterArray = [], array $expectArray = [])
+	public function testGetIterator(string $root = null, bool $recursive = false, array $filterArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -121,7 +121,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @dataProvider providerGetArray
 	 */
 
-	public function testGetArray(string $root = null, bool $recursive = false, $filterArray = [], array $expectArray = [])
+	public function testGetArray(string $root = null, bool $recursive = false, array $filterArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -150,7 +150,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @dataProvider providerGetSortArray
 	 */
 
-	public function testSortGetArray(string $root = null, bool $recursive = false, $filterArray = [], array $expectArray = [])
+	public function testSortGetArray(string $root = null, bool $recursive = false, array $filterArray = [], array $expectArray = [])
 	{
 		/* setup */
 

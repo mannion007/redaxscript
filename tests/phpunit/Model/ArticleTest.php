@@ -170,12 +170,12 @@ class ArticleTest extends TestCaseAbstract
 	 * @since 4.0.0
 	 *
 	 * @param string $alias
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerArticleGetId
 	 */
 
-	public function testGetIdByAlias(string $alias = null, string $expect = null)
+	public function testGetIdByAlias(string $alias = null, int $expect = null)
 	{
 		/* setup */
 
@@ -195,13 +195,13 @@ class ArticleTest extends TestCaseAbstract
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param integer $id
+	 * @param int $id
 	 * @param string $expect
 	 *
 	 * @dataProvider providerArticleGetRoute
 	 */
 
-	public function testGetRouteById($id = null, string $expect = null)
+	public function testGetRouteById(int $id = null, string $expect = null)
 	{
 		/* setup */
 
@@ -222,12 +222,12 @@ class ArticleTest extends TestCaseAbstract
 	 * @since 4.0.0
 	 *
 	 * @param string $date
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerArticlePublishDate
 	 */
 
-	public function testPublishByDate(string $date = null, string $expect = null)
+	public function testPublishByDate(string $date = null, int $expect = null)
 	{
 		/* setup */
 

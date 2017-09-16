@@ -79,13 +79,13 @@ class GroupFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $groupId
+	 * @param int $groupId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $groupId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $groupId = null, array $expectArray = [])
 	{
 		/* setup */
 

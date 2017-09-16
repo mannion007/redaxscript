@@ -71,13 +71,13 @@ class CommentFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $commentId
+	 * @param int $commentId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $commentId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $commentId = null, array $expectArray = [])
 	{
 		/* setup */
 

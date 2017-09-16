@@ -88,7 +88,7 @@ class HashTest extends TestCaseAbstract
 	 * @dataProvider providerHash
 	 */
 
-	public function testGetHash(string $raw = null, $hashArray = [])
+	public function testGetHash(string $raw = null, array $hashArray = [])
 	{
 		/* setup */
 
@@ -123,7 +123,7 @@ class HashTest extends TestCaseAbstract
 	 * @dataProvider providerHash
 	 */
 
-	public function testValidate(string $raw = null, $hashArray = [])
+	public function testValidate(string $raw = null, array $hashArray = [])
 	{
 		/* setup */
 

@@ -36,12 +36,12 @@ class PasswordTest extends TestCaseAbstract
 	 *
 	 * @param string $password
 	 * @param array $hashArray
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerPassword
 	 */
 
-	public function testPassword(string $password = null, $hashArray = [], string $expect = null)
+	public function testPassword(string $password = null, array $hashArray = [], int $expect = null)
 	{
 		/* setup */
 

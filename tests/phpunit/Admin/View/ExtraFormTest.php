@@ -71,13 +71,13 @@ class ExtraFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $extraId
+	 * @param int $extraId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $extraId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $extraId = null, array $expectArray = [])
 	{
 		/* setup */
 

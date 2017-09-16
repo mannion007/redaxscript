@@ -37,12 +37,12 @@ class AccessTest extends TestCaseAbstract
 	 *
 	 * @param string $access
 	 * @param string $groups
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerAccess
 	 */
 
-	public function testAccess(string $access = null, string $groups = null, string $expect = null)
+	public function testAccess(string $access = null, string $groups = null, int $expect = null)
 	{
 		/* setup */
 

@@ -99,7 +99,7 @@ class LoginTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($postArray = [], $hashArray = [], $userArray = [], string $expect = null)
+	public function testProcess(array $postArray = [], array $hashArray = [], array $userArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -135,7 +135,7 @@ class LoginTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], $userArray = [], string $method = null, string $expect = null)
+	public function testProcessFailure(array $postArray = [], array $hashArray = [], array $userArray = [], string $method = null, string $expect = null)
 	{
 		/* setup */
 

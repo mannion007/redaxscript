@@ -52,7 +52,7 @@ class CacheTest extends TestCaseAbstract
 	 * @dataProvider providerStore
 	 */
 
-	public function testStore($bundleArray = [], array $expectArray = [])
+	public function testStore(array $bundleArray = [], array $expectArray = [])
 	{
 		/* setup */
 

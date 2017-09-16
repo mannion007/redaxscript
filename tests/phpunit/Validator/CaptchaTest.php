@@ -71,12 +71,12 @@ class CaptchaTest extends TestCaseAbstract
 	 *
 	 * @param string $task
 	 * @param array $hashArray
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerCaptcha
 	 */
 
-	public function testCaptcha(string $task = null, $hashArray = [], string $expect = null)
+	public function testCaptcha(string $task = null, array $hashArray = [], int $expect = null)
 	{
 		/* setup */
 

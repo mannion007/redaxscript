@@ -93,7 +93,7 @@ class ElementTest extends TestCaseAbstract
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate(string $tag = null, $attributeArray = [], string $expect = null)
+	public function testCreate(string $tag = null, array $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 

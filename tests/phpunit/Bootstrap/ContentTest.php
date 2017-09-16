@@ -120,7 +120,7 @@ class ContentTest extends TestCaseAbstract
 	 * @dataProvider providerContent
 	 */
 
-	public function testContent(array $registryArray = [], $settingArray = [], array $expectArray = [])
+	public function testContent(array $registryArray = [], array $settingArray = [], array $expectArray = [])
 	{
 		/* setup */
 

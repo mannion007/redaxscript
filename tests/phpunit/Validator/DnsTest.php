@@ -37,12 +37,12 @@ class DnsTest extends TestCaseAbstract
 	 *
 	 * @param string $host
 	 * @param string $type
-	 * @param integer $expect
+	 * @param int $expect
 	 *
 	 * @dataProvider providerDns
 	 */
 
-	public function testDns(string $host = null, string $type = null, string $expect = null)
+	public function testDns(string $host = null, string $type = null, int $expect = null)
 	{
 		/* setup */
 

@@ -71,13 +71,13 @@ class ArticleFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $articleId
+	 * @param int $articleId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $articleId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $articleId = null, array $expectArray = [])
 	{
 		/* setup */
 

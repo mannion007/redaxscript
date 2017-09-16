@@ -99,7 +99,7 @@ class RegisterTest extends TestCaseAbstract
 	 * @dataProvider providerProcess
 	 */
 
-	public function testProcess($postArray = [], $hashArray = [], string $expect = null)
+	public function testProcess(array $postArray = [], array $hashArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -129,7 +129,7 @@ class RegisterTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], string $method = null, string $expect = null)
+	public function testProcessFailure(array $postArray = [], array $hashArray = [], string $method = null, string $expect = null)
 	{
 		/* setup */
 

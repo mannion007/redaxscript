@@ -68,13 +68,13 @@ class ModuleFormTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param integer $moduleId
+	 * @param int $moduleId
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender(array $registryArray = [], $moduleId = null, array $expectArray = [])
+	public function testRender(array $registryArray = [], int $moduleId = null, array $expectArray = [])
 	{
 		/* setup */
 

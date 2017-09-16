@@ -43,7 +43,7 @@ class RouterTest extends TestCaseAbstract
 	 * @dataProvider providerRouter
 	 */
 
-	public function testRouter(string $route = null, $registryArray = [], array $expectArray = [])
+	public function testRouter(string $route = null, array $registryArray = [], array $expectArray = [])
 	{
 		/* setup */
 

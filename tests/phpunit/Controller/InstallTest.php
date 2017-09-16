@@ -271,7 +271,7 @@ class InstallTest extends TestCaseAbstract
 	 * @dataProvider providerInstall
 	 */
 
-	public function testInstall($installArray = [], bool $expect = null)
+	public function testInstall(array $installArray = [], bool $expect = null)
 	{
 		/* setup */
 
