@@ -65,12 +65,12 @@ class CronjobTest extends TestCaseAbstract
 	 *
 	 * @param array $registryArray
 	 * @param array $sessionArray
-	 * @param boolean $expect
+	 * @param bool $expect
 	 *
 	 * @dataProvider providerCronjob
 	 */
 
-	public function testCronjob(array $registryArray = [], $sessionArray = [], string $expect = null)
+	public function testCronjob(array $registryArray = [], $sessionArray = [], bool $expect = null)
 	{
 		/* setup */
 

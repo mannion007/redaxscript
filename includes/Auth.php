@@ -144,10 +144,10 @@ class Auth
 	 * @param string $method name of the method
 	 * @param array $argumentArray arguments of the method
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	public function __call($method = null, $argumentArray = [])
+	public function __call($method = null, array $argumentArray = []) : bool
 	{
 		$type = $argumentArray[0];
 		if (is_array($this->_callArray[$type]) && array_key_exists($method, $this->_callArray[$type]))
@@ -245,14 +245,14 @@ class Auth
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	public function logout()
+	public function logout() : bool
 	{
 		if ($this->getStatus())
 		{
-			$this->_setAuth(null);
+			$this->_setAuth();
 			return !$this->getStatus();
 		}
 		return false;
@@ -268,7 +268,7 @@ class Auth
 	 * @return string|array|boolean
 	 */
 
-	public function getUser($key = null)
+	public function getUser(string $key = null)
 	{
 		if (is_array($this->_userArray) && array_key_exists($key, $this->_userArray))
 		{
@@ -290,7 +290,7 @@ class Auth
 	 * @param string|array|boolean $value value of the user
 	 */
 
-	public function setUser($key = null, $value = null)
+	public function setUser(string $key = null, $value = null)
 	{
 		$this->_userArray[$key] = $value;
 	}
@@ -305,7 +305,7 @@ class Auth
 	 * @return string|array|boolean
 	 */
 
-	public function getPermission($key = null)
+	public function getPermission(string $key = null)
 	{
 		if (is_array($this->_permissionArray) && array_key_exists($key, $this->_permissionArray))
 		{
@@ -324,16 +324,16 @@ class Auth
 	 * @since 3.0.0
 	 *
 	 * @param string $key key of the permission
-	 * @param array $valueArray value of the permission
+	 * @param array $permissionArray array of the permission
 	 */
 
-	public function setPermission($key = null, $valueArray = [])
+	public function setPermission(string $key = null, array $permissionArray = [])
 	{
 		if (is_array($this->_permissionArray[$key]))
 		{
-			$valueArray = array_merge($this->_permissionArray[$key], $valueArray);
+			$permissionArray = array_merge($this->_permissionArray[$key], $permissionArray);
 		}
-		$this->_permissionArray[$key] = $valueArray;
+		$this->_permissionArray[$key] = $permissionArray;
 	}
 
 	/**
@@ -341,10 +341,10 @@ class Auth
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return integer
+	 * @return int
 	 */
 
-	public function getStatus()
+	public function getStatus() : int
 	{
 		$authArray = $this->_getAuth();
 		return is_array($authArray) && array_key_exists('user', $authArray) && array_key_exists('permission', $authArray) ? 1 : 0;
@@ -382,7 +382,7 @@ class Auth
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return string
+	 * @return array|bool
 	 */
 
 	protected function _getAuth()
@@ -396,12 +396,12 @@ class Auth
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param string $value
+	 * @param array $authArray
 	 */
 
-	protected function _setAuth($value = null)
+	protected function _setAuth(array $authArray = [])
 	{
 		$root = new Server\Root($this->_request);
-		return $this->_request->setSession($root->getOutput() . '/auth', $value);
+		return $this->_request->setSession($root->getOutput() . '/auth', $authArray);
 	}
 }

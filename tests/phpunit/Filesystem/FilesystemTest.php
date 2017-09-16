@@ -73,7 +73,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param array $filterArray
 	 * @param array $expectArray
 	 *
@@ -114,7 +114,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param array $filterArray
 	 * @param array $expectArray
 	 *
@@ -143,7 +143,7 @@ class FilesystemTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param array $filterArray
 	 * @param array $expectArray
 	 *

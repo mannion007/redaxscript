@@ -208,12 +208,12 @@ class AuthTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param string $groups
-	 * @param boolean $expect
+	 * @param bool $expect
 	 *
 	 * @dataProvider providerGetFilter
 	 */
 
-	public function testGetFilter($groups = null, string $expect = null)
+	public function testGetFilter($groups = null, bool $expect = null)
 	{
 		/* setup */
 

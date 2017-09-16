@@ -73,14 +73,14 @@ class DirectoryTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param string $directory
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerCreate
 	 */
 
-	public function testCreate($root = null, $recursive = null, $directory = null, array $expectArray = [])
+	public function testCreate($root = null, bool $recursive = null, $directory = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -103,14 +103,14 @@ class DirectoryTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param string $directory
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($root = null,  $recursive = null, $directory = null, array $expectArray = [])
+	public function testRemove($root = null, bool $recursive = null, $directory = null, array $expectArray = [])
 	{
 		/* setup */
 
@@ -134,13 +134,13 @@ class DirectoryTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param array $expectArray
 	 *
 	 * @dataProvider providerClear
 	 */
 
-	public function testClear($root = null,  $recursive = null, array $expectArray = [])
+	public function testClear($root = null, bool $recursive = null, array $expectArray = [])
 	{
 		/* setup */
 

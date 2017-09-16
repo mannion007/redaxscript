@@ -242,7 +242,7 @@ class InstallTest extends TestCaseAbstract
 	 * @dataProvider providerValidateAccount
 	 */
 
-	public function testValidateAccount(array $postArray = [], array $expectArray = null)
+	public function testValidateAccount(array $postArray = [], array $expectArray = [])
 	{
 		/* setup */
 

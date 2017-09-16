@@ -73,7 +73,7 @@ class FileTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param string $file
 	 * @param array $expectArray
 	 *
@@ -103,7 +103,7 @@ class FileTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param string $file
 	 * @param string $content
 	 * @param array $expectArray
@@ -138,7 +138,7 @@ class FileTest extends TestCaseAbstract
 	 * @since 3.2.0
 	 *
 	 * @param string $root
-	 * @param boolean $recursive
+	 * @param bool $recursive
 	 * @param string $file
 	 * @param array $expectArray
 	 *

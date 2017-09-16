@@ -93,7 +93,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @dataProvider providerError
 	 */
 
-	public function testValidateError($registryArray = [], array $expectArray = null)
+	public function testValidateError($registryArray = [], array $expectArray = [])
 	{
 		/* setup */
 
@@ -120,7 +120,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @dataProvider providerWarning
 	 */
 
-	public function testValidateWarning($registryArray = [], array $expectArray = null)
+	public function testValidateWarning($registryArray = [], array $expectArray = [])
 	{
 		/* setup */
 

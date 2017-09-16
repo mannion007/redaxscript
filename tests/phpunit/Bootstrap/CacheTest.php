@@ -38,12 +38,12 @@ class CacheTest extends TestCaseAbstract
 	 *
 	 * @param array $registryArray
 	 * @param array $queryArray
-	 * @param boolean $expect
+	 * @param bool $expect
 	 *
 	 * @dataProvider providerCache
 	 */
 
-	public function testCache(array $registryArray = [], $queryArray = [], string $expect = null)
+	public function testCache(array $registryArray = [], $queryArray = [], bool $expect = null)
 	{
 		/* setup */
 
