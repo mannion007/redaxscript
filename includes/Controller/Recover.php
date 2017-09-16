@@ -29,7 +29,7 @@ class Recover extends ControllerAbstract
 	 * @return string
 	 */
 
-	public function process()
+	public function process() : string
 	{
 		$emailFilter = new Filter\Email();
 
@@ -110,7 +110,7 @@ class Recover extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _success($successArray = [])
+	protected function _success(array $successArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -129,7 +129,7 @@ class Recover extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _error($errorArray = [])
+	protected function _error(array $errorArray = [])  : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -147,7 +147,7 @@ class Recover extends ControllerAbstract
 	 * @return array
 	 */
 
-	protected function _validate($postArray = [])
+	protected function _validate(array $postArray = []) : array
 	{
 		$emailValidator = new Validator\Email();
 		$captchaValidator = new Validator\Captcha();
@@ -181,10 +181,10 @@ class Recover extends ControllerAbstract
 	 *
 	 * @param array $mailArray array of the mail
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	protected function _mail($mailArray = [])
+	protected function _mail(array $mailArray = []) : bool
 	{
 		$urlReset = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . 'login/reset/' . sha1($mailArray['password']) . '/' . $mailArray['id'];
 

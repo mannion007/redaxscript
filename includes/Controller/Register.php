@@ -32,7 +32,7 @@ class Register extends ControllerAbstract
 	 * @return string
 	 */
 
-	public function process()
+	public function process() : string
 	{
 		$specialFilter = new Filter\Special();
 		$emailFilter = new Filter\Email();
@@ -118,7 +118,7 @@ class Register extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _success($successArray = [])
+	protected function _success(array $successArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -137,7 +137,7 @@ class Register extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _error($errorArray = [])
+	protected function _error(array $errorArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -155,7 +155,7 @@ class Register extends ControllerAbstract
 	 * @return array
 	 */
 
-	protected function _validate($postArray = [])
+	protected function _validate(array $postArray = []) : array
 	{
 		$loginValidator = new Validator\Login();
 		$emailValidator = new Validator\Email();
@@ -202,10 +202,10 @@ class Register extends ControllerAbstract
 	 *
 	 * @param array $createArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	protected function _create($createArray = [])
+	protected function _create(array $createArray = []) : bool
 	{
 		$userModel = new Model\User();
 		return $userModel->createByArray($createArray);
@@ -218,10 +218,10 @@ class Register extends ControllerAbstract
 	 *
 	 * @param array $mailArray
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	protected function _mail($mailArray = [])
+	protected function _mail($mailArray = []) : bool
 	{
 		$urlLogin = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . 'login';
 

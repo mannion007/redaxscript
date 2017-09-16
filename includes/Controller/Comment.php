@@ -30,7 +30,7 @@ class Comment extends ControllerAbstract
 	 * @return string
 	 */
 
-	public function process()
+	public function process() : string
 	{
 		$specialFilter = new Filter\Special();
 		$emailFilter = new Filter\Email();
@@ -126,7 +126,7 @@ class Comment extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _success($successArray = [])
+	protected function _success(array $successArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -145,7 +145,7 @@ class Comment extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _warning($warningArray = [])
+	protected function _warning(array $warningArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -164,7 +164,7 @@ class Comment extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _error($errorArray = [])
+	protected function _error(array $errorArray = []) : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -182,7 +182,7 @@ class Comment extends ControllerAbstract
 	 * @return array
 	 */
 
-	protected function _validate($postArray = [])
+	protected function _validate(array $postArray = []) : array
 	{
 		$emailValidator = new Validator\Email();
 		$captchaValidator = new Validator\Captcha();
@@ -230,10 +230,10 @@ class Comment extends ControllerAbstract
 	 *
 	 * @param array $createArray array of the create
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	protected function _create($createArray = [])
+	protected function _create(array $createArray = []) : bool
 	{
 		$commentModel = new Model\Comment();
 		return $commentModel->createByArray($createArray);
@@ -246,10 +246,10 @@ class Comment extends ControllerAbstract
 	 *
 	 * @param array $mailArray array of the mail
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 
-	protected function _mail($mailArray = [])
+	protected function _mail(array $mailArray = []) : bool
 	{
 		$settingModel = new Model\Setting();
 		$urlArticle = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . $mailArray['route'];

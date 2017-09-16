@@ -41,7 +41,7 @@ class Search extends ControllerAbstract
 	 * @return string
 	 */
 
-	public function process()
+	public function process() : string
 	{
 		$searchFilter = new Filter\Search();
 		$secondParameter = $searchFilter->sanitize($this->_registry->get('secondParameter'));
@@ -113,7 +113,7 @@ class Search extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _renderResult($resultArray = [])
+	protected function _renderResult(array $resultArray = []) : string
 	{
 		$searchList = new View\ResultList($this->_registry, $this->_language);
 		return $searchList->render($resultArray);
@@ -129,7 +129,7 @@ class Search extends ControllerAbstract
 	 * @return string
 	 */
 
-	protected function _info($infoArray = [])
+	protected function _info(array $infoArray = [])  : string
 	{
 		$messenger = new Messenger($this->_registry);
 		return $messenger
@@ -148,7 +148,7 @@ class Search extends ControllerAbstract
 	 * @return array
 	 */
 
-	protected function _validate($queryArray = [], $resultArray = [])
+	protected function _validate(array $queryArray = [], array $resultArray = []) : array
 	{
 		$searchValidator = new Validator\Search();
 
@@ -179,7 +179,7 @@ class Search extends ControllerAbstract
 	 * @return array
 	 */
 
-	protected function _search($searchArray = [])
+	protected function _search(array $searchArray = []) : array
 	{
 		$searchModel = new Model\Search();
 		$resultArray = [];
