@@ -49,6 +49,45 @@ class Comment
 	}
 
 	/**
+	 * get the comment by article
+	 *
+	 * @since 4.0.0
+	 *
+	 * @param int $articleId
+	 * @param int $offset
+	 * @param string $language
+	 *
+	 * @return object
+	 */
+
+	public function getByArticleAndSub(int $articleId = null, int $offset = null, string $language = null)
+	{
+		$settingModel = new Setting();
+		$comments = Db::forTablePrefix('comments')
+			->where('article', $articleId)
+			->where('status', 1)
+			->whereLanguageIs($language)
+			->orderGlobal('rank');
+
+		// this handles pagination for comments ... http://dev.redaxscript.com/home/welcome/2 ... 2 equals $offset
+		// you need a unit test first before you simplify this code
+		$num_rows = $comments->findMany()->count();
+		$sub_maximum = ceil($num_rows / $settingModel->get('limit'));
+		$sub_active = $offset;
+		if ($offset > $sub_maximum || !$offset)
+		{
+			$sub_active = 1;
+		}
+		else
+		{
+			$offset_string = ($sub_active - 1) * $settingModel->get('limit') . ', ';
+		}
+		return $comments
+			->limit($offset_string . $settingModel->get('limit'))
+			->findArray();
+	}
+
+	/**
 	 * publish each comment by date
 	 *
 	 * @since 4.0.0

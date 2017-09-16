@@ -55,10 +55,20 @@ function comments($article, $route)
 
 	/* query result */
 
-	$result = $comments->findArray();
+	$resultOld = $comments->findArray();
+
+	// new model method to replace the stuff above - problem is that it does not set $sub_maximum and $sub_active :-(
+	// without the sub variables the pagination will net be displayed
+	$modelComment = new Redaxscript\Model\Comment();
+	$result = $modelComment->getByArticleAndSub($article, $registry->get('lastSubParameter'), $registry->get('language'));
+
+	var_dump($result === $resultOld);
+
 	$num_rows_active = count($result);
 
 	/* handle error */
+
+
 
 	if (!$result || !$num_rows)
 	{
