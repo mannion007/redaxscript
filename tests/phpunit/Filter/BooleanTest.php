@@ -35,12 +35,12 @@ class BooleanTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param string $boolean
-	 * @param string $expect
+	 * @param bool $expect
 	 *
 	 * @dataProvider providerBoolean
 	 */
 
-	public function testBoolean($boolean = null, string $expect = null)
+	public function testBoolean(string $boolean = null, bool $expect = null)
 	{
 		/* setup */
 

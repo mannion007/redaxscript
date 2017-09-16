@@ -186,7 +186,7 @@ class AuthTest extends TestCaseAbstract
 	 * @dataProvider providerGetPermission
 	 */
 
-	public function testGetPermission($method = null, $typeArray = [], $groups = null)
+	public function testGetPermission(string $method = null, $typeArray = [], string $groups = null)
 	{
 		/* setup */
 
@@ -213,7 +213,7 @@ class AuthTest extends TestCaseAbstract
 	 * @dataProvider providerGetFilter
 	 */
 
-	public function testGetFilter($groups = null, bool $expect = null)
+	public function testGetFilter(string $groups = null, bool $expect = null)
 	{
 		/* setup */
 

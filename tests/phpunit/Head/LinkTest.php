@@ -177,7 +177,7 @@ class LinkTest extends TestCaseAbstract
 	 * @dataProvider providerRemove
 	 */
 
-	public function testRemove($coreArray = [], $deleteFile = null, string $expect = null)
+	public function testRemove($coreArray = [], string $deleteFile = null, string $expect = null)
 	{
 		/* setup */
 

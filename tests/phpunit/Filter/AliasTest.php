@@ -40,7 +40,7 @@ class AliasTest extends TestCaseAbstract
 	 * @dataProvider providerAlias
 	 */
 
-	public function testAlias($alias = null, string $expect = null)
+	public function testAlias(string $alias = null, string $expect = null)
 	{
 		/* setup */
 

@@ -74,7 +74,7 @@ class PurifierTest extends TestCaseAbstract
 	 * @dataProvider providerPurifier
 	 */
 
-	public function testPurifier($html = null, string $expect = null)
+	public function testPurifier(string $html = null, string $expect = null)
 	{
 		/* setup */
 

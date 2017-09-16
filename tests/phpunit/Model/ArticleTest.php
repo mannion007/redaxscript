@@ -175,7 +175,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @dataProvider providerArticleGetId
 	 */
 
-	public function testGetIdByAlias($alias = null, string $expect = null)
+	public function testGetIdByAlias(string $alias = null, string $expect = null)
 	{
 		/* setup */
 
@@ -227,7 +227,7 @@ class ArticleTest extends TestCaseAbstract
 	 * @dataProvider providerArticlePublishDate
 	 */
 
-	public function testPublishByDate($date = null, string $expect = null)
+	public function testPublishByDate(string $date = null, string $expect = null)
 	{
 		/* setup */
 

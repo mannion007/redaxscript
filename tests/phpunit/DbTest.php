@@ -262,7 +262,7 @@ class DbTest extends TestCaseAbstract
 	 * @dataProvider providerLanguage
 	 */
 
-	public function testWhereLanguageIs($language = null, string $expect = null)
+	public function testWhereLanguageIs(string $language = null, string $expect = null)
 	{
 		/* setup */
 

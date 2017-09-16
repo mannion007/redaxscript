@@ -81,7 +81,7 @@ class MailerTest extends TestCaseAbstract
 	 * @dataProvider providerMailer
 	 */
 
-	public function testSend($toArray = [], $fromArray = [], $subject = null, $body = null)
+	public function testSend($toArray = [], $fromArray = [], string $subject = null, $body = null)
 	{
 		/* setup */
 
@@ -111,7 +111,7 @@ class MailerTest extends TestCaseAbstract
 	 * @dataProvider providerMailer
 	 */
 
-	public function testSendAttachment($toArray = [], $fromArray = [], $subject = null, $body = null)
+	public function testSendAttachment($toArray = [], $fromArray = [], string $subject = null, $body = null)
 	{
 		/* setup */
 

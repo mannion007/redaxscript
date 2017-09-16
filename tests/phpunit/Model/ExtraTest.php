@@ -127,7 +127,7 @@ class ExtraTest extends TestCaseAbstract
 	 * @dataProvider providerExtraPublishDate
 	 */
 
-	public function testPublishByDate($date = null, string $expect = null)
+	public function testPublishByDate(string $date = null, string $expect = null)
 	{
 		/* setup */
 

@@ -233,7 +233,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerLegend
 	 */
 
-	public function testLegend($text = null, $attributeArray = [], string $expect = null)
+	public function testLegend(string $text = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -262,7 +262,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerLabel
 	 */
 
-	public function testLabel($text = null, $attributeArray = [], string $expect = null)
+	public function testLabel(string $text = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -291,7 +291,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerInput
 	 */
 
-	public function testInput($method = null, $attributeArray = [], string $expect = null)
+	public function testInput(string $method = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -344,7 +344,7 @@ class FormTest extends TestCaseAbstract
 	 * @param array $optionArray
 	 * @param array $selectArray
 	 * @param array $attributeArray
-	 * @param array $expect
+	 * @param string $expect
 	 *
 	 * @dataProvider providerSelect
 	 */
@@ -470,7 +470,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerButton
 	 */
 
-	public function testButton($method = null, $text = null, $attributeArray = [], string $expect = null)
+	public function testButton(string $method = null, string $text = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -500,7 +500,7 @@ class FormTest extends TestCaseAbstract
 	 * @dataProvider providerLink
 	 */
 
-	public function testLink($method = null, $text = null, $attributeArray = [], string $expect = null)
+	public function testLink(string $method = null, string $text = null, $attributeArray = [], string $expect = null)
 	{
 		/* setup */
 

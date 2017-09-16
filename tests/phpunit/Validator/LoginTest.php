@@ -41,7 +41,7 @@ class LoginTest extends TestCaseAbstract
 	 * @dataProvider providerLogin
 	 */
 
-	public function testLogin($login = null, string $expect = null)
+	public function testLogin(string $login = null, string $expect = null)
 	{
 		/* setup */
 

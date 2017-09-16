@@ -135,7 +135,7 @@ class LoginTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], $userArray = [], $method = null, string $expect = null)
+	public function testProcessFailure($postArray = [], $hashArray = [], $userArray = [], string $method = null, string $expect = null)
 	{
 		/* setup */
 

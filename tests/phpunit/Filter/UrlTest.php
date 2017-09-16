@@ -40,7 +40,7 @@ class UrlTest extends TestCaseAbstract
 	 * @dataProvider providerUrl
 	 */
 
-	public function testUrl($url = null, string $expect = null)
+	public function testUrl(string $url = null, string $expect = null)
 	{
 		/* setup */
 

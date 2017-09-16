@@ -41,7 +41,7 @@ class StyleTest extends TestCaseAbstract
 	 * @dataProvider providerInline
 	 */
 
-	public function testRender($append = null, $prepend = null, string $expect = null)
+	public function testRender(string $append = null, string $prepend = null, string $expect = null)
 	{
 		/* setup */
 

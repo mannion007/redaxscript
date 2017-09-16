@@ -143,7 +143,7 @@ class CommentTest extends TestCaseAbstract
 	 * @dataProvider providerProcessFailure
 	 */
 
-	public function testProcessFailure($postArray = [], $hashArray = [], $settingArray = [], $method = null, string $expect = null)
+	public function testProcessFailure($postArray = [], $hashArray = [], $settingArray = [], string $method = null, string $expect = null)
 	{
 		/* setup */
 
