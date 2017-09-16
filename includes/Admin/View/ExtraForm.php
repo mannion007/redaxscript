@@ -276,7 +276,7 @@ class ExtraForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.2.0
 	 *
-	 * @return object
+	 * @return string
 	 */
 
 	protected function _renderList() : string

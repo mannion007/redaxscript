@@ -66,7 +66,7 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @dataProvider providerRender
 	 */
 
-	public function testRender($registryArray = [], $expect = null)
+	public function testRender($registryArray = [], string $expect = null)
 	{
 		/* setup */
 
@@ -88,12 +88,12 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param string $expect
+	 * @param array $expectArray
 	 *
 	 * @dataProvider providerError
 	 */
 
-	public function testValidateError($registryArray = [], $expect = null)
+	public function testValidateError($registryArray = [], array $expectArray = null)
 	{
 		/* setup */
 
@@ -102,11 +102,11 @@ class SystemStatusTest extends TestCaseAbstract
 
 		/* actual */
 
-		$actual = $this->callMethod($systemStatus, '_validateError');
+		$actualArray = $this->callMethod($systemStatus, '_validateError');
 
 		/* compare */
 
-		$this->assertEquals($expect, $actual);
+		$this->assertEquals($expectArray, $actualArray);
 	}
 
 	/**
@@ -115,12 +115,12 @@ class SystemStatusTest extends TestCaseAbstract
 	 * @since 3.0.0
 	 *
 	 * @param array $registryArray
-	 * @param string $expect
+	 * @param array $expectArray
 	 *
 	 * @dataProvider providerWarning
 	 */
 
-	public function testValidateWarning($registryArray = [], $expect = null)
+	public function testValidateWarning($registryArray = [], array $expectArray = null)
 	{
 		/* setup */
 
@@ -129,10 +129,10 @@ class SystemStatusTest extends TestCaseAbstract
 
 		/* actual */
 
-		$actual = $this->callMethod($systemStatus, '_validateWarning');
+		$actualArray = $this->callMethod($systemStatus, '_validateWarning');
 
 		/* compare */
 
-		$this->assertEquals($expect, $actual);
+		$this->assertEquals($expectArray, $actualArray);
 	}
 }

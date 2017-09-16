@@ -106,7 +106,7 @@ class Link extends HeadAbstract
 	 * @return $this
 	 */
 
-	public function rewrite($pathArray = [])
+	public function rewrite(array $pathArray = [])
 	{
 		$rewriteArray = $this->_getRewriteArray();
 		$rewriteArray = array_merge($rewriteArray, $pathArray);
