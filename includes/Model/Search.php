@@ -21,13 +21,13 @@ class Search
 	 * @since 4.0.0
 	 *
 	 * @param string $table name of the table
-	 * @param string $language value of the language
 	 * @param string $search value of the search
+	 * @param string $language value of the language
 	 *
 	 * @return object
 	 */
 
-	public function getByTable(string $table = null, string $language = null, string $search = null)
+	public function getByTable(string $table = null, string $search = null, string $language = null)
 	{
 		return Db::forTablePrefix($table)
 			->whereLikeMany($this->_buildColumnArray($table), $this->_buildLikeArray($table, $search))

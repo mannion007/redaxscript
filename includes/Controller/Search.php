@@ -75,8 +75,8 @@ class Search extends ControllerAbstract
 		$resultArray = $this->_search(
 		[
 			'table' => $queryArray['table'],
-			'language' => $this->_registry->get('language'),
-			'search' => $queryArray['search']
+			'search' => $queryArray['search'],
+			'language' => $this->_registry->get('language')
 		]);
 
 		/* handle info */
@@ -190,7 +190,7 @@ class Search extends ControllerAbstract
 		{
 			foreach ($searchArray['table'] as $table)
 			{
-				$resultArray[$table] = $searchModel->getByTable($table, $searchArray['language'], $searchArray['search']);
+				$resultArray[$table] = $searchModel->getByTable($table, $searchArray['search'], $searchArray['language']);
 			}
 		}
 		return $resultArray;
