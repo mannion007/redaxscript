@@ -25,7 +25,7 @@ class Tag extends BaseTag
 	 * @codeCoverageIgnore
 	 */
 
-	public static function panel()
+	public static function panel() : string
 	{
 		return self::_migrate('admin_panel_list');
 	}

@@ -64,20 +64,27 @@ class InstallForm extends ViewAbstract
 
 			->append('<fieldset class="rs-js-set-accordion rs-js-set-active rs-set-accordion rs-set-active">')
 			->append('<legend class="rs-js-title-accordion rs-js-title-active rs-title-accordion rs-title-active">' . $this->_language->get('database_setup') . '</legend>')
-			->append('<ul class="rs-js-box-accordion rs-js-box-active rs-box-accordion rs-box-active"><li>')
-			->label($this->_language->get('type'),
-			[
-				'for' => 'db-type'
-			])
-			->select($this->_registry->get('driverArray'),
-			[
-				$optionArray['dbType']
-			],
-			[
-				'id' => 'db-type',
-				'name' => 'db-type'
-			])
-			->append('</li><li>')
+			->append('<ul class="rs-js-box-accordion rs-js-box-active rs-box-accordion rs-box-active">');
+		if ($this->_registry->get('driverArray'))
+		{
+			$formElement
+				->append('</li><li>')
+				->label($this->_language->get('type'),
+				[
+					'for' => 'db-type'
+				])
+				->select($this->_registry->get('driverArray'),
+				[
+					$optionArray['dbType']
+				],
+				[
+					'id' => 'db-type',
+					'name' => 'db-type'
+				])
+				->append('</li><li>');
+		}
+		$formElement
+			->append('<li>')
 			->label($this->_language->get('host'),
 			[
 				'for' => 'db-host'

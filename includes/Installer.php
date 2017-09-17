@@ -88,7 +88,7 @@ class Installer
 	 * @param string $directory name of the directory
 	 */
 
-	public function init($directory = 'database')
+	public function init(string $directory = 'database')
 	{
 		$this->_directory = $directory;
 	}
