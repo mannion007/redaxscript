@@ -17,7 +17,7 @@ interface ValidatorInterface
 	/**
 	 * status passed
 	 *
-	 * @const boolean
+	 * @const bool
 	 */
 
 	const PASSED = true;
@@ -25,7 +25,7 @@ interface ValidatorInterface
 	/**
 	 * status failed
 	 *
-	 * @const boolean
+	 * @const bool
 	 */
 
 	const FAILED = false;
@@ -34,8 +34,6 @@ interface ValidatorInterface
 	 * validate the value
 	 *
 	 * @since 2.2.0
-	 *
-	 * @return bool
 	 */
 
 	public function validate();

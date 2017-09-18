@@ -14,7 +14,7 @@ use PDOException;
  * @category Db
  * @author Henry Ruhs
  *
- * @method $this _addJoinSource(string $operator, string $table, mixed $constraint, string $tableAlias)
+ * @method $this _addJoinSource(string $operator, string $table, string|array $constraint, string $tableAlias)
  * @method $this _addOrderBy(string $column, string $value)
  * @method $this _addWhere(string $clause, array $valueArray)
  * @method _setupDb(string $connection)
@@ -109,7 +109,7 @@ class Db extends ORM
 	 * @return int
 	 */
 
-	public static function getStatus()
+	public static function getStatus() : int
 	{
 		$output = 0;
 
@@ -142,7 +142,7 @@ class Db extends ORM
 	 * @return self
 	 */
 
-	public static function rawInstance($table = null, $connection = self::DEFAULT_CONNECTION)
+	public static function rawInstance(string $table = null, string $connection = self::DEFAULT_CONNECTION) : self
 	{
 		self::_setupDb($connection);
 		return new self($table);
@@ -156,7 +156,7 @@ class Db extends ORM
 	 * @return int
 	 */
 
-	public static function countTablePrefix()
+	public static function countTablePrefix() : int
 	{
 		$output = 0;
 		$dbType = self::$_config->get('dbType');
@@ -207,7 +207,7 @@ class Db extends ORM
 	 * @return self
 	 */
 
-	public static function forTablePrefix($table = null, $connection = self::DEFAULT_CONNECTION)
+	public static function forTablePrefix(string $table = null, string $connection = self::DEFAULT_CONNECTION) : self
 	{
 		self::_setupDb($connection);
 		return new self(self::$_config->get('dbPrefix') . $table, [], $connection);
@@ -219,13 +219,13 @@ class Db extends ORM
 	 * @since 2.2.0
 	 *
 	 * @param string $table name of the table
-	 * @param string $constraint constraint as needed
+	 * @param string|array $constraint constraint as needed
 	 * @param string $tableAlias alias of the table
 	 *
-	 * @return $this
+	 * @return self
 	 */
 
-	public function leftJoinPrefix($table = null, $constraint = null, $tableAlias = null)
+	public function leftJoinPrefix(string $table = null, string $constraint = null, string $tableAlias = null) : self
 	{
 		return $this->_addJoinSource('LEFT', self::$_config->get('dbPrefix') . $table, $constraint, $tableAlias);
 	}
@@ -238,10 +238,10 @@ class Db extends ORM
 	 * @param array $columnArray array of column names
 	 * @param array $likeArray array of the like
 	 *
-	 * @return $this
+	 * @return self
 	 */
 
-	public function whereLikeMany($columnArray = [], $likeArray = [])
+	public function whereLikeMany(array $columnArray = [], array $likeArray = []) : self
 	{
 		return $this->_addWhere('(' . implode($columnArray, ' LIKE ? OR ') . ' LIKE ? )', $likeArray);
 	}
@@ -253,10 +253,10 @@ class Db extends ORM
 	 *
 	 * @param string $language value of the language
 	 *
-	 * @return $this
+	 * @return self
 	 */
 
-	public function whereLanguageIs($language = null)
+	public function whereLanguageIs(string $language = null) : self
 	{
 		return $this->_addWhere('(language = \'' . $language . '\' OR language IS NULL)');
 	}
@@ -271,7 +271,7 @@ class Db extends ORM
 	 * @return array
 	 */
 
-	public function findFlatArray($key = 'id') : array
+	public function findFlatArray(string $key = 'id') : array
 	{
 		$flatArray = [];
 		foreach ($this->findArray() as $valueArray)
@@ -295,7 +295,7 @@ class Db extends ORM
 	 * @return string|array|bool
 	 */
 
-	public static function getSetting($key = null)
+	public static function getSetting(string $key = null)
 	{
 		$settings = self::forTablePrefix('settings')->findMany();
 
@@ -325,12 +325,12 @@ class Db extends ORM
 	 * @deprecated 4.0.0
 	 *
 	 * @param string $key key of the item
-	 * @param string|int $value value of the item
+	 * @param string $value value of the item
 	 *
 	 * @return bool
 	 */
 
-	public static function setSetting($key = null, $value = null)
+	public static function setSetting(string $key = null, string $value = null) : bool
 	{
 		return self::forTablePrefix('settings')->where('name', $key)->findOne()->set('value', $value)->save();
 	}
@@ -342,10 +342,10 @@ class Db extends ORM
 	 *
 	 * @param string $column name of the column
 	 *
-	 * @return $this
+	 * @return self
 	 */
 
-	public function orderGlobal($column = null)
+	public function orderGlobal(string $column = null) : self
 	{
 		return $this->_addOrderBy($column, $this->getSetting('order'));
 	}
@@ -358,7 +358,7 @@ class Db extends ORM
 	 * @return self
 	 */
 
-	public function limitGlobal()
+	public function limitGlobal() : self
 	{
 		$this->_limit = $this->getSetting('limit');
 		return $this;
