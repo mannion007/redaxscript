@@ -35,6 +35,7 @@ class ResultList extends ViewAbstract
 		$output = Module\Hook::trigger('resultListStart');
 		$accessValidator = new Validator\Access();
 		$contentModel = new Model\Content();
+		$settingModel = new Model\Setting();
 
 		/* html elements */
 
@@ -74,7 +75,7 @@ class ResultList extends ViewAbstract
 				{
 					if ($accessValidator->validate($result->access, $this->_registry->get('myGroups')) === Validator\ValidatorInterface::PASSED)
 					{
-						$textDate = date(Db::getSetting('date'), strtotime($value->date));
+						$textDate = date($settingModel->get('date'), strtotime($value->date));
 						$linkElement
 							->attr('href', $this->_registry->get('parameterRoute') . $contentModel->getRouteByTableAndId($table, $value->id))
 							->text($value->title ? $value->title : $value->author);

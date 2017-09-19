@@ -1,6 +1,8 @@
 <?php
 namespace Redaxscript;
 
+use Redaxscript\Model;
+
 /**
  * parent class to create a breadcrumb navigation
  *
@@ -92,13 +94,14 @@ class Breadcrumb
 
 	public function init(array $optionArray = [])
 	{
+		$settingModel = new Model\Setting();
 		if (is_array($optionArray))
 		{
 			$this->_optionArray = array_merge($this->_optionArray, $optionArray);
 		}
 		if (!$this->_optionArray['divider'])
 		{
-			$this->_optionArray['divider'] = Db::getSetting('divider') ? Db::getSetting('divider') : null;
+			$this->_optionArray['divider'] = $settingModel->get('divider');
 		}
 		$this->_create();
 	}

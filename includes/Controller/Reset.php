@@ -208,6 +208,7 @@ class Reset extends ControllerAbstract
 
 	protected function _mail(array $mailArray = []) : bool
 	{
+		$settingModel = new Model\Setting();
 		$urlReset = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . 'login';
 
 		/* html elements */
@@ -216,8 +217,7 @@ class Reset extends ControllerAbstract
 		$linkElement
 			->init('a',
 			[
-				'href' => $urlReset,
-				'class' => 'link-result'
+				'href' => $urlReset
 			])
 			->text($urlReset);
 
@@ -229,7 +229,7 @@ class Reset extends ControllerAbstract
 		];
 		$fromArray =
 		[
-			Db::getSetting('author') => Db::getSetting('email')
+			$settingModel->get('author') => $settingModel->get('email')
 		];
 		$subject = $this->_language->get('password_new');
 		$bodyArray =

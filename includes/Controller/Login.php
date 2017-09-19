@@ -5,6 +5,7 @@ use Redaxscript\Auth;
 use Redaxscript\Db;
 use Redaxscript\Filter;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -132,6 +133,7 @@ class Login extends ControllerAbstract
 	{
 		$passwordValidator = new Validator\Password();
 		$captchaValidator = new Validator\Captcha();
+		$settingModel = new Model\Setting();
 
 		/* validate post */
 
@@ -152,7 +154,7 @@ class Login extends ControllerAbstract
 		{
 			$messageArray[] = $this->_language->get('password_incorrect');
 		}
-		if (Db::getSetting('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
+		if ($settingModel->get('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
 		{
 			$messageArray[] = $this->_language->get('captcha_incorrect');
 		}

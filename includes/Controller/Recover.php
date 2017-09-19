@@ -6,6 +6,7 @@ use Redaxscript\Filter;
 use Redaxscript\Html;
 use Redaxscript\Mailer;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Validator;
 
 /**
@@ -151,6 +152,7 @@ class Recover extends ControllerAbstract
 	{
 		$emailValidator = new Validator\Email();
 		$captchaValidator = new Validator\Captcha();
+		$settingModel = new Model\Setting();
 
 		/* validate post */
 
@@ -167,7 +169,7 @@ class Recover extends ControllerAbstract
 		{
 			$messageArray[] = $this->_language->get('email_unknown');
 		}
-		if (Db::getSetting('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
+		if ($settingModel->get('captcha') > 0 && $captchaValidator->validate($postArray['task'], $postArray['solution']) === Validator\ValidatorInterface::FAILED)
 		{
 			$messageArray[] = $this->_language->get('captcha_incorrect');
 		}
@@ -186,6 +188,7 @@ class Recover extends ControllerAbstract
 
 	protected function _mail(array $mailArray = []) : bool
 	{
+		$settingModel = new Model\Setting();
 		$urlReset = $this->_registry->get('root') . '/' . $this->_registry->get('parameterRoute') . 'login/reset/' . sha1($mailArray['password']) . '/' . $mailArray['id'];
 
 		/* html elements */
@@ -206,7 +209,7 @@ class Recover extends ControllerAbstract
 		];
 		$fromArray =
 		[
-			Db::getSetting('author') => Db::getSetting('email')
+			$settingModel->get('author') => $settingModel->get('email')
 		];
 		$subject = $this->_language->get('recovery');
 		$bodyArray =

@@ -3,6 +3,7 @@ namespace Redaxscript\View;
 
 use Redaxscript\Db;
 use Redaxscript\Html;
+use Redaxscript\Model;
 use Redaxscript\Module;
 
 /**
@@ -30,6 +31,7 @@ class CommentForm extends ViewAbstract
 	public function render(int $articleId = null) : string
 	{
 		$output = Module\Hook::trigger('commentFormStart');
+		$settingModel = new Model\Setting();
 
 		/* html elements */
 
@@ -52,7 +54,7 @@ class CommentForm extends ViewAbstract
 			]
 		],
 		[
-			'captcha' => Db::getSetting('captcha') > 0
+			'captcha' => $settingModel->get('captcha') > 0
 		]);
 
 		/* create the form */
@@ -109,7 +111,7 @@ class CommentForm extends ViewAbstract
 				'required' => 'required'
 			])
 			->append('</li>');
-		if (Db::getSetting('captcha') > 0)
+		if ($settingModel->get('captcha') > 0)
 		{
 			$formElement
 				->append('<li>')
@@ -117,7 +119,7 @@ class CommentForm extends ViewAbstract
 				->append('</li>');
 		}
 		$formElement->append('</ul></fieldset>');
-		if (Db::getSetting('captcha') > 0)
+		if ($settingModel->get('captcha') > 0)
 		{
 			$formElement->captcha('solution');
 		}

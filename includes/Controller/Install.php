@@ -9,6 +9,7 @@ use Redaxscript\Installer;
 use Redaxscript\Language;
 use Redaxscript\Mailer;
 use Redaxscript\Messenger;
+use Redaxscript\Model;
 use Redaxscript\Registry;
 use Redaxscript\Request;
 use Redaxscript\Validator;
@@ -446,6 +447,8 @@ class Install extends ControllerAbstract
 
 	protected function _mail(array $mailArray = []) : bool
 	{
+		$settingModel = new Model\Setting();
+
 		/* html elements */
 
 		$linkElement = new Html\Element();
@@ -464,7 +467,7 @@ class Install extends ControllerAbstract
 		];
 		$fromArray =
 		[
-			Db::getSetting('author') => Db::getSetting('email')
+			$settingModel->get('author') => $settingModel->get('email')
 		];
 		$subject = $this->_language->get('installation');
 		$bodyArray =
