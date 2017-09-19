@@ -795,6 +795,7 @@ function admin_delete()
 	$registry = Redaxscript\Registry::getInstance();
 	$request = Redaxscript\Request::getInstance();
 	$language = Redaxscript\Language::getInstance();
+	$settingModel = new Redaxscript\Model\Setting();
 	$tableParameter = $registry->get('tableParameter');
 	$idParameter = $registry->get('idParameter');
 	if ($tableParameter == 'categories' || $tableParameter == 'articles' || $tableParameter == 'extras' || $tableParameter == 'comments' || $tableParameter == 'groups' || $tableParameter == 'users')
@@ -854,7 +855,7 @@ function admin_delete()
 
 		/* reset the homepage */
 
-		if ($idParameter == Redaxscript\Db::getSetting('homepage'))
+		if ($idParameter == $settingModel->get('homepage'))
 		{
 			Redaxscript\Db::forTablePrefix('settings')
 				->where('name', 'homepage')

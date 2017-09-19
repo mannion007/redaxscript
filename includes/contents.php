@@ -19,6 +19,7 @@ function contents()
 	$config = Redaxscript\Config::getInstance();
 	$output = Redaxscript\Module\Hook::trigger('contentStart');
 	$aliasValidator = new Redaxscript\Validator\Alias();
+	$settingModel = new Redaxscript\Model\Setting();
 	$lastId = $registry->get('lastId');
 	$lastTable = $registry->get('lastTable');
 	$categoryId = $registry->get('categoryId');
@@ -85,7 +86,7 @@ function contents()
 		if ($result)
 		{
 			$num_rows = count($result);
-			$sub_maximum = ceil($num_rows / Redaxscript\Db::getSetting('limit'));
+			$sub_maximum = ceil($num_rows / $settingModel->get('limit'));
 			$sub_active = $registry->get('lastSubParameter');
 
 			/* sub parameter */
@@ -96,10 +97,10 @@ function contents()
 			}
 			else
 			{
-				$offset_string = ($sub_active - 1) * Redaxscript\Db::getSetting('limit') . ', ';
+				$offset_string = ($sub_active - 1) * $settingModel->get('limit') . ', ';
 			}
 		}
-		$articles->limit($offset_string . Redaxscript\Db::getSetting('limit'));
+		$articles->limit($offset_string . $settingModel->get('limit'));
 	}
 	else
 	{
@@ -257,7 +258,7 @@ function contents()
 
 	/* call pagination as needed */
 
-	if ($sub_maximum > 1 && Redaxscript\Db::getSetting('pagination') == 1)
+	if ($sub_maximum > 1 && $settingModel->get('pagination') == 1)
 	{
 		$categoryModel = new Redaxscript\Model\Category();
 		$route = $categoryModel->getRouteById($categoryId);
@@ -421,8 +422,9 @@ function byline($table, $id, $author, $date)
 {
 	$language = Redaxscript\Language::getInstance();
 	$output = Redaxscript\Module\Hook::trigger('bylineStart');
-	$time = date(Redaxscript\Db::getSetting('time'), strtotime($date));
-	$date = date(Redaxscript\Db::getSetting('date'), strtotime($date));
+	$settingModel = new Redaxscript\Model\Setting();
+	$time = date($settingModel->get('time'), strtotime($date));
+	$date = date($settingModel->get('date'), strtotime($date));
 	if ($table == 'articles')
 	{
 		$comments_total = Redaxscript\Db::forTablePrefix('comments')->where('article', $id)->count();
@@ -450,7 +452,7 @@ function byline($table, $id, $author, $date)
 
 	if ($comments_total)
 	{
-		$output .= '<span class="rs-text-divider">' . Redaxscript\Db::getSetting('divider') . '</span><span class="rs-text-total">' . $comments_total . ' ';
+		$output .= '<span class="rs-text-divider">' . $settingModel->get('divider') . '</span><span class="rs-text-total">' . $comments_total . ' ';
 		if ($comments_total == 1)
 		{
 			$output .= $language->get('comment');

@@ -105,9 +105,10 @@ class HelperTest extends TestCaseAbstract
 				'category' => $categoryThree->id
 			])
 			->save();
-		Db::setSetting('title', 'Setting');
-		Db::setSetting('description', 'Setting');
-		Db::setSetting('keywords', 'Setting');
+		$setting = $this->settingFactory();
+		$setting->set('title', 'Setting');
+		$setting->set('description', 'Setting');
+		$setting->set('keywords', 'Setting');
 	}
 
 	/**

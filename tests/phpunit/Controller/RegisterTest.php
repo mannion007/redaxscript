@@ -2,7 +2,6 @@
 namespace Redaxscript\Tests\Controller;
 
 use Redaxscript\Controller;
-use Redaxscript\Db;
 use Redaxscript\Tests\TestCaseAbstract;
 
 /**
@@ -44,8 +43,9 @@ class RegisterTest extends TestCaseAbstract
 			'adminPassword' => 'test',
 			'adminEmail' => 'test@test.com'
 		]);
-		Db::setSetting('captcha', 1);
-		Db::setSetting('notification', 1);
+		$setting = $this->settingFactory();
+		$setting->set('captcha', 1);
+		$setting->set('notification', 1);
 	}
 
 	/**

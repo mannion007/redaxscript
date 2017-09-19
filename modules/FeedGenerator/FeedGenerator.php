@@ -87,6 +87,7 @@ class FeedGenerator extends Module\Module
 	{
 		$writer = new XMLWriter();
 		$contentModel = new Model\Content();
+		$settingtModel = new Model\Setting();
 
 		/* prepare href */
 
@@ -101,7 +102,7 @@ class FeedGenerator extends Module\Module
 		$writer->openMemory();
 		$writer->setIndent(true);
 		$writer->setIndentString('	');
-		$writer->startDocument('1.0', Db::getSetting('charset'));
+		$writer->startDocument('1.0', $settingtModel->get('charset'));
 		$writer->startElement('feed');
 		$writer->writeAttribute('xmlns', 'http://www.w3.org/2005/Atom');
 		$writer->startElement('link');
@@ -110,10 +111,10 @@ class FeedGenerator extends Module\Module
 		$writer->writeAttribute('rel', 'self');
 		$writer->endElement();
 		$writer->writeElement('id', $href);
-		$writer->writeElement('title', Db::getSetting('title'));
+		$writer->writeElement('title', $settingtModel->get('title'));
 		$writer->writeElement('updated', date('c', strtotime($this->_registry->get('now'))));
 		$writer->startElement('author');
-		$writer->writeElement('name', Db::getSetting('author'));
+		$writer->writeElement('name', $settingtModel->get('author'));
 		$writer->endElement();
 
 		/* process result */

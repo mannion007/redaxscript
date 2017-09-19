@@ -285,60 +285,9 @@ class Db extends ORM
 	}
 
 	/**
-	 * get the setting
-	 *
-	 * @since 3.0.0
-	 * @deprecated 4.0.0
-	 *
-	 * @param string $key key of the item
-	 *
-	 * @return string|array|bool
-	 */
-
-	public static function getSetting(string $key = null)
-	{
-		$settings = self::forTablePrefix('settings')->findMany();
-
-		/* process settings */
-
-		if ($key)
-		{
-			foreach ($settings as $setting)
-			{
-				if ($setting->name === $key)
-				{
-					return $setting->value;
-				}
-			}
-		}
-		else
-		{
-			return $settings;
-		}
-		return false;
-	}
-
-	/**
-	 * set the setting
-	 *
-	 * @since 3.0.0
-	 * @deprecated 4.0.0
-	 *
-	 * @param string $key key of the item
-	 * @param string $value value of the item
-	 *
-	 * @return bool
-	 */
-
-	public static function setSetting(string $key = null, string $value = null) : bool
-	{
-		return self::forTablePrefix('settings')->where('name', $key)->findOne()->set('value', $value)->save();
-	}
-
-	/**
 	 * order according to global setting
 	 *
-	 * @since 2.2.0
+	 * @since 4.0.0
 	 *
 	 * @param string $column name of the column
 	 *
@@ -347,20 +296,21 @@ class Db extends ORM
 
 	public function orderGlobal(string $column = null) : self
 	{
-		return $this->_addOrderBy($column, $this->getSetting('order'));
+		$order = self::forTablePrefix('settings')->where('name', 'order')->findOne()->value;
+		return $this->_addOrderBy($column, $order);
 	}
 
 	/**
 	 * limit according to global setting
 	 *
-	 * @since 2.2.0
+	 * @since 4.0.0
 	 *
 	 * @return self
 	 */
 
 	public function limitGlobal() : self
 	{
-		$this->_limit = $this->getSetting('limit');
+		$this->_limit = self::forTablePrefix('settings')->where('name', 'limit')->findOne()->value;
 		return $this;
 	}
 }

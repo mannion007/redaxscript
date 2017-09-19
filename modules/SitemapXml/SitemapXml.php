@@ -92,13 +92,14 @@ class SitemapXml extends Module\Module
 		$writer = new XMLWriter();
 		$categoryModel = new Model\Category();
 		$articleModel = new Model\Article();
+		$settingModel = new Model\Setting();
 
 		/* write xml */
 
 		$writer->openMemory();
 		$writer->setIndent(true);
 		$writer->setIndentString('	');
-		$writer->startDocument('1.0', Db::getSetting('charset'));
+		$writer->startDocument('1.0', $settingModel->get('charset'));
 		$writer->startElement('urlset');
 		$writer->writeAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 		$writer->startElement('url');

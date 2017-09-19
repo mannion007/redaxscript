@@ -1,7 +1,6 @@
 <?php
 namespace Redaxscript\Tests\Controller;
 
-use Redaxscript\Db;
 use Redaxscript\Controller;
 use Redaxscript\Tests\TestCaseAbstract;
 
@@ -44,7 +43,8 @@ class RecoverTest extends TestCaseAbstract
 			'adminPassword' => 'test',
 			'adminEmail' => 'test@test.com'
 		]);
-		Db::setSetting('captcha', 1);
+		$setting = $this->settingFactory();
+		$setting->set('captcha', 1);
 	}
 
 	/**

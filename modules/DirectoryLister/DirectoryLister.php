@@ -1,11 +1,11 @@
 <?php
 namespace Redaxscript\Modules\DirectoryLister;
 
-use Redaxscript\Db;
 use Redaxscript\Filesystem;
 use Redaxscript\Filter;
 use Redaxscript\Head;
 use Redaxscript\Html;
+use Redaxscript\Model;
 
 /**
  * simple directory lister
@@ -183,6 +183,7 @@ class DirectoryLister extends Config
 	protected function _renderItem(string $directory = null, array $optionArray = []) : string
 	{
 		$outputItem = null;
+		$settingModel = new Model\Setting();
 
 		/* html elements */
 
@@ -217,7 +218,7 @@ class DirectoryLister extends Config
 			$path = $directory . DIRECTORY_SEPARATOR . $value;
 			$fileExtension = pathinfo($path, PATHINFO_EXTENSION);
 			$text = $this->_replace($value, $fileExtension, $optionArray['replace']);
-			$textDate = date(Db::getSetting('date'), filectime($path));
+			$textDate = date($settingModel->get('date'), filectime($path));
 			$isDir = is_dir($path);
 			$isFile = is_file($path) && is_array($this->_configArray['extension']) && array_key_exists($fileExtension, $this->_configArray['extension']);
 

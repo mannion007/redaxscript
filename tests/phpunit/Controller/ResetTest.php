@@ -49,7 +49,8 @@ class ResetTest extends TestCaseAbstract
 			->findOne()
 			->set('password', 'test')
 			->save();
-		Db::setSetting('captcha', 1);
+		$setting = $this->settingFactory();
+		$setting->set('captcha', 1);
 	}
 
 	/**

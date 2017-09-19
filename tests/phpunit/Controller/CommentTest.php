@@ -55,7 +55,8 @@ class CommentTest extends TestCaseAbstract
 
 			])
 			->save();
-		Db::setSetting('captcha', 1);
+		$setting = $this->settingFactory();
+		$setting->set('captcha', 1);
 	}
 
 	/**
@@ -114,10 +115,11 @@ class CommentTest extends TestCaseAbstract
 	{
 		/* setup */
 
-		Db::setSetting('notification', $settingArray['notification']);
-		Db::setSetting('moderation', $settingArray['moderation']);
 		$this->_request->set('post', $postArray);
 		$this->_request->setPost('solution', function_exists('password_verify') ? $hashArray[0] : $hashArray[1]);
+		$setting = $this->settingFactory();
+		$setting->set('notification', $settingArray['notification']);
+		$setting->set('moderation', $settingArray['moderation']);
 		$commentController = new Controller\Comment($this->_registry, $this->_request, $this->_language);
 
 		/* actual */
@@ -147,10 +149,11 @@ class CommentTest extends TestCaseAbstract
 	{
 		/* setup */
 
-		Db::setSetting('notification', $settingArray['notification']);
-		Db::setSetting('moderation', $settingArray['moderation']);
 		$this->_request->set('post', $postArray);
 		$this->_request->setPost('solution', function_exists('password_verify') ? $hashArray[0] : $hashArray[1]);
+		$setting = $this->settingFactory();
+		$setting->set('notification', $settingArray['notification']);
+		$setting->set('moderation', $settingArray['moderation']);
 		$stub = $this
 			->getMockBuilder('Redaxscript\Controller\Comment')
 			->setConstructorArgs(

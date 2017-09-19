@@ -18,6 +18,7 @@ function navigation_list($table, $options)
 {
 	$registry = Redaxscript\Registry::getInstance();
 	$language = Redaxscript\Language::getInstance();
+	$settingModel = new Redaxscript\Model\Setting();
 	$output = Redaxscript\Module\Hook::trigger('navigationStart');
 
 	/* define option variables */
@@ -38,11 +39,11 @@ function navigation_list($table, $options)
 
 	if (!$option_order)
 	{
-		$option_order = Redaxscript\Db::getSetting('order');
+		$option_order = $settingModel->get('order');
 	}
 	if (!$option_limit)
 	{
-		$option_limit = Redaxscript\Db::getSetting('limit');
+		$option_limit = $settingModel->get('limit');
 	}
 
 	/* switch table */

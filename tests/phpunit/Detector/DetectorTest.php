@@ -118,7 +118,8 @@ class DetectorTest extends TestCaseAbstract
 		$this->_request->set('get', $queryArray);
 		$this->_request->set('session', $sessionArray);
 		$this->_request->set('server', $serverArray);
-		Db::setSetting('language', $settingArray['language']);
+		$setting = $this->settingFactory();
+		$setting->set('language', $settingArray['language']);
 		$detector = new Detector\Language($this->_registry, $this->_request);
 
 		/* actual */
@@ -151,7 +152,8 @@ class DetectorTest extends TestCaseAbstract
 		$this->_registry->init($registryArray);
 		$this->_request->set('get', $queryArray);
 		$this->_request->set('session', $sessionArray);
-		Db::setSetting('template', $settingArray['template']);
+		$setting = $this->settingFactory();
+		$setting->set('template', $settingArray['template']);
 		$detector = new Detector\Template($this->_registry, $this->_request);
 
 		/* actual */

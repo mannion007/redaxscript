@@ -6,6 +6,7 @@ use Redaxscript\Config;
 use Redaxscript\Db;
 use Redaxscript\Installer;
 use Redaxscript\Language;
+use Redaxscript\Model;
 use Redaxscript\Registry;
 use Redaxscript\Request;
 use ReflectionClass;
@@ -80,6 +81,19 @@ abstract class TestCaseAbstract extends PHPUnit\Framework\TestCase
 	public function installerFactory() : Installer
 	{
 		return new Installer($this->_registry, $this->_request, $this->_language, $this->_config);
+	}
+
+	/**
+	 * installerFactory
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return Model\Setting
+	 */
+
+	public function settingFactory() : Model\Setting
+	{
+		return new Model\Setting();
 	}
 
 	/**
