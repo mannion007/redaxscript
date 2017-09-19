@@ -2,7 +2,6 @@
 namespace Redaxscript\View;
 
 use Redaxscript\Model;
-use Redaxscript\Db;
 use Redaxscript\Html;
 use Redaxscript\Module;
 use Redaxscript\Validator;

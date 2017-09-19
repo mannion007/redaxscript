@@ -1,8 +1,6 @@
 <?php
 namespace Redaxscript;
 
-use Redaxscript\Model;
-
 /**
  * parent class to create a breadcrumb navigation
  *
