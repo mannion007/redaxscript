@@ -27,7 +27,7 @@ class Setting
 
 	public function get($key = null)
 	{
-		$settings = Db::forTablePrefix('settings')->findMany();
+		$settings = $this->getAll();
 
 		/* process settings */
 
@@ -42,6 +42,19 @@ class Setting
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * get the all setting
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return object
+	 */
+
+	public function getAll()
+	{
+		return Db::forTablePrefix('settings')->findMany();
 	}
 
 	/**
