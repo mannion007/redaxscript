@@ -1,6 +1,8 @@
 <?php
 namespace Redaxscript;
 
+use Redaxscript\Model;
+
 /**
  * parent class to provide a mathematical task
  *
@@ -92,13 +94,14 @@ class Captcha
 
 	public function init(int $mode = 0)
 	{
+		$settingModel = new Model\Setting();
 		if (is_numeric($mode))
 		{
 			$this->_mode = $mode;
 		}
 		else
 		{
-			$this->_mode = (integer)Db::getSetting('captcha');
+			$this->_mode = (integer)$settingModel->get('captcha');
 		}
 		$this->_create();
 	}
