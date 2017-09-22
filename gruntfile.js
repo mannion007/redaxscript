@@ -108,6 +108,7 @@ module.exports = function (grunt)
 		'postcss:templateInstall',
 		'postcss:templateSkeleton',
 		'postcss:moduleAce',
+		'postcss:moduleDebugger',
 		'postcss:moduleDirectoryLister',
 		'postcss:moduleFeedReader',
 		'postcss:moduleLightGallery',

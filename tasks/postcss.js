@@ -77,6 +77,14 @@ module.exports = function ()
 			],
 			dest: 'modules/Ace/dist/styles/ace.min.css'
 		},
+		moduleDebugger:
+		{
+			src:
+			[
+				'modules/Debugger/assets/styles/_debugger.css'
+			],
+			dest: 'modules/Debugger/dist/styles/debugger.min.css'
+		},
 		moduleDirectoryLister:
 		{
 			src:
