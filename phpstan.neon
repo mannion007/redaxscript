@@ -93,6 +93,7 @@ parameters:
 	- modules/CallHome
 	- modules/Contact
 	- modules/Demo
+	- modules/Debugger
 	- modules/DirectoryLister
 	- modules/FeedGenerator
 	- modules/FeedReader

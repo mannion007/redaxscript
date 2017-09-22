@@ -46,8 +46,8 @@
 
 	& li
 	{
-		text-overflow: ellipsis;
 		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 

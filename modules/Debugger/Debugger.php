@@ -5,7 +5,6 @@ use Redaxscript\Db;
 use Redaxscript\Head;
 use Redaxscript\Html;
 use Redaxscript\Module;
-use Redaxscript\Model;
 
 /**
  * debugger
@@ -96,18 +95,18 @@ class Debugger extends Module\Module
 
 		/* process debugger */
 
-		foreach ($debuggerArray as $debuggerKey => $childrenArray)
+		foreach ($debuggerArray as $debuggerKey => $subArray)
 		{
-			if ($childrenArray)
+			if ($subArray)
 			{
 				$boxElement->clear();
 				$listElement->clear();
 
-				/* process children */
+				/* process sub */
 
-				foreach ($childrenArray as $childrenKey => $childrenValue)
+				foreach ($subArray as $subKey => $subValue)
 				{
-					$text = is_string($childrenKey) ? $childrenKey . $this->_language->get('colon') . ' ' . $childrenValue : $childrenValue;
+					$text = is_string($subKey) ? $subKey . $this->_language->get('colon') . ' ' . $subValue : $subValue;
 					$listElement->append(
 						$itemElement->text($text)
 					);
