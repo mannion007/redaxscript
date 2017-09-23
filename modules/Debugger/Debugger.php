@@ -111,9 +111,10 @@ class Debugger extends Module\Module
 						$itemElement->text($text)
 					);
 				}
+				$title = $debuggerKey . $this->_language->get('colon') . ' ' . count($subArray);
 				$sectionElement->append(
 					$boxElement->append(
-						$titleElement->text($debuggerKey) . $listElement
+						$titleElement->text($title) . $listElement
 					)
 				);
 			}
