@@ -129,10 +129,12 @@ class Router extends RouterAbstract
 		$permissionEdit = $adminParameter === 'edit' && $this->_registry->get('tableEdit');
 		$permissionView = $adminParameter === 'view' && $this->_registry->get('tableEdit');
 		$permissionDelete = $adminParameter === 'delete' && $this->_registry->get('tableDelete');
+		$permissionInstall = $adminParameter === 'install' && $this->_registry->get('tableInstall');
+		$permissionUninstall = $adminParameter === 'uninstall' && $this->_registry->get('tableUninstall');
 
 		/* handle permission */
 
-		if (!$permissionNew && !$permissionEdit && !$permissionView && !$permissionDelete)
+		if (!$permissionNew && !$permissionEdit && !$permissionView && !$permissionDelete && !$permissionInstall && !$permissionUninstall)
 		{
 			$messenger = new Admin\Messenger($this->_registry);
 			return $messenger
