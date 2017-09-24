@@ -40,7 +40,7 @@ class LightGallery extends Config
 	 * @return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		return $this->getNotification();
 	}

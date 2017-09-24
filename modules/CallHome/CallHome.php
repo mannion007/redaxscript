@@ -60,7 +60,7 @@ class CallHome extends Module\Module
 	 * @return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		$reader = new Reader();
 		$aliasFilter = new Filter\Alias();

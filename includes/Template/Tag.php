@@ -1,6 +1,7 @@
 <?php
 namespace Redaxscript\Template;
 
+use Redaxscript\Admin;
 use Redaxscript\Db;
 use Redaxscript\Config;
 use Redaxscript\Console;
@@ -11,6 +12,7 @@ use Redaxscript\Language;
 use Redaxscript\Model;
 use Redaxscript\Registry;
 use Redaxscript\Request;
+use Redaxscript\Router;
 use Redaxscript\View;
 
 /**
@@ -33,7 +35,7 @@ class Tag
 	 * @return string
 	 */
 
-	public static function base()
+	public static function base() : string
 	{
 		$base = new Head\Base(Registry::getInstance());
 		return $base->render();
@@ -46,7 +48,7 @@ class Tag
 	 *
 	 * @param string $text
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public static function title($text = null)
@@ -60,10 +62,10 @@ class Tag
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return object
+	 * @return Head\Link
 	 */
 
-	public static function link()
+	public static function link() : Head\Link
 	{
 		return Head\Link::getInstance();
 	}
@@ -73,10 +75,10 @@ class Tag
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return object
+	 * @return Head\Meta
 	 */
 
-	public static function meta()
+	public static function meta() : Head\Meta
 	{
 		return Head\Meta::getInstance();
 	}
@@ -86,10 +88,10 @@ class Tag
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return object
+	 * @return Head\Script
 	 */
 
-	public static function script()
+	public static function script() : Head\Script
 	{
 		return Head\Script::getInstance();
 	}
@@ -99,10 +101,10 @@ class Tag
 	 *
 	 * @since 3.0.0
 	 *
-	 * @return object
+	 * @return Head\Style
 	 */
 
-	public static function style()
+	public static function style() : Head\Style
 	{
 		return Head\Style::getInstance();
 	}
@@ -115,7 +117,7 @@ class Tag
 	 * @return string
 	 */
 
-	public static function breadcrumb()
+	public static function breadcrumb() : string
 	{
 		$breadcrumb = new Breadcrumb(Registry::getInstance(), Language::getInstance());
 		$breadcrumb->init();
@@ -149,7 +151,7 @@ class Tag
 	 * @return string
 	 */
 
-	public static function consoleForm()
+	public static function consoleForm() : string
 	{
 		$consoleForm = new View\ConsoleForm(Registry::getInstance(), Language::getInstance());
 		return $consoleForm->render();
@@ -165,7 +167,7 @@ class Tag
 	 * @return string
 	 */
 
-	public static function searchForm($table = null)
+	public static function searchForm($table = null) : string
 	{
 		$searchForm = new View\SearchForm(Registry::getInstance(), Language::getInstance());
 		return $searchForm->render($table);
@@ -178,7 +180,7 @@ class Tag
 	 *
 	 * @param string|array $partial
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public static function partial($partial = null)
@@ -206,7 +208,7 @@ class Tag
 	 *
 	 * @param string $key
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public static function getRegistry($key = null)
@@ -223,7 +225,7 @@ class Tag
 	 * @param string $key
 	 * @param string $index
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public static function getLanguage($key = null, $index = null)
@@ -239,7 +241,7 @@ class Tag
 	 *
 	 * @param string $key
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 
 	public static function getSetting($key = null)
@@ -253,14 +255,47 @@ class Tag
 	 *
 	 * @since 2.3.0
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public static function content()
 	{
-		// @codeCoverageIgnoreStart
-		return self::_migrate('router');
-		// @codeCoverageIgnoreEnd
+		$adminContent = self::_renderAdminContent();
+		return $adminContent ? $adminContent : self::_renderContent();
+	}
+
+	/**
+	 * render the admin content
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string|null
+	 */
+
+	protected function _renderAdminContent()
+	{
+		$registry = Registry::getInstance();
+		if ($registry->get('token') === $registry->get('loggedIn'))
+		{
+			$adminRouter = new Admin\Router\Router(Registry::getInstance(), Request::getInstance(), Language::getInstance(), Config::getInstance());
+			$adminRouter->init();
+			return $adminRouter->routeContent();
+		}
+	}
+
+	/**
+	 * render the content
+	 *
+	 * @since 2.3.0
+	 *
+	 * @return string|null
+	 */
+
+	protected function _renderContent()
+	{
+		$router = new Router\Router(Registry::getInstance(), Request::getInstance(), Language::getInstance(), Config::getInstance());
+		$router->init();
+		return $router->routeContent();
 	}
 
 	/**
@@ -270,7 +305,7 @@ class Tag
 	 *
 	 * @param string $filter
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public static function extra($filter = null)
@@ -304,7 +339,7 @@ class Tag
 	 * @return Db
 	 */
 
-	public static function articleRaw()
+	public static function articleRaw() : Db
 	{
 		return Db::forTablePrefix('articles');
 	}
@@ -317,7 +352,7 @@ class Tag
 	 * @return Db
 	 */
 
-	public static function extraRaw()
+	public static function extraRaw() : Db
 	{
 		return Db::forTablePrefix('extras');
 	}
@@ -330,7 +365,7 @@ class Tag
 	 * @param string $type
 	 * @param array $optionArray
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	public static function navigation($type = null, array $optionArray = [])
@@ -359,7 +394,7 @@ class Tag
 	 * @param string $function
 	 * @param array $parameterArray
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 
 	protected static function _migrate($function = null, $parameterArray = [])

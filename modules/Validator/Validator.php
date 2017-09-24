@@ -39,7 +39,7 @@ class Validator extends Config
 	 * @return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		if ($this->_registry->get('firstParameter') !== 'admin')
 		{

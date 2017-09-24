@@ -1,6 +1,7 @@
 parameters:
 	bootstrap: includes\bootstrap.php
 	excludes_analyse:
+	- includes/Admin/Router/Router.php
 	- includes/Admin/View
 	- includes/Asset/Transport.php
 	- includes/Bootstrap/Cache.php
@@ -44,6 +45,7 @@ parameters:
 	- includes/Html/Form.php
 	- includes/Html/HtmlAbstract.php
 	- includes/Html/Purifier.php
+	- includes/Router/Router.php
 	- includes/Template/Helper/Description.php
 	- includes/Template/Helper/Keywords.php
 	- includes/Template/Helper/Robots.php
@@ -67,7 +69,6 @@ parameters:
 	- includes/admin_admin.php
 	- includes/admin_list.php
 	- includes/admin_query.php
-	- includes/admin_router.php
 	- includes/Auth.php
 	- includes/Breadcrumb.php
 	- includes/comments.php
@@ -80,15 +81,12 @@ parameters:
 	- includes/Messenger.php
 	- includes/navigation.php
 	- includes/query.php
-	- includes/router.php
 	- includes/admin_admin.php
 	- includes/admin_list.php
 	- includes/admin_query.php
-	- includes/admin_router.php
 	- includes/comments.php
 	- includes/contents.php
 	- includes/navigation.php
-	- includes/router.php
 	- modules/Archive
 	- modules/CallHome
 	- modules/Contact

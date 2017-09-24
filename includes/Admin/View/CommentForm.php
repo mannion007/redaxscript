@@ -23,7 +23,7 @@ class CommentForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $commentId identifier of the comment
+	 * @param int|bool $commentId identifier of the comment
 	 *
 	 * @return string
 	 */

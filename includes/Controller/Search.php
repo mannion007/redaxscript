@@ -195,4 +195,28 @@ class Search extends ControllerAbstract
 		}
 		return $resultArray;
 	}
+
+	/**
+	 * redirect the search
+	 *
+	 * @since 4.0.0
+	 */
+
+	public function doRedirect()
+	{
+		$aliasFilter = new Filter\Alias();
+		$root = $this->_registry->get('root');
+		$parameterRoute = $this->_registry->get('parameterRoute');
+
+		/* handle post */
+
+		$table = $aliasFilter->sanitize($this->_request->getPost('table'));
+		$search = $aliasFilter->sanitize($this->_request->getPost('search'));
+		$tableString = $table ? '/' . $table : null;
+
+		/* redirect */
+
+		header('location: ' . $root . '/' . $parameterRoute . 'search' . $tableString . '/' . $search);
+		exit;
+	}
 }

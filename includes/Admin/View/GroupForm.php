@@ -23,7 +23,7 @@ class GroupForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $groupId identifier of the group
+	 * @param int|bool $groupId identifier of the group
 	 *
 	 * @return string
 	 */

@@ -9,11 +9,9 @@ include_once('includes' . DIRECTORY_SEPARATOR . 'Autoloader.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_admin.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_list.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'admin_query.php');
-include_once('includes' . DIRECTORY_SEPARATOR . 'admin_router.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'comments.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'contents.php');
 include_once('includes' . DIRECTORY_SEPARATOR . 'navigation.php');
-include_once('includes' . DIRECTORY_SEPARATOR . 'router.php');
 
 /* autoload */
 
@@ -63,3 +61,15 @@ if ($registry->get('dbStatus') > 1)
 	Module\Hook::init();
 	Module\Hook::trigger('init');
 }
+
+/* router */
+
+if ($registry->get('token') === $registry->get('loggedIn'))
+{
+	$adminRouter = new Admin\Router\Router($registry, $request, $language, $config);
+	$adminRouter->init();
+	$adminRouter->routeHeader();
+}
+$router = new Router\Router($registry, $request, $language, $config);
+$router->init();
+$router->routeHeader();

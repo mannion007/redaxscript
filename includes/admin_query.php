@@ -383,8 +383,7 @@ function admin_process()
 
 		/* show error */
 
-		echo $messenger->setRoute($language->get('back'), $route)->error($error, $language->get('error_occurred'));
-		return;
+		return $messenger->setRoute($language->get('back'), $route)->error($error, $language->get('error_occurred'));
 	}
 
 	/* handle success */
@@ -429,9 +428,7 @@ function admin_process()
 
 			/* show success */
 
-			echo $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
-
-			return;
+			return $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
 
 		/* query edit */
 
@@ -516,8 +513,7 @@ function admin_process()
 
 			/* show success */
 
-			echo $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
-			return;
+			return $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
 	}
 }
 
@@ -567,7 +563,7 @@ function admin_move()
 	/* show success */
 
 	$messenger = new Redaxscript\Admin\Messenger($registry);
-	echo $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
+	return $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
 }
 
 /**
@@ -659,7 +655,7 @@ function admin_sort()
 	/* show success */
 
 	$messenger = new Redaxscript\Admin\Messenger($registry);
-	echo $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
+	return $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
 }
 
 /**
@@ -672,7 +668,7 @@ function admin_sort()
  * @category Admin
  * @author Henry Ruhs
  *
- * @param string $input
+ * @param int $input
  */
 
 function admin_status($input)
@@ -724,7 +720,7 @@ function admin_status($input)
 	/* show success */
 
 	$messenger = new Redaxscript\Admin\Messenger($registry);
-	echo $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
+	return $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter)->doRedirect()->success($language->get('operation_completed'));
 }
 
 /**
@@ -776,7 +772,7 @@ function admin_install()
 	/* show success */
 
 	$messenger = new Redaxscript\Admin\Messenger($registry);
-	echo $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter . '#' . $aliasParameter)->doRedirect()->success($language->get('operation_completed'));
+	return $messenger->setRoute($language->get('continue'), 'admin/view/' . $tableParameter . '#' . $aliasParameter)->doRedirect()->success($language->get('operation_completed'));
 }
 
 /**
@@ -870,7 +866,7 @@ function admin_delete()
 	if ($tableParameter == 'users' && $idParameter == $registry->get('myId'))
 	{
 		$logoutController = new Redaxscript\Controller\Logout($registry, $request, $language);
-		echo $logoutController->process();
+		return $logoutController->process();
 	}
 
 	/* handle success */
@@ -886,7 +882,7 @@ function admin_delete()
 		/* show success */
 
 		$messenger = new Redaxscript\Admin\Messenger($registry);
-		echo $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
+		return $messenger->setRoute($language->get('continue'), $route)->doRedirect()->success($language->get('operation_completed'));
 	}
 }
 
@@ -956,7 +952,7 @@ function admin_update()
 		/* show success */
 
 		$messenger = new Redaxscript\Admin\Messenger($registry);
-		echo $messenger->setRoute($language->get('continue'), 'admin/edit/settings')->doRedirect()->success($language->get('operation_completed'));
+		return $messenger->setRoute($language->get('continue'), 'admin/edit/settings')->doRedirect()->success($language->get('operation_completed'));
 	}
 }
 

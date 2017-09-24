@@ -38,7 +38,7 @@ class PageCache extends Config
 	 * @return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		if (!is_dir($this->_configArray['cacheDirectory']) && !mkdir($this->_configArray['cacheDirectory']))
 		{

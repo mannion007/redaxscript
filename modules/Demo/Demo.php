@@ -83,7 +83,7 @@ class Demo extends Config
 	 * return array
 	 */
 
-	public function adminPanelNotification()
+	public function adminPanelNotification() : array
 	{
 		$auth = new Auth($this->_request);
 		$auth->init();

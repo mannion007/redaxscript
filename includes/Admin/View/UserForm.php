@@ -23,7 +23,7 @@ class UserForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $userId identifier of the user
+	 * @param int|bool $userId identifier of the user
 	 *
 	 * @return string
 	 */

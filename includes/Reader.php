@@ -41,12 +41,12 @@ class Reader
 	 *
 	 * @since 3.1.0
 	 *
-	 * @return array
+	 * @return array|null
 	 */
 
 	public function getArray() : array
 	{
-		return json_decode(json_encode($this->_dataObject), true);
+		return json_decode(json_encode($this->_dataObject ? $this->_dataObject : []), true);
 	}
 
 	/**

@@ -99,7 +99,7 @@ class Captcha
 		}
 		else
 		{
-			$this->_mode = (integer)$settingModel->get('captcha');
+			$this->_mode = (int)$settingModel->get('captcha');
 		}
 		$this->_create();
 	}

@@ -24,7 +24,7 @@ class ModuleForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $moduleId identifier of the module
+	 * @param int|bool $moduleId identifier of the module
 	 *
 	 * @return string
 	 */

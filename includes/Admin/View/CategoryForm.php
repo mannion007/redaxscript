@@ -23,7 +23,7 @@ class CategoryForm extends ViewAbstract implements ViewInterface
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $categoryId identifier of the category
+	 * @param int|bool $categoryId identifier of the category
 	 *
 	 * @return string
 	 */
