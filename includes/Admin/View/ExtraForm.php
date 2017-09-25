@@ -47,7 +47,7 @@ class ExtraForm extends ViewAbstract implements ViewInterface
 		[
 			'form' =>
 			[
-				'action' => $this->_registry->get('parameterRoute') . ($extra->id ? 'admin/process/extras/' . $extra->id : 'admin/process/extras'),
+				'action' => $extra->id ? $this->_registry->get('parameterRoute') . 'admin/process/extras/' . $extra->id : $this->_registry->get('parameterRoute') . 'admin/process/extras',
 				'class' => 'rs-admin-js-tab rs-admin-js-validate-form rs-admin-component-tab rs-admin-form-default rs-admin-fn-clearfix'
 			],
 			'link' =>

@@ -46,6 +46,7 @@ parameters:
 	- includes/Html/HtmlAbstract.php
 	- includes/Html/Purifier.php
 	- includes/Router/Router.php
+	- includes/Router/RouterAbstract.php
 	- includes/Template/Helper/Description.php
 	- includes/Template/Helper/Keywords.php
 	- includes/Template/Helper/Robots.php

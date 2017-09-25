@@ -47,7 +47,7 @@ class UserForm extends ViewAbstract implements ViewInterface
 		[
 			'form' =>
 			[
-				'action' => $this->_registry->get('parameterRoute') . ($user->id ? 'admin/process/users/' . $user->id : 'admin/process/users'),
+				'action' => $user->id ? $this->_registry->get('parameterRoute') . 'admin/process/users/' . $user->id : $this->_registry->get('parameterRoute') . 'admin/process/users',
 				'class' => 'rs-admin-js-tab rs-admin-js-validate-form rs-admin-component-tab rs-admin-form-default rs-admin-fn-clearfix'
 			],
 			'link' =>

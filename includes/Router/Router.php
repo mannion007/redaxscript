@@ -2,6 +2,7 @@
 namespace Redaxscript\Router;
 
 use Redaxscript\Controller;
+use Redaxscript\Messenger;
 use Redaxscript\Model;
 use Redaxscript\Module;
 use Redaxscript\View;
@@ -54,14 +55,16 @@ class Router extends RouterAbstract
 
 	public function routeContent()
 	{
-		$parent = parent::routeContent();
-		if ($parent)
-		{
-			return $parent;
-		}
 		Module\Hook::trigger('routeContent');
 		$firstParameter = $this->getFirst();
 		$fileInstall = $this->_registry->get('file') === 'install.php' && $this->_config->get('env') !== 'production';
+
+		/* handle token */
+
+		if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token'))
+		{
+			return $this->_errorToken();
+		}
 
 		/* handle post */
 
@@ -284,8 +287,12 @@ class Router extends RouterAbstract
 				return $resetForm->render();
 			}
 		}
-		$loginForm = new View\LoginForm($this->_registry, $this->_language);
-		return $loginForm->render();
+		if (!$secondParameter)
+		{
+			$loginForm = new View\LoginForm($this->_registry, $this->_language);
+			return $loginForm->render();
+		}
+		return $this->_errorAccess();
 	}
 
 	/**
@@ -299,11 +306,12 @@ class Router extends RouterAbstract
 	protected function _renderRegister() : string
 	{
 		$settingModel = new Model\Setting();
-		if ($settingModel->get('registration'))
+		if ((int)$settingModel->get('registration') === 1)
 		{
 			$registerForm = new View\RegisterForm($this->_registry, $this->_language);
 			return $registerForm->render();
 		}
+		return $this->_errorAccess();
 	}
 
 	/**
@@ -320,5 +328,37 @@ class Router extends RouterAbstract
 		$systemStatus = new View\SystemStatus($this->_registry, $this->_language);
 		$installForm = new View\InstallForm($this->_registry, $this->_language);
 		return $systemStatus->render() . $installForm->render($installArray ? $installArray : []);
+	}
+
+	/**
+	 * show the token error
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string
+	 */
+
+	protected function _errorToken() : string
+	{
+		$messenger = new Messenger($this->_registry);
+		return $messenger
+			->setUrl($this->_language->get('home'), $this->_registry->get('root'))
+			->error($this->_language->get('token_incorrect'), $this->_language->get('error_occurred'));
+	}
+
+	/**
+	 * show the access error
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string
+	 */
+
+	protected function _errorAccess() : string
+	{
+		$messenger = new Messenger($this->_registry);
+		return $messenger
+			->setUrl($this->_language->get('home'), $this->_registry->get('root'))
+			->error($this->_language->get('access_no'), $this->_language->get('error_occurred'));
 	}
 }

@@ -46,24 +46,37 @@ class Router extends RouterAbstract
 
 	public function routeContent()
 	{
-		$parent = parent::routeContent();
-		if ($parent)
-		{
-			return $parent;
-		}
 		Module\Hook::trigger('adminRouteContent');
 		$firstParameter = $this->getFirst();
 		$adminParameter = $this->getAdmin();
 		$tableParameter = $this->getTable();
+		$tokenParameter = $this->getToken();
+		$tokenArray =
+		[
+			'sort',
+			'up',
+			'down',
+			'enable',
+			'disabled',
+			'publish',
+			'unpublish',
+			'install',
+			'uninstall',
+			'delete'
+		];
 
 		/* handle admin */
 
 		if ($firstParameter === 'admin')
 		{
-			/* handle auth */
+			/* handle token and auth */
 
 			if ($adminParameter)
 			{
+				if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token') || in_array($adminParameter, $tokenArray) && !$tokenParameter)
+				{
+					return $this->_errorToken();
+				}
 				$authGuard = $this->_authGuard();
 				if ($authGuard)
 				{
@@ -137,6 +150,8 @@ class Router extends RouterAbstract
 	protected function _authGuard()
 	{
 		$adminParameter = $this->getAdmin();
+		$tableParameter = $this->getTable();
+		$idParameter = $this->getId();
 		$newArray =
 		[
 			'new',
@@ -161,15 +176,13 @@ class Router extends RouterAbstract
 		$permissionDelete = $adminParameter === 'delete' && $this->_registry->get('tableDelete');
 		$permissionInstall = $adminParameter === 'install' && $this->_registry->get('tableInstall');
 		$permissionUninstall = $adminParameter === 'uninstall' && $this->_registry->get('tableUninstall');
+		$permissionProfile = $tableParameter === 'users' && $idParameter === $this->_registry->get('myId');
 
 		/* handle permission */
 
-		if (!$permissionNew && !$permissionEdit && !$permissionDelete && !$permissionInstall && !$permissionUninstall)
+		if (!$permissionNew && !$permissionEdit && !$permissionDelete && !$permissionInstall && !$permissionUninstall && !$permissionProfile)
 		{
-			$messenger = new Admin\Messenger($this->_registry);
-			return $messenger
-				->setRoute($this->_language->get('back'), 'admin')
-				->error($this->_language->get('access_no'), $this->_language->get('error_occurred'));
+			return $this->_errorAccess();
 		}
 	}
 
@@ -320,5 +333,37 @@ class Router extends RouterAbstract
 			$settingForm = new Admin\View\SettingForm($this->_registry, $this->_language);
 			return $settingForm->render();
 		}
+	}
+
+	/**
+	 * show the token error
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string
+	 */
+
+	protected function _errorToken() : string
+	{
+		$messenger = new Admin\Messenger($this->_registry);
+		return $messenger
+			->setRoute($this->_language->get('back'), 'admin')
+			->error($this->_language->get('token_incorrect'), $this->_language->get('error_occurred'));
+	}
+
+	/**
+	 * show the access error
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string
+	 */
+
+	protected function _errorAccess() : string
+	{
+		$messenger = new Admin\Messenger($this->_registry);
+		return $messenger
+			->setRoute($this->_language->get('back'), 'admin')
+			->error($this->_language->get('access_no'), $this->_language->get('error_occurred'));
 	}
 }

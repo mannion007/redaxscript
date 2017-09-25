@@ -47,7 +47,7 @@ class ArticleForm extends ViewAbstract implements ViewInterface
 		[
 			'form' =>
 			[
-				'action' => $this->_registry->get('parameterRoute') . ($article->id ? 'admin/process/articles/' . $article->id : 'admin/process/articles'),
+				'action' => $article->id ? $this->_registry->get('parameterRoute') . 'admin/process/articles/' . $article->id : $this->_registry->get('parameterRoute') . 'admin/process/articles',
 				'class' => 'rs-admin-js-tab rs-admin-js-validate-form rs-admin-component-tab rs-admin-form-default rs-admin-fn-clearfix'
 			],
 			'link' =>

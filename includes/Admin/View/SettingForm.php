@@ -52,7 +52,7 @@ class SettingForm extends ViewAbstract implements ViewInterface
 			[
 				'save' =>
 				[
-					'name' => 'update'
+					'name' => get_class()
 				]
 			],
 			'link' =>
