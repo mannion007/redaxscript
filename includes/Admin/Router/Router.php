@@ -46,6 +46,11 @@ class Router extends RouterAbstract
 
 	public function routeContent()
 	{
+		$parent = parent::routeContent();
+		if ($parent)
+		{
+			return $parent;
+		}
 		Module\Hook::trigger('adminRouteContent');
 		$firstParameter = $this->getFirst();
 		$adminParameter = $this->getAdmin();
@@ -55,6 +60,8 @@ class Router extends RouterAbstract
 
 		if ($firstParameter === 'admin')
 		{
+			/* handle auth */
+
 			if ($adminParameter)
 			{
 				$authGuard = $this->_authGuard();
@@ -67,6 +74,15 @@ class Router extends RouterAbstract
 			{
 				admin_last_update();
 			}
+			/* handle post */
+
+			if ($this->_request->getPost('Redaxscript\Admin\View\SettingForm'))
+			{
+				return admin_update();
+			}
+
+			/* handle route */
+
 			if ($adminParameter === 'view')
 			{
 				return $this->_renderView();
@@ -82,10 +98,6 @@ class Router extends RouterAbstract
 			if ($adminParameter === 'process')
 			{
 				return admin_process();
-			}
-			if ($adminParameter === 'update')
-			{
-				return admin_update();
 			}
 			if ($adminParameter === 'delete')
 			{
@@ -125,16 +137,34 @@ class Router extends RouterAbstract
 	protected function _authGuard()
 	{
 		$adminParameter = $this->getAdmin();
-		$permissionNew = $adminParameter === 'new' && $this->_registry->get('tableNew');
-		$permissionEdit = $adminParameter === 'edit' && $this->_registry->get('tableEdit');
-		$permissionView = $adminParameter === 'view' && $this->_registry->get('tableEdit');
+		$newArray =
+		[
+			'new',
+			'process'
+		];
+		$editArray =
+		[
+			'edit',
+			'view',
+			'sort',
+			'up',
+			'down',
+			'enable',
+			'disabled',
+			'publish',
+			'unpublish',
+			'process',
+			'update'
+		];
+		$permissionNew = in_array($adminParameter, $newArray) && $this->_registry->get('tableNew');
+		$permissionEdit = in_array($adminParameter, $editArray) && $this->_registry->get('tableEdit');
 		$permissionDelete = $adminParameter === 'delete' && $this->_registry->get('tableDelete');
 		$permissionInstall = $adminParameter === 'install' && $this->_registry->get('tableInstall');
 		$permissionUninstall = $adminParameter === 'uninstall' && $this->_registry->get('tableUninstall');
 
 		/* handle permission */
 
-		if (!$permissionNew && !$permissionEdit && !$permissionView && !$permissionDelete && !$permissionInstall && !$permissionUninstall)
+		if (!$permissionNew && !$permissionEdit && !$permissionDelete && !$permissionInstall && !$permissionUninstall)
 		{
 			$messenger = new Admin\Messenger($this->_registry);
 			return $messenger

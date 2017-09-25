@@ -2,7 +2,6 @@
 namespace Redaxscript\Router;
 
 use Redaxscript\Controller;
-use Redaxscript\Messenger;
 use Redaxscript\Model;
 use Redaxscript\Module;
 use Redaxscript\View;
@@ -55,16 +54,14 @@ class Router extends RouterAbstract
 
 	public function routeContent()
 	{
+		$parent = parent::routeContent();
+		if ($parent)
+		{
+			return $parent;
+		}
 		Module\Hook::trigger('routeContent');
 		$firstParameter = $this->getFirst();
 		$fileInstall = $this->_registry->get('file') === 'install.php' && $this->_config->get('env') !== 'production';
-
-		/* handle attack */
-
-		if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token'))
-		{
-			return $this->_preventCSRF();
-		}
 
 		/* handle post */
 
@@ -118,22 +115,6 @@ class Router extends RouterAbstract
 		ob_start();
 		contents();
 		return ob_get_clean();
-	}
-
-	/**
-	 * prevent cross site request forgery
-	 *
-	 * @since 4.0.0
-	 *
-	 * @return string
-	 */
-
-	protected function _preventCSRF() : string
-	{
-		$messenger = new Messenger($this->_registry);
-		return $messenger
-			->setUrl($this->_language->get('home'), $this->_registry->get('root'))
-			->error($this->_language->get('token_incorrect'), $this->_language->get('error_occurred'));
 	}
 
 	/**

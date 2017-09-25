@@ -5,6 +5,7 @@ use Redaxscript\Config;
 use Redaxscript\Registry;
 use Redaxscript\Request;
 use Redaxscript\Language;
+use Redaxscript\Messenger;
 
 /**
  * abstract class to create a router class
@@ -59,5 +60,37 @@ class RouterAbstract extends Parameter
 		$this->_registry = $registry;
 		$this->_language = $language;
 		$this->_config = $config;
+	}
+
+	/**
+	 * route the content
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string|null
+	 */
+
+	public function routeContent()
+	{
+		if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token'))
+		{
+			return $this->_preventCSRF();
+		}
+	}
+
+	/**
+	 * prevent cross site request forgery
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return string
+	 */
+
+	protected function _preventCSRF() : string
+	{
+		$messenger = new Messenger($this->_registry);
+		return $messenger
+			->setUrl($this->_language->get('home'), $this->_registry->get('root'))
+			->error($this->_language->get('token_incorrect'), $this->_language->get('error_occurred'));
 	}
 }
