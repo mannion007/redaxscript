@@ -44,6 +44,10 @@ class CommentForm extends ViewAbstract
 		$formElement = new Html\Form($this->_registry, $this->_language);
 		$formElement->init(
 		[
+			'form' =>
+			[
+				'class' => 'rs-js-validate-form rs-form-default rs-form-comment'
+			],
 			'button' =>
 			[
 				'submit' =>

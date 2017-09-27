@@ -168,8 +168,7 @@ class Router extends RouterAbstract
 			'disabled',
 			'publish',
 			'unpublish',
-			'process',
-			'update'
+			'process'
 		];
 		$permissionNew = in_array($adminParameter, $newArray) && $this->_registry->get('tableNew');
 		$permissionEdit = in_array($adminParameter, $editArray) && $this->_registry->get('tableEdit');
