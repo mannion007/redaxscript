@@ -416,11 +416,11 @@ function admin_process()
 
 	/* process */
 
-	switch (true)
+	switch ($registry->get('adminParameter'))
 	{
 		/* query new */
 
-		case $_POST['new']:
+		case 'new':
 			Redaxscript\Db::forTablePrefix($registry->get('tableParameter'))
 				->create()
 				->set($r)
@@ -432,7 +432,7 @@ function admin_process()
 
 		/* query edit */
 
-		case $_POST['edit']:
+		case 'edit':
 			Redaxscript\Db::forTablePrefix($registry->get('tableParameter'))
 				->whereIdIs($registry->get('idParameter'))
 				->findOne()

@@ -47,8 +47,18 @@ class CommentForm extends ViewAbstract implements ViewInterface
 		[
 			'form' =>
 			[
-				'action' => $comment->id ? $this->_registry->get('parameterRoute') . 'admin/process/comments/' . $comment->id : $this->_registry->get('parameterRoute') . 'admin/process/comments',
 				'class' => 'rs-admin-js-tab rs-admin-js-validate-form rs-admin-component-tab rs-admin-form-default rs-admin-fn-clearfix'
+			],
+			'button' =>
+			[
+				'create' =>
+				[
+					'name' => get_class()
+				],
+				'save' =>
+				[
+					'name' => get_class()
+				]
 			],
 			'link' =>
 			[

@@ -31,12 +31,7 @@ class Resolver extends Parameter
 			'disable',
 			'install',
 			'uninstall',
-			'delete',
-			'process'
-		],
-		'edit' =>
-		[
-			'update'
+			'delete'
 		]
 	];
 

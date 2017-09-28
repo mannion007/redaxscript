@@ -47,8 +47,18 @@ class CategoryForm extends ViewAbstract implements ViewInterface
 		[
 			'form' =>
 			[
-				'action' => $category->id ? $this->_registry->get('parameterRoute') . 'admin/process/categories/' . $category->id : $this->_registry->get('parameterRoute') . 'admin/process/categories',
 				'class' => 'rs-admin-js-tab rs-admin-js-validate-form rs-admin-component-tab rs-admin-form-default rs-admin-fn-clearfix'
+			],
+			'button' =>
+			[
+				'create' =>
+				[
+					'name' => get_class()
+				],
+				'save' =>
+				[
+					'name' => get_class()
+				]
 			],
 			'link' =>
 			[

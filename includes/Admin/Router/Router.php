@@ -87,8 +87,37 @@ class Router extends RouterAbstract
 			{
 				admin_last_update();
 			}
+
 			/* handle post */
 
+			if ($this->_request->getPost('Redaxscript\Admin\View\CategoryForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\ArticleForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\ExtraForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\CommentForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\UserForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\GroupForm'))
+			{
+				return admin_process();
+			}
+			if ($this->_request->getPost('Redaxscript\Admin\View\ModuleForm'))
+			{
+				return admin_process();
+			}
 			if ($this->_request->getPost('Redaxscript\Admin\View\SettingForm'))
 			{
 				return admin_update();
@@ -107,10 +136,6 @@ class Router extends RouterAbstract
 			if ($adminParameter === 'edit')
 			{
 				return $this->_renderEdit();
-			}
-			if ($adminParameter === 'process')
-			{
-				return admin_process();
 			}
 			if ($adminParameter === 'delete')
 			{
@@ -152,11 +177,6 @@ class Router extends RouterAbstract
 		$adminParameter = $this->getAdmin();
 		$tableParameter = $this->getTable();
 		$idParameter = $this->getId();
-		$newArray =
-		[
-			'new',
-			'process'
-		];
 		$editArray =
 		[
 			'edit',
@@ -167,10 +187,9 @@ class Router extends RouterAbstract
 			'enable',
 			'disabled',
 			'publish',
-			'unpublish',
-			'process'
+			'unpublish'
 		];
-		$permissionNew = in_array($adminParameter, $newArray) && $this->_registry->get('tableNew');
+		$permissionNew = $adminParameter === 'new' && $this->_registry->get('tableNew');
 		$permissionEdit = in_array($adminParameter, $editArray) && $this->_registry->get('tableEdit');
 		$permissionDelete = $adminParameter === 'delete' && $this->_registry->get('tableDelete');
 		$permissionInstall = $adminParameter === 'install' && $this->_registry->get('tableInstall');
