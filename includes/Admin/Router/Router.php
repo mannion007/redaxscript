@@ -53,9 +53,9 @@ class Router extends RouterAbstract
 		$tokenParameter = $this->getToken();
 		$tokenArray =
 		[
-			'sort',
 			'up',
 			'down',
+			'sort',
 			'enable',
 			'disabled',
 			'publish',
@@ -181,9 +181,9 @@ class Router extends RouterAbstract
 		[
 			'edit',
 			'view',
-			'sort',
 			'up',
 			'down',
+			'sort',
 			'enable',
 			'disabled',
 			'publish',
