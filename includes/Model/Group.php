@@ -27,6 +27,6 @@ class Group
 
 	public function getIdByAlias(string $groupAlias = null) : int
 	{
-		return Db::forTablePrefix('groups')->where('alias', $groupAlias)->findOne()->id | 0;
+		return Db::forTablePrefix('groups')->select('id')->where('alias', $groupAlias)->findOne()->id | 0;
 	}
 }

@@ -57,7 +57,7 @@ class Router extends RouterAbstract
 			'down',
 			'sort',
 			'enable',
-			'disabled',
+			'disable',
 			'publish',
 			'unpublish',
 			'install',
@@ -185,7 +185,7 @@ class Router extends RouterAbstract
 			'down',
 			'sort',
 			'enable',
-			'disabled',
+			'disable',
 			'publish',
 			'unpublish'
 		];

@@ -27,7 +27,7 @@ class Article
 
 	public function getIdByAlias(string $articleAlias = null) : int
 	{
-		return Db::forTablePrefix('articles')->where('alias', $articleAlias)->findOne()->id | 0;
+		return Db::forTablePrefix('articles')->select('id')->where('alias', $articleAlias)->findOne()->id | 0;
 	}
 
 	/**
