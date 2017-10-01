@@ -50,39 +50,27 @@ class Router extends RouterAbstract
 		$firstParameter = $this->getFirst();
 		$adminParameter = $this->getAdmin();
 		$tableParameter = $this->getTable();
-		$tokenParameter = $this->getToken();
-		$tokenArray =
-		[
-			'up',
-			'down',
-			'sort',
-			'enable',
-			'disable',
-			'publish',
-			'unpublish',
-			'install',
-			'uninstall',
-			'delete'
-		];
 
 		/* handle admin */
 
 		if ($firstParameter === 'admin')
 		{
-			/* handle token and auth */
+			/* handle guard */
 
 			if ($adminParameter)
 			{
-				if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token') || in_array($adminParameter, $tokenArray) && !$tokenParameter)
+				if ($this->_tokenGuard())
 				{
 					return $this->_errorToken();
 				}
-				$authGuard = $this->_authGuard();
-				if ($authGuard)
+				if ($this->_routeGuard() || $this->_authGuard())
 				{
-					return $authGuard;
+					return $this->_errorAccess();
 				}
 			}
+
+			/* handle update */
+
 			if (!$adminParameter || $adminParameter == 'view' && $tableParameter == 'users' || $this->_registry->get('cronUpdate'))
 			{
 				admin_last_update();
@@ -165,11 +153,102 @@ class Router extends RouterAbstract
 	}
 
 	/**
+	 * token guard
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return bool
+	 */
+
+	protected function _tokenGuard()
+	{
+		$adminParameter = $this->getAdmin();
+		$tokenParameter = $this->getToken();
+		$tokenArray =
+		[
+			'up',
+			'down',
+			'sort',
+			'enable',
+			'disable',
+			'publish',
+			'unpublish',
+			'install',
+			'uninstall',
+			'delete'
+		];
+		return $this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token') || in_array($adminParameter, $tokenArray) && !$tokenParameter;
+	}
+
+	/**
+	 * route guard
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return bool
+	 */
+
+	protected function _routeGuard()
+	{
+		$adminParameter = $this->getAdmin();
+		$tableParameter = $this->getTable();
+		$idParameter = $this->getId();
+		$aliasParameter = $this->getAlias();
+		$adminArray =
+		[
+			'new',
+			'view',
+			'edit',
+			'up',
+			'down',
+			'sort',
+			'publish',
+			'unpublish',
+			'enable',
+			'disable',
+			'install',
+			'uninstall',
+			'delete'
+		];
+		$tableArray =
+		[
+			'categories',
+			'articles',
+			'extras',
+			'comments',
+			'groups',
+			'users',
+			'modules',
+			'settings'
+		];
+		$idArray =
+		[
+			'edit',
+			'up',
+			'down',
+			'publish',
+			'unpublish',
+			'enable',
+			'disable'
+		];
+		$aliasArray =
+		[
+			'install',
+			'uninstall'
+		];
+		$invalidAdmin = !in_array($adminParameter, $adminArray);
+		$invalidTable = !in_array($tableParameter, $tableArray);
+		$invalidId = in_array($adminParameter, $idArray) && !$idParameter;
+		$invalidAlias = in_array($adminParameter, $aliasArray) && !$aliasParameter;
+		return $invalidAdmin || $invalidTable || $invalidId || $invalidAlias;
+	}
+
+	/**
 	 * auth guard
 	 *
 	 * @since 4.0.0
 	 *
-	 * @return string|null
+	 * @return bool
 	 */
 
 	protected function _authGuard()
@@ -195,13 +274,7 @@ class Router extends RouterAbstract
 		$permissionInstall = $adminParameter === 'install' && $this->_registry->get('tableInstall');
 		$permissionUninstall = $adminParameter === 'uninstall' && $this->_registry->get('tableUninstall');
 		$permissionProfile = $tableParameter === 'users' && $idParameter === $this->_registry->get('myId');
-
-		/* handle permission */
-
-		if (!$permissionNew && !$permissionEdit && !$permissionDelete && !$permissionInstall && !$permissionUninstall && !$permissionProfile)
-		{
-			return $this->_errorAccess();
-		}
+		return !$permissionNew && !$permissionEdit && !$permissionDelete && !$permissionInstall && !$permissionUninstall && !$permissionProfile;
 	}
 
 	/**
@@ -311,37 +384,37 @@ class Router extends RouterAbstract
 
 		/* handle table */
 
-		if ($tableParameter == 'categories')
+		if ($tableParameter == 'categories' && $idParameter)
 		{
 			$categoryForm = new Admin\View\CategoryForm($this->_registry, $this->_language);
 			return $categoryForm->render($idParameter);
 		}
-		if ($tableParameter == 'articles')
+		if ($tableParameter == 'articles' && $idParameter)
 		{
 			$articleForm = new Admin\View\ArticleForm($this->_registry, $this->_language);
 			return $articleForm->render($idParameter);
 		}
-		if ($tableParameter == 'extras')
+		if ($tableParameter == 'extras' && $idParameter)
 		{
 			$extraForm = new Admin\View\ExtraForm($this->_registry, $this->_language);
 			return $extraForm->render($idParameter);
 		}
-		if ($tableParameter == 'comments')
+		if ($tableParameter == 'comments' && $idParameter)
 		{
 			$commentForm = new Admin\View\CommentForm($this->_registry, $this->_language);
 			return $commentForm->render($idParameter);
 		}
-		if ($tableParameter == 'users')
+		if ($tableParameter == 'users' && $idParameter)
 		{
 			$userForm = new Admin\View\UserForm($this->_registry, $this->_language);
 			return $userForm->render($idParameter);
 		}
-		if ($tableParameter == 'groups')
+		if ($tableParameter == 'groups' && $idParameter)
 		{
 			$groupForm = new Admin\View\GroupForm($this->_registry, $this->_language);
 			return $groupForm->render($idParameter);
 		}
-		if ($tableParameter == 'modules')
+		if ($tableParameter == 'modules' && $idParameter)
 		{
 			$moduleForm = new Admin\View\ModuleForm($this->_registry, $this->_language);
 			return $moduleForm->render($idParameter);

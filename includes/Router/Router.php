@@ -59,9 +59,9 @@ class Router extends RouterAbstract
 		$firstParameter = $this->getFirst();
 		$fileInstall = $this->_registry->get('file') === 'install.php' && $this->_config->get('env') !== 'production';
 
-		/* handle token */
+		/* handle guard */
 
-		if ($this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token'))
+		if ($this->_tokenGuard())
 		{
 			return $this->_errorToken();
 		}
@@ -118,6 +118,19 @@ class Router extends RouterAbstract
 		ob_start();
 		contents();
 		return ob_get_clean();
+	}
+
+	/**
+	 * token guard
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return bool
+	 */
+
+	protected function _tokenGuard()
+	{
+		return $this->_request->getPost() && $this->_request->getPost('token') !== $this->_registry->get('token');
 	}
 
 	/**
