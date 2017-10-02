@@ -2,6 +2,7 @@
 namespace Redaxscript\Router;
 
 use Redaxscript\Controller;
+use Redaxscript\Filter;
 use Redaxscript\Messenger;
 use Redaxscript\Model;
 use Redaxscript\Module;
@@ -141,8 +142,20 @@ class Router extends RouterAbstract
 
 	protected function _redirectSearch()
 	{
-		$searchController = new Controller\Search($this->_registry, $this->_request, $this->_language);
-		$searchController->doRedirect();
+		$aliasFilter = new Filter\Alias();
+		$root = $this->_registry->get('root');
+		$parameterRoute = $this->_registry->get('parameterRoute');
+
+		/* handle post */
+
+		$table = $aliasFilter->sanitize($this->_request->getPost('table'));
+		$search = $aliasFilter->sanitize($this->_request->getPost('search'));
+		$tableString = $table ? '/' . $table : null;
+
+		/* redirect */
+
+		header('location: ' . $root . '/' . $parameterRoute . 'search' . $tableString . '/' . $search);
+		exit;
 	}
 
 	/**
