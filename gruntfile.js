@@ -16,6 +16,7 @@ module.exports = function (grunt)
 		formatJSON: require('./tasks/format_json')(grunt),
 		uglify: require('./tasks/uglify')(grunt),
 		postcss: require('./tasks/postcss')(grunt),
+		tocgen: require('./tasks/tocgen')(grunt),
 		webfont: require('./tasks/webfont')(grunt),
 		shell: require('./tasks/shell')(grunt),
 		rename: require('./tasks/rename')(grunt),
@@ -86,6 +87,7 @@ module.exports = function (grunt)
 	]);
 	grunt.registerTask('optimize',
 	[
+		'tocgen',
 		'svgmin'
 	]);
 	grunt.registerTask('build',

@@ -2,14 +2,9 @@
  * @tableofcontents
  *
  * 1. tinymce
- *
- * @since 3.0.0
- *
- * @package Redaxscript
- * @author Henry Ruhs
  */
 
-/* @section 1. tinymce */
+/** @section 1. tinymce */
 
 rs.modules.tinymce =
 {

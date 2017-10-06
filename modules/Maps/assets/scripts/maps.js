@@ -3,18 +3,13 @@
  *
  * 1. maps
  * 2. init
- *
- * @since 2.0.0
- *
- * @package Redaxscript
- * @author Henry Ruhs
  */
 
 (function ($, google)
 {
 	'use strict';
 
-	/* @section 1. maps */
+	/** @section 1. maps */
 
 	$.fn.maps = function (options)
 	{
@@ -84,7 +79,7 @@
 		});
 	};
 
-	/* @section 2. init */
+	/** @section 2. init */
 
 	$(function ()
 	{

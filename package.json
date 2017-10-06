@@ -32,6 +32,7 @@
 		"grunt-postcss": "0.8.0",
 		"grunt-shell": "2.1.0",
 		"grunt-svgmin": "4.0.0",
+		"grunt-tocgen": "1.0.1",
 		"grunt-webfont": "1.5.0",
 		"icomoon-free-npm": "0.0.0",
 		"load-grunt-tasks": "3.5.2",

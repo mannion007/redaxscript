@@ -9,7 +9,7 @@
 * @author Henry Ruhs
 */
 
-/* @section 1. icon */
+/** @section 1. icon */
 
 @font-face
 {

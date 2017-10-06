@@ -6,17 +6,12 @@
  *    1.2 title
  *    1.3 list
  *    1.4 query
- *       1.4.1 large min
- *
- * @since 4.0.0
- *
- * @package Redaxscript
- * @author Henry Ruhs
+ *      1.4.1 large min
  */
 
-/* @section 1. debugger */
+/** @section 1. debugger */
 
-/* @section 1.1 section */
+/** @section 1.1 section */
 
 .rs-section-debugger
 {
@@ -30,7 +25,7 @@
 	}
 }
 
-/* @section 1.2 title */
+/** @section 1.2 title */
 
 .rs-title-debugger
 {
@@ -39,7 +34,7 @@
 	text-transform: uppercase;
 }
 
-/* @section 1.3 list */
+/** @section 1.3 list */
 
 .rs-list-debugger
 {
@@ -52,9 +47,9 @@
 	}
 }
 
-/* @section 1.4 query */
+/** @section 1.4 query */
 
-/* @section 1.4.1 large min */
+/** @section 1.4.1 large min */
 
 @media (--media-large-min)
 {
