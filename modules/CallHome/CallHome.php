@@ -16,7 +16,7 @@ use Redaxscript\Reader;
  * @author Henry Ruhs
  */
 
-class CallHome extends Module\Module
+class CallHome extends Module\Notification
 {
 	/**
 	 * array of the module

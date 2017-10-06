@@ -66,14 +66,6 @@ class Module
 	];
 
 	/**
-	 * array of the notification
-	 *
-	 * @var array
-	 */
-
-	protected static $_notificationArray = [];
-
-	/**
 	 * constructor of the class
 	 *
 	 * @since 3.0.0
@@ -119,44 +111,6 @@ class Module
 				'modules' . DIRECTORY_SEPARATOR . static::$_moduleArray['alias'] . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR . $this->_registry->get('language') . '.json'
 			]);
 		}
-	}
-
-	/**
-	 * get the message from notification
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param string $type type of the notification
-	 *
-	 * @return string|array|bool
-	 */
-
-	public function getNotification($type = null)
-	{
-		if (is_array(self::$_notificationArray) && array_key_exists($type, self::$_notificationArray))
-		{
-			return self::$_notificationArray[$type];
-		}
-		else if (!$type)
-		{
-			return self::$_notificationArray;
-		}
-		return false;
-	}
-
-	/**
-	 * set the message to notification
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param string $type type of the notification
-	 * @param string|array $message message of the notification
-	 */
-
-	public function setNotification($type = null, $message = null)
-	{
-		$moduleName = static::$_moduleArray['name'];
-		static::$_notificationArray[$type][$moduleName][] = $message;
 	}
 
 	/**

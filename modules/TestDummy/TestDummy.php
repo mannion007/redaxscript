@@ -13,7 +13,7 @@ use Redaxscript\Module;
  * @author Henry Ruhs
  */
 
-class TestDummy extends Module\Module
+class TestDummy extends Module\Notification
 {
 	/**
 	 * array of the module
